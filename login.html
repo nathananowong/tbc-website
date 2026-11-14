@@ -4,16 +4,40 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login · The Biocode Editions</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Libre+Baskerville&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-cream font-sans min-h-screen flex flex-col">
+<body class="utility-page bg-cream font-sans min-h-screen flex flex-col">
 
-  <header class="bg-white border-b">
-    <div class="max-w-6xl mx-auto px-5 py-4 flex items-center justify-between">
-      <a href="index.html" class="text-xl font-medium">The Biocode Editions</a>
-    </div>
+  <header class="site-header">
+    <a class="logo" href="index.html">The Biocode Editions</a>
+    <button
+      class="menu-btn"
+      id="menu-btn"
+      type="button"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-controls="nav-panel"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </header>
+
+  <nav class="nav-panel" id="nav-panel" aria-hidden="true">
+    <div class="nav-top">
+      <a class="logo" href="index.html">The Biocode Editions</a>
+      <button class="close-btn" id="close-btn" type="button" aria-label="Close menu">×</button>
+    </div>
+    <ul class="nav-links">
+      <li><a href="co-build.html">Co-Build</a></li>
+      <li><a href="longevity.html">Longevity</a></li>
+      <li><a href="events.html">What’s On</a></li>
+    </ul>
+    <a class="nav-login" href="login.html">LOG IN</a>
+  </nav>
 
   <main class="flex-1 flex items-center justify-center px-5 py-16">
     <div class="w-full max-w-md">
@@ -42,5 +66,6 @@
   <footer class="text-center py-8 text-xs text-gray-400">
     © 2026 · THE BIOCODE EDITIONS
   </footer>
+  <script src="main.js"></script>
 </body>
 </html>
