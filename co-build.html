@@ -45,208 +45,55 @@
     <div class="stat">
       <div class="stat-row">
         <span>Customers</span>
-        <span>2 / 30</span>
+        <span id="customers-count">2 / 30</span>
       </div>
-      <div class="meter meter-customers" aria-hidden="true"></div>
+      <div class="meter meter-customers" id="customers-meter" aria-hidden="true"></div>
     </div>
 
     <div class="stat">
       <div class="stat-row">
         <span>Partners</span>
-        <span>1 / 6</span>
+        <span id="partners-count">1 / 6</span>
       </div>
-      <div class="meter meter-partners" aria-hidden="true"></div>
+      <div class="meter meter-partners" id="partners-meter" aria-hidden="true"></div>
     </div>
 
     <section class="scanees" aria-labelledby="scanees-heading">
       <div class="scanees-head">
         <h2 id="scanees-heading">My Scanees</h2>
-        <button class="add-btn" type="button">+ Add</button>
+        <div class="scanees-tools">
+          <div class="sort-wrap">
+            <button
+              class="sort-btn"
+              id="sort-btn"
+              type="button"
+              aria-haspopup="menu"
+              aria-expanded="false"
+              aria-controls="sort-menu"
+            >SORT BY</button>
+            <ul class="sort-menu" id="sort-menu" role="menu" hidden>
+              <li role="none">
+                <button type="button" role="menuitemradio" data-sort="recent" aria-checked="true">Recently added</button>
+              </li>
+              <li role="none">
+                <button type="button" role="menuitemradio" data-sort="name" aria-checked="false">Name</button>
+              </li>
+              <li role="none">
+                <button type="button" role="menuitemradio" data-sort="date" aria-checked="false">Scan date</button>
+              </li>
+              <li role="none">
+                <button type="button" role="menuitemradio" data-sort="score" aria-checked="false">Prysm score</button>
+              </li>
+            </ul>
+          </div>
+          <button class="add-btn" id="add-btn" type="button">+ ADD</button>
+        </div>
       </div>
-      <ul class="scanee-list">
-        <li class="scanee">
-          <span class="scanee-name">Steve</span>
-          <span class="scanee-actions">
-            <button type="button" aria-label="Info about Steve">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/>
-                <path d="M12 11v5.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-                <circle cx="12" cy="8" r="0.9" fill="currentColor"/>
-              </svg>
-            </button>
-            <button type="button" aria-label="WhatsApp Steve">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M12 4.25a7.35 7.35 0 0 0-6.35 11.02L4.5 19.6l4.45-1.16A7.35 7.35 0 1 0 12 4.25z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/>
-                <path d="M9.15 10.05c.15.9.7 1.9 1.55 2.7.85.8 1.85 1.3 2.75 1.45" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-                <path d="M9.05 10.15c.35.15.5.55.35.9L9.1 11.5M13.35 14.05c.15.35.55.5.9.35l.5-.25" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </button>
-            <button type="button" aria-label="Instagram for Steve">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <rect x="4" y="4" width="16" height="16" rx="5" fill="none" stroke="currentColor" stroke-width="1.6"/>
-                <circle cx="12" cy="12" r="3.4" fill="none" stroke="currentColor" stroke-width="1.6"/>
-                <circle cx="17" cy="7" r="0.9" fill="currentColor"/>
-              </svg>
-            </button>
-          </span>
-        </li>
-        <li class="scanee">
-          <span class="scanee-name">Steve</span>
-          <span class="scanee-actions">
-            <button type="button" aria-label="Info about Steve">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/>
-                <path d="M12 11v5.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-                <circle cx="12" cy="8" r="0.9" fill="currentColor"/>
-              </svg>
-            </button>
-            <button type="button" aria-label="WhatsApp Steve">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M12 4.25a7.35 7.35 0 0 0-6.35 11.02L4.5 19.6l4.45-1.16A7.35 7.35 0 1 0 12 4.25z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/>
-                <path d="M9.15 10.05c.15.9.7 1.9 1.55 2.7.85.8 1.85 1.3 2.75 1.45" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-                <path d="M9.05 10.15c.35.15.5.55.35.9L9.1 11.5M13.35 14.05c.15.35.55.5.9.35l.5-.25" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </button>
-            <button type="button" aria-label="Instagram for Steve">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <rect x="4" y="4" width="16" height="16" rx="5" fill="none" stroke="currentColor" stroke-width="1.6"/>
-                <circle cx="12" cy="12" r="3.4" fill="none" stroke="currentColor" stroke-width="1.6"/>
-                <circle cx="17" cy="7" r="0.9" fill="currentColor"/>
-              </svg>
-            </button>
-          </span>
-        </li>
-        <li class="scanee">
-          <span class="scanee-name">Steve</span>
-          <span class="scanee-actions">
-            <button type="button" aria-label="Info about Steve">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/>
-                <path d="M12 11v5.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-                <circle cx="12" cy="8" r="0.9" fill="currentColor"/>
-              </svg>
-            </button>
-            <button type="button" aria-label="WhatsApp Steve">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M12 4.25a7.35 7.35 0 0 0-6.35 11.02L4.5 19.6l4.45-1.16A7.35 7.35 0 1 0 12 4.25z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/>
-                <path d="M9.15 10.05c.15.9.7 1.9 1.55 2.7.85.8 1.85 1.3 2.75 1.45" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-                <path d="M9.05 10.15c.35.15.5.55.35.9L9.1 11.5M13.35 14.05c.15.35.55.5.9.35l.5-.25" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </button>
-            <button type="button" aria-label="Instagram for Steve">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <rect x="4" y="4" width="16" height="16" rx="5" fill="none" stroke="currentColor" stroke-width="1.6"/>
-                <circle cx="12" cy="12" r="3.4" fill="none" stroke="currentColor" stroke-width="1.6"/>
-                <circle cx="17" cy="7" r="0.9" fill="currentColor"/>
-              </svg>
-            </button>
-          </span>
-        </li>
-        <li class="scanee">
-          <span class="scanee-name">Steve</span>
-          <span class="scanee-actions">
-            <button type="button" aria-label="Info about Steve">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/>
-                <path d="M12 11v5.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-                <circle cx="12" cy="8" r="0.9" fill="currentColor"/>
-              </svg>
-            </button>
-            <button type="button" aria-label="WhatsApp Steve">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M12 4.25a7.35 7.35 0 0 0-6.35 11.02L4.5 19.6l4.45-1.16A7.35 7.35 0 1 0 12 4.25z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/>
-                <path d="M9.15 10.05c.15.9.7 1.9 1.55 2.7.85.8 1.85 1.3 2.75 1.45" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-                <path d="M9.05 10.15c.35.15.5.55.35.9L9.1 11.5M13.35 14.05c.15.35.55.5.9.35l.5-.25" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </button>
-            <button type="button" aria-label="Instagram for Steve">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <rect x="4" y="4" width="16" height="16" rx="5" fill="none" stroke="currentColor" stroke-width="1.6"/>
-                <circle cx="12" cy="12" r="3.4" fill="none" stroke="currentColor" stroke-width="1.6"/>
-                <circle cx="17" cy="7" r="0.9" fill="currentColor"/>
-              </svg>
-            </button>
-          </span>
-        </li>
-        <li class="scanee">
-          <span class="scanee-name">Steve</span>
-          <span class="scanee-actions">
-            <button type="button" aria-label="Info about Steve">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/>
-                <path d="M12 11v5.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-                <circle cx="12" cy="8" r="0.9" fill="currentColor"/>
-              </svg>
-            </button>
-            <button type="button" aria-label="WhatsApp Steve">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M12 4.25a7.35 7.35 0 0 0-6.35 11.02L4.5 19.6l4.45-1.16A7.35 7.35 0 1 0 12 4.25z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/>
-                <path d="M9.15 10.05c.15.9.7 1.9 1.55 2.7.85.8 1.85 1.3 2.75 1.45" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-                <path d="M9.05 10.15c.35.15.5.55.35.9L9.1 11.5M13.35 14.05c.15.35.55.5.9.35l.5-.25" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </button>
-            <button type="button" aria-label="Instagram for Steve">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <rect x="4" y="4" width="16" height="16" rx="5" fill="none" stroke="currentColor" stroke-width="1.6"/>
-                <circle cx="12" cy="12" r="3.4" fill="none" stroke="currentColor" stroke-width="1.6"/>
-                <circle cx="17" cy="7" r="0.9" fill="currentColor"/>
-              </svg>
-            </button>
-          </span>
-        </li>
-        <li class="scanee">
-          <span class="scanee-name">Steve</span>
-          <span class="scanee-actions">
-            <button type="button" aria-label="Info about Steve">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/>
-                <path d="M12 11v5.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-                <circle cx="12" cy="8" r="0.9" fill="currentColor"/>
-              </svg>
-            </button>
-            <button type="button" aria-label="WhatsApp Steve">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M12 4.25a7.35 7.35 0 0 0-6.35 11.02L4.5 19.6l4.45-1.16A7.35 7.35 0 1 0 12 4.25z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/>
-                <path d="M9.15 10.05c.15.9.7 1.9 1.55 2.7.85.8 1.85 1.3 2.75 1.45" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-                <path d="M9.05 10.15c.35.15.5.55.35.9L9.1 11.5M13.35 14.05c.15.35.55.5.9.35l.5-.25" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </button>
-            <button type="button" aria-label="Instagram for Steve">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <rect x="4" y="4" width="16" height="16" rx="5" fill="none" stroke="currentColor" stroke-width="1.6"/>
-                <circle cx="12" cy="12" r="3.4" fill="none" stroke="currentColor" stroke-width="1.6"/>
-                <circle cx="17" cy="7" r="0.9" fill="currentColor"/>
-              </svg>
-            </button>
-          </span>
-        </li>
-        <li class="scanee">
-          <span class="scanee-name">Steve</span>
-          <span class="scanee-actions">
-            <button type="button" aria-label="Info about Steve">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/>
-                <path d="M12 11v5.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-                <circle cx="12" cy="8" r="0.9" fill="currentColor"/>
-              </svg>
-            </button>
-            <button type="button" aria-label="WhatsApp Steve">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M12 4.25a7.35 7.35 0 0 0-6.35 11.02L4.5 19.6l4.45-1.16A7.35 7.35 0 1 0 12 4.25z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/>
-                <path d="M9.15 10.05c.15.9.7 1.9 1.55 2.7.85.8 1.85 1.3 2.75 1.45" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-                <path d="M9.05 10.15c.35.15.5.55.35.9L9.1 11.5M13.35 14.05c.15.35.55.5.9.35l.5-.25" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </button>
-            <button type="button" aria-label="Instagram for Steve">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <rect x="4" y="4" width="16" height="16" rx="5" fill="none" stroke="currentColor" stroke-width="1.6"/>
-                <circle cx="12" cy="12" r="3.4" fill="none" stroke="currentColor" stroke-width="1.6"/>
-                <circle cx="17" cy="7" r="0.9" fill="currentColor"/>
-              </svg>
-            </button>
-          </span>
-        </li>
-      </ul>
+      <ul class="scanee-list" id="scanee-list"></ul>
+      <nav class="scanee-pager" aria-label="Scanee pages">
+        <button type="button" id="prev-page">&lt; Previous page</button>
+        <button type="button" id="next-page">Next page &gt;</button>
+      </nav>
     </section>
   </main>
 
@@ -265,6 +112,158 @@
     </div>
   </footer>
 
+  <template id="tpl-wa">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12 4.25a7.35 7.35 0 0 0-6.35 11.02L4.5 19.6l4.45-1.16A7.35 7.35 0 1 0 12 4.25z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/>
+      <path d="M9.15 10.05c.15.9.7 1.9 1.55 2.7.85.8 1.85 1.3 2.75 1.45" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+      <path d="M9.05 10.15c.35.15.5.55.35.9L9.1 11.5M13.35 14.05c.15.35.55.5.9.35l.5-.25" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </template>
+  <template id="tpl-ig">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <rect x="4" y="4" width="16" height="16" rx="5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+      <circle cx="12" cy="12" r="3.4" fill="none" stroke="currentColor" stroke-width="1.6"/>
+      <circle cx="17" cy="7" r="0.9" fill="currentColor"/>
+    </svg>
+  </template>
+  <template id="purchase-template">
+    <div class="purchase">
+      <label class="prospect-field">
+        <span>Product name</span>
+        <select class="purchase-product">
+          <option value="">Select</option>
+          <option>Pharmanex LifePak</option>
+          <option>ageLOC Youthspan</option>
+          <option>Collagen+</option>
+          <option>Mindfull</option>
+          <option>Eye Formula</option>
+          <option>G3</option>
+          <option value="__custom">Other</option>
+        </select>
+      </label>
+      <label class="prospect-field purchase-custom" hidden>
+        <span>Custom name</span>
+        <input class="purchase-custom-input" type="text" autocomplete="off" />
+      </label>
+      <div class="purchase-meta">
+        <label class="prospect-field">
+          <span>Quantity</span>
+          <input class="purchase-qty" type="number" min="0" step="1" inputmode="numeric" />
+        </label>
+        <label class="prospect-field">
+          <span>Date purchased</span>
+          <input class="purchase-date" type="date" />
+        </label>
+      </div>
+      <button class="purchase-remove" type="button">Remove</button>
+    </div>
+  </template>
+
+  <div
+    class="prospect-overlay"
+    id="prospect-overlay"
+    role="dialog"
+    aria-modal="true"
+    aria-hidden="true"
+    aria-labelledby="prospect-title"
+  >
+    <div class="prospect-bar">
+      <span class="logo">The Biocode Editions</span>
+      <button class="close-btn" id="prospect-close" type="button" aria-label="Close">×</button>
+    </div>
+    <div class="prospect-scroll" id="prospect-scroll">
+      <form class="prospect-form" id="prospect-form" action="#" method="post" novalidate>
+        <h2 class="prospect-title" id="prospect-title">New prospect</h2>
+
+        <fieldset class="prospect-section">
+          <legend>Basic information</legend>
+          <div class="prospect-fields">
+            <div class="prospect-field">
+              <label for="prospect-name">Name</label>
+              <input id="prospect-name" name="name" type="text" autocomplete="name" aria-required="true" aria-describedby="name-error" />
+              <p class="prospect-error" id="name-error" hidden>Name is required.</p>
+            </div>
+            <div class="prospect-field">
+              <label for="prospect-score">Prysm score</label>
+              <input id="prospect-score" name="prysm-score" type="number" inputmode="decimal" step="any" />
+            </div>
+            <div class="prospect-field">
+              <label for="prospect-date">Scan date</label>
+              <input id="prospect-date" name="scan-date" type="date" />
+            </div>
+            <div class="prospect-field">
+              <label for="prospect-whatsapp">WhatsApp</label>
+              <input id="prospect-whatsapp" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" />
+            </div>
+            <div class="prospect-field">
+              <label for="prospect-instagram">Instagram</label>
+              <input id="prospect-instagram" name="instagram" type="text" autocapitalize="off" autocorrect="off" spellcheck="false" autocomplete="off" />
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="prospect-section">
+          <legend>Current status of the prospect</legend>
+          <div class="prospect-checks">
+            <label class="prospect-check"><input type="checkbox" name="status" value="potentialBuilder" /> <span>Potential builder</span></label>
+            <label class="prospect-check"><input type="checkbox" name="status" value="potentialCustomer" /> <span>Potential customer</span></label>
+            <label class="prospect-check"><input type="checkbox" name="status" value="customer" /> <span>Customer</span></label>
+            <label class="prospect-check"><input type="checkbox" name="status" value="builder" /> <span>Builder</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="prospect-section">
+          <legend>Opportunity needs</legend>
+          <div class="prospect-checks">
+            <label class="prospect-check"><input type="checkbox" name="opportunity" value="extraIncome" /> <span>Extra Income</span></label>
+            <label class="prospect-check"><input type="checkbox" name="opportunity" value="replacingIncome" /> <span>Replacing income</span></label>
+            <label class="prospect-check"><input type="checkbox" name="opportunity" value="enterpriseIncome" /> <span>Enterprise income</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="prospect-section">
+          <legend>Health needs</legend>
+          <div class="prospect-checks">
+            <label class="prospect-check"><input type="checkbox" name="health" value="generalWellness" /> <span>General Wellness</span></label>
+            <label class="prospect-check"><input type="checkbox" name="health" value="bloatingGut" /> <span>Bloating/Gut Health</span></label>
+            <label class="prospect-check"><input type="checkbox" name="health" value="dietNutrition" /> <span>Diet/Nutrition</span></label>
+            <label class="prospect-check"><input type="checkbox" name="health" value="healthyAging" /> <span>Healthy Aging</span></label>
+            <label class="prospect-check"><input type="checkbox" name="health" value="stress" /> <span>Stress</span></label>
+            <label class="prospect-check"><input type="checkbox" name="health" value="energyLevels" /> <span>Energy Levels</span></label>
+            <label class="prospect-check"><input type="checkbox" name="health" value="metabolicHealth" /> <span>Metabolic Health</span></label>
+            <label class="prospect-check"><input type="checkbox" name="health" value="brainHealth" /> <span>Brain Health</span></label>
+            <label class="prospect-check"><input type="checkbox" name="health" value="sleepQuality" /> <span>Sleep Quality</span></label>
+            <label class="prospect-check"><input type="checkbox" name="health" value="weight" /> <span>Weight</span></label>
+            <label class="prospect-check"><input type="checkbox" name="health" value="bloodSugar" /> <span>Blood Sugar</span></label>
+            <label class="prospect-check"><input type="checkbox" name="health" value="inflammatoryBalance" /> <span>Inflammatory balance</span></label>
+            <label class="prospect-check"><input type="checkbox" name="health" value="boneJoint" /> <span>Bone and joint health</span></label>
+            <label class="prospect-check"><input type="checkbox" name="health" value="visionEye" /> <span>Vision / Eye health</span></label>
+            <label class="prospect-check"><input type="checkbox" name="health" value="heartHealth" /> <span>Heart health</span></label>
+            <label class="prospect-check"><input type="checkbox" name="health" value="periodontal" /> <span>Periodontal health</span></label>
+            <label class="prospect-check"><input type="checkbox" name="health" value="immuneFunction" /> <span>Immune function</span></label>
+            <label class="prospect-check"><input type="checkbox" name="health" value="hairSkinNail" /> <span>Hair, skin &amp; nail health</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="prospect-section">
+          <legend>Product purchased record (if there’s any)</legend>
+          <div class="prospect-purchases" id="purchases"></div>
+          <button class="prospect-add-row" id="add-purchase" type="button">+ Add product</button>
+        </fieldset>
+
+        <div class="prospect-actions">
+          <button class="prospect-save" type="submit">Save record</button>
+          <button class="prospect-cancel" id="prospect-cancel" type="button">Cancel</button>
+        </div>
+        <div class="prospect-delete" id="prospect-delete" hidden>
+          <button class="prospect-delete-btn" id="delete-btn" type="button">Delete record</button>
+          <p class="prospect-delete-note" id="delete-note" hidden>This removes the prospect from this phone.</p>
+        </div>
+      </form>
+    </div>
+  </div>
+
   <script src="main.js"></script>
+  <script src="co-build.js"></script>
 </body>
 </html>
