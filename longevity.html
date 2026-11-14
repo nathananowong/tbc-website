@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Longevity · The Biocode Editions</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white font-sans">
+
+  <header class="bg-white border-b sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-5 py-4 flex items-center justify-between">
+      <a href="index.html" class="text-xl font-medium">The Biocode Editions</a>
+      <nav class="hidden md:flex gap-8 text-sm">
+        <a href="co-build.html">Co-Build</a>
+        <a href="longevity.html" class="font-medium">Longevity</a>
+        <a href="events.html">What’s On</a>
+        <a href="login.html">Login</a>
+      </nav>
+      <button class="md:hidden text-2xl" onclick="document.getElementById('m').classList.toggle('hidden')">☰</button>
+    </div>
+    <div id="m" class="hidden md:hidden px-5 py-4 space-y-3 border-t">
+      <a href="co-build.html" class="block">Co-Build</a>
+      <a href="longevity.html" class="block">Longevity</a>
+      <a href="events.html" class="block">What’s On</a>
+      <a href="login.html" class="block">Login</a>
+    </div>
+  </header>
+
+  <main class="max-w-2xl mx-auto px-5 py-12 space-y-4">
+    <h1 class="text-3xl font-light mb-8">Precision Nutrition</h1>
+
+    <!-- Products matching the design -->
+    <a href="product.html?name=Cellular%20Protection&brand=Pharmanex%20LifePak" class="flex items-center gap-4 bg-gray-50 rounded-2xl p-4 hover:bg-gray-100 transition">
+      <img src="product.jpg" alt="" class="w-16 h-16 object-cover rounded-xl">
+      <div class="flex-1">
+        <div class="font-medium">Cellular Protection</div>
+        <div class="text-sm text-gray-500">Pharmanex LifePak</div>
+      </div>
+    </a>
+
+    <a href="product.html?name=Systematic%20Repair&brand=ageLOC%20Youthspan" class="flex items-center gap-4 bg-gray-50 rounded-2xl p-4 hover:bg-gray-100 transition">
+      <img src="product.jpg" alt="" class="w-16 h-16 object-cover rounded-xl">
+      <div class="flex-1">
+        <div class="font-medium">Systematic Repair</div>
+        <div class="text-sm text-gray-500">ageLOC Youthspan</div>
+      </div>
+    </a>
+
+    <a href="product.html?name=Skin%20Health&brand=Pharmanec%20Collagen%2B" class="flex items-center gap-4 bg-gray-50 rounded-2xl p-4 hover:bg-gray-100 transition">
+      <img src="product.jpg" alt="" class="w-16 h-16 object-cover rounded-xl">
+      <div class="flex-1">
+        <div class="font-medium">Skin Health</div>
+        <div class="text-sm text-gray-500">Pharmanec Collagen+</div>
+      </div>
+    </a>
+
+    <a href="product.html?name=Brain%20Health&brand=Pharmanex%20Mindfull" class="flex items-center gap-4 bg-gray-50 rounded-2xl p-4 hover:bg-gray-100 transition">
+      <img src="product.jpg" alt="" class="w-16 h-16 object-cover rounded-xl">
+      <div class="flex-1">
+        <div class="font-medium">Brain Health</div>
+        <div class="text-sm text-gray-500">Pharmanex Mindfull</div>
+      </div>
+    </a>
+
+    <a href="product.html?name=Vision%20Health&brand=Pharmanex%20Eye%20Formula" class="flex items-center gap-4 bg-gray-50 rounded-2xl p-4 hover:bg-gray-100 transition">
+      <img src="product.jpg" alt="" class="w-16 h-16 object-cover rounded-xl">
+      <div class="flex-1">
+        <div class="font-medium">Vision Health</div>
+        <div class="text-sm text-gray-500">Pharmanex Eye Formula</div>
+      </div>
+    </a>
+
+    <a href="product.html?name=Superfood%20Juice&brand=Pharmanex%20G3" class="flex items-center gap-4 bg-gray-50 rounded-2xl p-4 hover:bg-gray-100 transition">
+      <img src="product.jpg" alt="" class="w-16 h-16 object-cover rounded-xl">
+      <div class="flex-1">
+        <div class="font-medium">Superfood Juice</div>
+        <div class="text-sm text-gray-500">Pharmanex G3</div>
+      </div>
+    </a>
+  </main>
+
+  <footer class="bg-ink text-white py-16 mt-20 text-center">
+    <p class="text-xs tracking-widest text-gray-400">© 2026 · THE BIOCODE EDITIONS</p>
+  </footer>
+</body>
+</html>

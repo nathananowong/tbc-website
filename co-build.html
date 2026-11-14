@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Co-Build · The Biocode Editions</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: { fontFamily: { sans: ['Inter'] }, colors: { accent: '#0D6B5C' } } } }
+  </script>
+</head>
+<body class="bg-white text-ink font-sans">
+
+  <header class="bg-white border-b sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-5 py-4 flex items-center justify-between">
+      <a href="index.html" class="text-xl font-medium">The Biocode Editions</a>
+      <nav class="hidden md:flex gap-8 text-sm">
+        <a href="co-build.html" class="font-medium">Co-Build</a>
+        <a href="longevity.html">Longevity</a>
+        <a href="events.html">What’s On</a>
+        <a href="login.html">Login</a>
+      </nav>
+      <button class="md:hidden text-2xl" onclick="document.getElementById('m').classList.toggle('hidden')">☰</button>
+    </div>
+    <div id="m" class="hidden md:hidden px-5 py-4 space-y-3 border-t">
+      <a href="co-build.html" class="block">Co-Build</a>
+      <a href="longevity.html" class="block">Longevity</a>
+      <a href="events.html" class="block">What’s On</a>
+      <a href="login.html" class="block">Login</a>
+    </div>
+  </header>
+
+  <main class="max-w-2xl mx-auto px-5 py-12">
+    <h1 class="text-3xl font-light mb-10">The Foundation</h1>
+
+    <div class="mb-10">
+      <div class="flex justify-between mb-2">
+        <span>Customers</span>
+        <span id="custCount">0 / 30</span>
+      </div>
+      <div class="h-1.5 bg-gray-100 rounded-full overflow-hidden">
+        <div id="custBar" class="h-full bg-accent transition-all" style="width:0%"></div>
+      </div>
+    </div>
+
+    <div class="mb-14">
+      <div class="flex justify-between mb-2">
+        <span>Partners</span>
+        <span id="partCount">0 / 6</span>
+      </div>
+      <div class="h-1.5 bg-gray-100 rounded-full overflow-hidden">
+        <div id="partBar" class="h-full bg-accent transition-all" style="width:0%"></div>
+      </div>
+    </div>
+
+    <div class="flex items-center justify-between mb-6">
+      <h2 class="text-xl">My Scanees</h2>
+      <button onclick="openAdd()" class="bg-accent text-white px-4 py-2 rounded-full text-sm">+ Add</button>
+    </div>
+
+    <div id="scaneeList" class="space-y-3"></div>
+  </main>
+
+  <!-- Add Modal -->
+  <div id="modal" class="fixed inset-0 bg-black/40 hidden items-center justify-center z-50">
+    <div class="bg-white rounded-2xl p-6 w-full max-w-sm mx-4">
+      <h3 class="text-lg mb-4">Add Scanee</h3>
+      <input id="nameInput" type="text" placeholder="Name" class="w-full border rounded-lg px-4 py-3 mb-3">
+      <input id="noteInput" type="text" placeholder="Note (optional)" class="w-full border rounded-lg px-4 py-3 mb-4">
+      <div class="flex gap-3">
+        <button onclick="saveScanee()" class="flex-1 bg-accent text-white py-3 rounded-full">Save</button>
+        <button onclick="closeAdd()" class="flex-1 border py-3 rounded-full">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="bg-ink text-white py-16 mt-20 text-center">
+    <p class="text-xs tracking-widest text-gray-400">© 2026 · THE BIOCODE EDITIONS</p>
+  </footer>
+
+  <script>
+    let scanees = JSON.parse(localStorage.getItem('tbc_scanees') || '[]');
+
+    function render() {
+      const list = document.getElementById('scaneeList');
+      list.innerHTML = '';
+      scanees.forEach((s, i) => {
+        const div = document.createElement('div');
+        div.className = 'flex items-center justify-between bg-gray-50 rounded-xl px-4 py-3';
+        div.innerHTML = `
+          <span class="font-medium">${s.name}</span>
+          <div class="flex gap-3 text-accent">
+            <a href="https://wa.me/?text=Hi ${s.name}" target="_blank" title="WhatsApp">💬</a>
+            <a href="https://instagram.com" target="_blank" title="Instagram">📷</a>
+            <button onclick="remove(${i})" class="text-gray-400 hover:text-red-500">✕</button>
+          </div>
+        `;
+        list.appendChild(div);
+      });
+
+      const c = scanees.length;
+      document.getElementById('custCount').textContent = `${c} / 30`;
+      document.getElementById('custBar').style.width = Math.min(c/30*100, 100) + '%';
+      // Partners still 0 for now (can expand later)
+      document.getElementById('partCount').textContent = `0 / 6`;
+    }
+
+    function openAdd() { document.getElementById('modal').classList.remove('hidden'); document.getElementById('modal').classList.add('flex'); }
+    function closeAdd() { document.getElementById('modal').classList.add('hidden'); document.getElementById('modal').classList.remove('flex'); }
+
+    function saveScanee() {
+      const name = document.getElementById('nameInput').value.trim();
+      if (!name) return;
+      scanees.push({ name, note: document.getElementById('noteInput').value.trim(), date: new Date().toISOString() });
+      localStorage.setItem('tbc_scanees', JSON.stringify(scanees));
+      document.getElementById('nameInput').value = '';
+      document.getElementById('noteInput').value = '';
+      closeAdd();
+      render();
+    }
+
+    function remove(i) {
+      scanees.splice(i, 1);
+      localStorage.setItem('tbc_scanees', JSON.stringify(scanees));
+      render();
+    }
+
+    render();
+  </script>
+</body>
+</html>
