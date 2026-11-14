@@ -328,3 +328,310 @@ a {
     padding-right: 2.5rem;
   }
 }
+
+/* Inner pages only (Co-Build, Longevity, What’s On).
+   Homepage rules above are unchanged. */
+
+body.subpage {
+  background: #fff;
+  color: #1c1c1c;
+}
+
+body.subpage .site-header {
+  border-bottom: 1px solid #e2e2e2;
+}
+
+body.subpage .foundation-page,
+body.subpage .longevity-page,
+body.subpage .events-page {
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+body.subpage .foundation-page {
+  padding: 48px 28px 52px;
+}
+
+body.subpage .foundation-page h1,
+body.subpage .scanees-head h2 {
+  margin: 0;
+  font-family: "Libre Baskerville", Georgia, serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.25;
+  color: #1a1a1a;
+}
+
+body.subpage .foundation-page h1 {
+  margin-bottom: 40px;
+}
+
+body.subpage .stat + .stat {
+  margin-top: 26px;
+}
+
+body.subpage .stat-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 14.5px;
+  font-weight: 400;
+  color: #2a2a2a;
+}
+
+body.subpage .meter {
+  height: 7px;
+  margin-top: 11px;
+  border-radius: 999px;
+  background: #2a2a2a;
+}
+
+body.subpage .meter-customers {
+  width: 20px;
+}
+
+body.subpage .meter-partners {
+  width: 96px;
+}
+
+body.subpage .scanees {
+  margin-top: 52px;
+}
+
+body.subpage .scanees-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+body.subpage .add-btn {
+  appearance: none;
+  border: 0;
+  background: #2a2a2a;
+  color: #fff;
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1;
+  border-radius: 999px;
+  padding: 9px 15px 9px 14px;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+}
+
+body.subpage .scanee-list,
+body.subpage .product-list,
+body.subpage .event-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+body.subpage .scanee-list {
+  margin-top: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+body.subpage .scanee {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 56px;
+  padding: 12px 16px 12px 18px;
+  background: #f9f8f6;
+  border-radius: 16px;
+}
+
+body.subpage .scanee-name {
+  font-size: 15px;
+  font-weight: 500;
+  color: #2c2c2c;
+}
+
+body.subpage .scanee-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: #222;
+}
+
+body.subpage .scanee-actions button {
+  appearance: none;
+  background: none;
+  border: 0;
+  padding: 0;
+  width: 26px;
+  height: 26px;
+  display: grid;
+  place-items: center;
+  color: inherit;
+  cursor: pointer;
+}
+
+body.subpage .scanee-actions svg {
+  width: 22px;
+  height: 22px;
+  display: block;
+}
+
+body.subpage .longevity-page {
+  padding: 36px 16px 48px;
+}
+
+body.subpage .product-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+body.subpage .product-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 92px;
+  padding: 14px 12px 14px 14px;
+  background: #f9f8f6;
+  border-radius: 20px;
+  text-decoration: none;
+  color: inherit;
+}
+
+body.subpage .product-card img {
+  width: 68px;
+  height: 68px;
+  flex: none;
+  object-fit: cover;
+  border-radius: 14px;
+  background: #f3f1ec;
+}
+
+body.subpage .product-cat {
+  font-size: 15.5px;
+  font-weight: 600;
+  line-height: 1.22;
+  letter-spacing: -0.02em;
+  color: #1e1e24;
+}
+
+body.subpage .product-pill {
+  margin-left: auto;
+  flex: none;
+  width: 124px;
+  min-height: 54px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: #e4e3df;
+  color: #4a4a4a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.28;
+}
+
+body.subpage .events-page {
+  padding: 36px 16px 56px;
+}
+
+body.subpage .event-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 12px;
+  row-gap: 36px;
+}
+
+body.subpage .event-card img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 256 / 319;
+  object-fit: cover;
+  border-radius: 14px;
+  display: block;
+  background: #111;
+}
+
+body.subpage .event-name {
+  margin: 16px 0 0;
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 11.5px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  line-height: 1.45;
+  text-align: center;
+  text-transform: uppercase;
+  color: #2a2a2a;
+}
+
+body.subpage .event-price {
+  margin: 10px 0 0;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-align: center;
+  text-transform: uppercase;
+  color: #b9b9b9;
+}
+
+body.subpage .site-footer {
+  background: #222222;
+  color: #d2d2d2;
+}
+
+body.subpage .site-footer-inner {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 52px 20px 48px;
+}
+
+body.subpage .footer-kicker,
+body.subpage .footer-tagline,
+body.subpage .footer-copy {
+  margin: 0;
+}
+
+body.subpage .footer-kicker {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #c8c8c8;
+}
+
+body.subpage .footer-tagline {
+  margin-top: 22px;
+  max-width: 34em;
+  font-size: 11.5px;
+  font-weight: 400;
+  line-height: 1.55;
+  color: #d4d4d4;
+}
+
+body.subpage .footer-ig {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0 36px;
+  color: #fff;
+}
+
+body.subpage .footer-ig svg {
+  width: 26px;
+  height: 26px;
+  display: block;
+}
+
+body.subpage .footer-copy {
+  text-align: center;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #c4c4c4;
+}

@@ -4,78 +4,81 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>What’s On · The Biocode Editions</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Libre+Baskerville&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-white font-sans">
+<body class="subpage">
+    <header class="site-header">
+      <a class="logo" href="index.html">The Biocode Editions</a>
+      <button
+        class="menu-btn"
+        id="menu-btn"
+        type="button"
+        aria-label="Open menu"
+        aria-expanded="false"
+        aria-controls="nav-panel"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </header>
 
-  <header class="bg-white border-b sticky top-0 z-50">
-    <div class="max-w-6xl mx-auto px-5 py-4 flex items-center justify-between">
-      <a href="index.html" class="text-xl font-medium">The Biocode Editions</a>
-      <nav class="hidden md:flex gap-8 text-sm">
-        <a href="co-build.html">Co-Build</a>
-        <a href="longevity.html">Longevity</a>
-        <a href="events.html" class="font-medium">What’s On</a>
-        <a href="login.html">Login</a>
-      </nav>
-      <button class="md:hidden text-2xl" onclick="document.getElementById('m').classList.toggle('hidden')">☰</button>
-    </div>
-    <div id="m" class="hidden md:hidden px-5 py-4 space-y-3 border-t">
-      <a href="co-build.html" class="block">Co-Build</a>
-      <a href="longevity.html" class="block">Longevity</a>
-      <a href="events.html" class="block">What’s On</a>
-      <a href="login.html" class="block">Login</a>
-    </div>
-  </header>
-
-  <main class="max-w-4xl mx-auto px-5 py-12">
-    <h1 class="text-3xl font-light mb-10 text-center">What’s On</h1>
-
-    <div class="grid md:grid-cols-2 gap-8">
-      <div class="group">
-        <div class="aspect-square bg-gray-200 rounded-2xl mb-4 overflow-hidden">
-          <div class="w-full h-full bg-gradient-to-br from-amber-100 to-orange-100 flex items-end p-6">
-            <div class="text-white text-4xl font-serif">coffee<br>run</div>
-          </div>
-        </div>
-        <h3 class="font-medium">BIO-SCAN COFFEE RUN</h3>
-        <p class="text-sm text-gray-500">FREE · Club Ditto</p>
+    <nav class="nav-panel" id="nav-panel" aria-hidden="true">
+      <div class="nav-top">
+        <a class="logo" href="index.html">The Biocode Editions</a>
+        <button class="close-btn" id="close-btn" type="button" aria-label="Close menu">×</button>
       </div>
+      <ul class="nav-links">
+        <li><a href="co-build.html">Co-Build</a></li>
+        <li><a href="longevity.html">Longevity</a></li>
+        <li><a href="events.html">What’s On</a></li>
+      </ul>
+      <a class="nav-login" href="login.html">LOG IN</a>
+    </nav>
 
-      <div class="group">
-        <div class="aspect-square bg-gray-200 rounded-2xl mb-4 overflow-hidden">
-          <div class="w-full h-full bg-gradient-to-br from-slate-700 to-slate-900 flex items-end p-6">
-            <div class="text-white text-3xl font-serif">runner’s reformer<br>& bio-scan</div>
-          </div>
-        </div>
-        <h3 class="font-medium">[ENDED] BIO-SCAN REFORMER EDITION</h3>
-        <p class="text-sm text-gray-500">$350</p>
-      </div>
-
-      <div class="group">
-        <div class="aspect-square bg-gray-200 rounded-2xl mb-4 overflow-hidden">
-          <div class="w-full h-full bg-gradient-to-br from-pink-200 to-orange-300 flex items-end p-6">
-            <div class="text-white text-4xl font-serif">sunset<br>yoga</div>
-          </div>
-        </div>
-        <h3 class="font-medium">BIO-SCAN SUNSET YOGA</h3>
-        <p class="text-sm text-gray-500">FREE · Kwun Tong Promenade</p>
-      </div>
-
-      <div class="group">
-        <div class="aspect-square bg-gray-200 rounded-2xl mb-4 overflow-hidden">
-          <div class="w-full h-full bg-gradient-to-br from-blue-900 to-slate-800 flex items-end p-6">
-            <div class="text-white text-4xl font-serif">bio-scan<br>run</div>
-          </div>
-        </div>
-        <h3 class="font-medium">[ENDED] BIO-SCAN RUN</h3>
-        <p class="text-sm text-gray-500">FREE · Club Ditto</p>
-      </div>
-    </div>
+  <main class="events-page">
+    <ul class="event-grid">
+      <li class="event-card">
+        <img src="images/event-coffee-run.jpg" alt="Poster for the Bio-Scan Coffee Run at Club Ditto">
+        <h2 class="event-name">Bio-Scan<br>Coffee Run</h2>
+        <p class="event-price">Free</p>
+      </li>
+      <li class="event-card">
+        <img src="images/event-reformer.jpg" alt="Poster for the ended Bio-Scan Reformer Edition">
+        <h2 class="event-name">[Ended] Bio-Scan<br>Reformer Edition</h2>
+        <p class="event-price">$350</p>
+      </li>
+      <li class="event-card">
+        <img src="images/event-sunset-yoga.jpg" alt="Poster for Sunset Yoga at Kwun Tong Promenade">
+        <h2 class="event-name">Sunset Yoga</h2>
+        <p class="event-price">Free</p>
+      </li>
+      <li class="event-card">
+        <img src="images/event-bioscan-run.jpg" alt="Poster for the Bio-Scan Run at Club Ditto">
+        <h2 class="event-name">Bio-Scan Run</h2>
+        <p class="event-price">Free</p>
+      </li>
+    </ul>
   </main>
 
-  <footer class="bg-ink text-white py-16 mt-20 text-center">
-    <p class="text-xs tracking-widest text-gray-400">© 2026 · THE BIOCODE EDITIONS</p>
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <p class="footer-kicker">About The Biocode Editions</p>
+      <p class="footer-tagline">We unite health leaders and communities through co-creation to build a healthier world.</p>
+      <a class="footer-ig" href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="12" cy="12" r="3.6" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="17.2" cy="6.8" r="0.9" fill="currentColor"/>
+        </svg>
+      </a>
+      <p class="footer-copy">© 2026 - The Biocode Editions</p>
+    </div>
   </footer>
+
+  <script src="main.js"></script>
 </body>
 </html>
