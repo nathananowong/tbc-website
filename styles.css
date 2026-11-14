@@ -702,8 +702,24 @@ body.subpage .scanee-pager button:disabled {
   cursor: default;
 }
 
+body.subpage .page-title {
+  margin: 0;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 500;
+  font-size: 19px;
+  line-height: 1.15;
+  letter-spacing: 0;
+  text-align: left;
+  text-transform: none;
+  color: #303030;
+}
+
 body.subpage .longevity-page {
-  padding: 36px 16px 48px;
+  padding: 56px 28px 48px;
+}
+
+body.subpage .longevity-page .page-title {
+  margin: 0 12px 30px;
 }
 
 body.subpage .product-list {
@@ -744,9 +760,9 @@ body.subpage .product-cat {
 body.subpage .product-pill {
   margin-left: auto;
   flex: none;
-  width: 124px;
-  min-height: 54px;
-  padding: 8px 12px;
+  width: min(148px, 42%);
+  min-height: 48px;
+  padding: 8px 14px;
   border-radius: 999px;
   background: #e4e3df;
   color: #4a4a4a;
@@ -762,14 +778,18 @@ body.subpage .product-pill {
 }
 
 body.subpage .events-page {
-  padding: 36px 16px 56px;
+  padding: 56px 40px 56px;
+}
+
+body.subpage .events-page .page-title {
+  margin-bottom: 53px;
 }
 
 body.subpage .event-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  column-gap: 12px;
-  row-gap: 36px;
+  column-gap: 47px;
+  row-gap: 32px;
 }
 
 body.subpage .event-card img {
@@ -785,9 +805,9 @@ body.subpage .event-card img {
 body.subpage .event-name {
   margin: 16px 0 0;
   font-family: "DM Sans", sans-serif;
-  font-size: 0.6875rem;
+  font-size: 11px;
   font-weight: 500;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.12em;
   line-height: 1.55;
   text-align: center;
   text-transform: uppercase;
@@ -795,73 +815,88 @@ body.subpage .event-name {
 }
 
 body.subpage .event-price {
-  margin: 10px 0 0;
-  font-size: 0.625rem;
+  margin: 14px 0 0;
+  font-family: "DM Sans", sans-serif;
+  font-size: 10px;
   font-weight: 500;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.18em;
   line-height: 1.45;
   text-align: center;
   text-transform: uppercase;
-  color: #b9b9b9;
+  color: #7b7b7b;
+}
+
+body.subpage .event-pager {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 34px;
+  font-family: "DM Sans", sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1.4;
+  color: #3a3a3a;
 }
 
 body.subpage .site-footer {
-  background: #222222;
-  color: #d2d2d2;
+  background: #000000;
+  color: #ffffff;
 }
 
 body.subpage .site-footer-inner {
   max-width: 480px;
   margin: 0 auto;
-  padding: 52px 20px 48px;
+  padding: 50px 34px 48px;
+}
+
+body.subpage .footer-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
 }
 
 body.subpage .footer-kicker,
-body.subpage .footer-tagline,
-body.subpage .footer-copy {
+body.subpage .footer-tagline {
   margin: 0;
 }
 
 body.subpage .footer-kicker {
-  font-size: 0.625rem;
-  font-weight: 500;
-  letter-spacing: 0.22em;
-  line-height: 1.55;
+  font-family: "DM Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.045em;
+  line-height: 1.15;
   text-transform: uppercase;
-  color: #c8c8c8;
+  color: #ffffff;
 }
 
 body.subpage .footer-tagline {
-  margin-top: 22px;
-  max-width: 34em;
-  font-size: 0.75rem;
+  margin-top: 10px;
+  font-family: "DM Sans", sans-serif;
+  font-size: 14px;
   font-weight: 400;
-  letter-spacing: 0.01em;
-  line-height: 1.7;
-  color: #d4d4d4;
+  letter-spacing: 0;
+  line-height: 20px;
+  color: #ffffff;
 }
 
 body.subpage .footer-ig {
   display: flex;
+  align-items: center;
   justify-content: center;
-  margin: 40px 0 36px;
-  color: #fff;
+  flex: none;
+  margin: 0;
+  color: #ffffff;
+  line-height: 0;
 }
 
 body.subpage .footer-ig svg {
-  width: 26px;
-  height: 26px;
+  width: 24px;
+  height: 24px;
   display: block;
-}
-
-body.subpage .footer-copy {
-  text-align: center;
-  font-size: 0.625rem;
-  font-weight: 500;
-  letter-spacing: 0.16em;
-  line-height: 1.5;
-  text-transform: uppercase;
-  color: #c4c4c4;
 }
 
 /* Login and product keep their existing layout. Shared type only. */
