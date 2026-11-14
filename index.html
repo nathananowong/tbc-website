@@ -1,115 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Biocode Editions</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['Inter', 'system-ui', 'sans-serif'],
-            serif: ['Playfair Display', 'serif'],
-          },
-          colors: {
-            cream: '#F8F6F2',
-            ink: '#111111',
-            accent: '#0D6B5C',
-          }
-        }
-      }
-    }
-  </script>
-  <style>
-    .nav-link { transition: opacity 0.2s; }
-    .nav-link:hover { opacity: 0.6; }
-  </style>
-</head>
-<body class="bg-cream text-ink font-sans antialiased">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The Biocode Editions</title>
+    <meta
+      name="description"
+      content="The Biocode Editions unites health leaders and communities through co-creation to build a healthier world."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Libre+Baskerville&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="logo" href="index.html">The Biocode Editions</a>
+      <button
+        class="menu-btn"
+        id="menu-btn"
+        type="button"
+        aria-label="Open menu"
+        aria-expanded="false"
+        aria-controls="nav-panel"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </header>
 
-  <!-- Header -->
-  <header class="bg-white border-b border-gray-100 sticky top-0 z-50">
-    <div class="max-w-6xl mx-auto px-5 py-4 flex items-center justify-between">
-      <a href="index.html" class="text-xl tracking-tight font-medium">The Biocode Editions</a>
-      <nav class="hidden md:flex items-center gap-8 text-sm">
-        <a href="co-build.html" class="nav-link">Co-Build</a>
-        <a href="longevity.html" class="nav-link">Longevity</a>
-        <a href="events.html" class="nav-link">What’s On</a>
-        <a href="login.html" class="nav-link">Login</a>
-      </nav>
-      <button id="menuBtn" class="md:hidden text-2xl">☰</button>
-    </div>
-    <!-- Mobile menu -->
-    <div id="mobileMenu" class="hidden md:hidden bg-white border-t px-5 py-6 space-y-4 text-lg">
-      <a href="co-build.html" class="block">Co-Build</a>
-      <a href="longevity.html" class="block">Longevity</a>
-      <a href="events.html" class="block">What’s On</a>
-      <a href="login.html" class="block font-medium">Login</a>
-    </div>
-  </header>
+    <nav class="nav-panel" id="nav-panel" aria-hidden="true">
+      <div class="nav-top">
+        <a class="logo" href="index.html">The Biocode Editions</a>
+        <button class="close-btn" id="close-btn" type="button" aria-label="Close menu"></button>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="co-build.html">Co-Build</a></li>
+        <li><a href="longevity.html">Longevity</a></li>
+        <li><a href="events.html">What’s On</a></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+    </nav>
 
-  <!-- Hero -->
-  <section class="relative min-h-[70vh] flex items-center bg-ink text-white overflow-hidden">
-    <div class="absolute inset-0 opacity-40">
-      <img src="hero.jpg" alt="Longevity" class="w-full h-full object-cover">
-    </div>
-    <div class="relative max-w-4xl mx-auto px-6 py-24">
-      <p class="text-sm tracking-widest uppercase mb-4 opacity-70">Est. 2026 · Born in Hong Kong</p>
-      <h1 class="font-serif text-5xl md:text-7xl leading-tight mb-6">Live with PURPOSE</h1>
-      <p class="text-lg md:text-xl max-w-xl leading-relaxed opacity-90">
-        We unite health leaders and communities through co-creation to build a healthier world.
-      </p>
-    </div>
-  </section>
+    <main class="hero">
+      <div class="hero-inner">
+        <p class="eyebrow">Est. 2027 · Born in Hong Kong</p>
+        <h1 class="hero-title">Live with <strong>PURPOSE</strong></h1>
+        <div class="hero-copy">
+          <p>We unite health leaders and communities through co-creation to build a healthier world.</p>
+          <p>
+            Through curated movement, bio-<wbr>diagnostics, and precision nutrition, we bring longevity science to life—helping our members look, feel, and live at their best.
+          </p>
+        </div>
+      </div>
+    </main>
 
-  <!-- Purpose -->
-  <section class="bg-ink text-white py-24">
-    <div class="max-w-3xl mx-auto px-6">
-      <p class="text-xl md:text-2xl leading-relaxed font-light">
-        Through curated movement, bio-diagnostics, and precision nutrition, we bring longevity science to life—helping our members look, feel, and live at their best.
-      </p>
-    </div>
-  </section>
-
-  <!-- Three Pillars -->
-  <section class="py-20 bg-white">
-    <div class="max-w-5xl mx-auto px-6 grid md:grid-cols-3 gap-12">
-      <a href="co-build.html" class="group">
-        <h3 class="text-2xl font-medium mb-3 group-hover:text-accent transition">Co-Build</h3>
-        <p class="text-gray-600 leading-relaxed">Track your 30 customers and 6 partners. Record every scanee for follow-up.</p>
+    <section class="pillars">
+      <a href="co-build.html">
+        <h2>Co-Build</h2>
+        <p>Track your 30 customers and 6 partners. Record every scanee for follow-up.</p>
       </a>
-      <a href="longevity.html" class="group">
-        <h3 class="text-2xl font-medium mb-3 group-hover:text-accent transition">Longevity</h3>
-        <p class="text-gray-600 leading-relaxed">Six precision nutrition protocols ready to share with prospects.</p>
+      <a href="longevity.html">
+        <h2>Longevity</h2>
+        <p>Six precision nutrition protocols ready to share with prospects.</p>
       </a>
-      <a href="events.html" class="group">
-        <h3 class="text-2xl font-medium mb-3 group-hover:text-accent transition">What’s On</h3>
-        <p class="text-gray-600 leading-relaxed">Bio-scan runs, reformer sessions, sunset yoga and community events.</p>
+      <a href="events.html">
+        <h2>What’s On</h2>
+        <p>Bio-scan runs, reformer sessions, sunset yoga, and community events.</p>
       </a>
-    </div>
-  </section>
+    </section>
 
-  <!-- Footer -->
-  <footer class="bg-ink text-white py-16">
-    <div class="max-w-4xl mx-auto px-6 text-center">
-      <p class="text-sm tracking-widest uppercase mb-6">About The Biocode Editions</p>
-      <p class="max-w-md mx-auto mb-8 text-gray-300">We unite health leaders and communities through co-creation to build a healthier world.</p>
-      <a href="https://instagram.com" target="_blank" class="inline-block mb-8">
-        <svg class="w-6 h-6 mx-auto" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-      </a>
-      <p class="text-xs tracking-widest text-gray-500">© 2026 · THE BIOCODE EDITIONS</p>
-    </div>
-  </footer>
+    <footer class="site-footer">
+      <p class="eyebrow">About The Biocode Editions</p>
+      <p>We unite health leaders and communities through co-creation to build a healthier world.</p>
+      <p class="copyright">© 2027 · The Biocode Editions</p>
+    </footer>
 
-  <script>
-    document.getElementById('menuBtn').addEventListener('click', () => {
-      document.getElementById('mobileMenu').classList.toggle('hidden');
-    });
-  </script>
-</body>
+    <script src="main.js"></script>
+  </body>
 </html>
