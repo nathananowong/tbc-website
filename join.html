@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Join as a Builder · The Biocode Editions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Libre+Baskerville&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="join">
+    <header class="site-header">
+      <a class="logo" href="index.html">The Biocode Editions</a>
+      <button
+        class="menu-btn"
+        id="menu-btn"
+        type="button"
+        aria-label="Open menu"
+        aria-expanded="false"
+        aria-controls="nav-panel"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </header>
+
+    <nav class="nav-panel" id="nav-panel" aria-hidden="true">
+      <div class="nav-top">
+        <a class="logo" href="index.html">The Biocode Editions</a>
+        <button class="close-btn" id="close-btn" type="button" aria-label="Close menu">×</button>
+      </div>
+      <ul class="nav-links">
+        <li><a href="co-build.html">Co-Build</a></li>
+        <li><a href="longevity.html">Longevity</a></li>
+        <li><a href="events.html">What’s On</a></li>
+      </ul>
+      <a class="nav-login" href="login.html">LOG IN</a>
+    </nav>
+
+    <main class="join-main">
+      <h1>Join as a Builder</h1>
+      <p class="join-note">Existing builder referral required.</p>
+
+      <form class="join-form" action="#" method="post" onsubmit="return false">
+        <div class="join-field">
+          <label for="referral-code">Referral code</label>
+          <input id="referral-code" name="referral-code" type="text" autocomplete="off" />
+        </div>
+        <div class="join-field">
+          <label for="full-name">Full name</label>
+          <input id="full-name" name="full-name" type="text" autocomplete="name" />
+        </div>
+        <div class="join-field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" autocomplete="email" />
+        </div>
+        <div class="join-field">
+          <label for="phone">Phone</label>
+          <input id="phone" name="phone" type="tel" autocomplete="tel" />
+        </div>
+        <div class="join-field">
+          <label for="password">Password</label>
+          <input id="password" name="password" type="password" autocomplete="new-password" />
+        </div>
+        <div class="join-field">
+          <label for="confirm-password">Confirm password</label>
+          <input id="confirm-password" name="confirm-password" type="password" autocomplete="new-password" />
+        </div>
+        <button class="join-submit" type="button">Create account</button>
+      </form>
+
+      <p class="join-switch">Already have an account? <a href="login.html">Log in</a></p>
+    </main>
+
+    <script src="main.js"></script>
+  </body>
+</html>
