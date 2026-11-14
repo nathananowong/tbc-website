@@ -4,85 +4,98 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Longevity · The Biocode Editions</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Libre+Baskerville&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-white font-sans">
+<body class="tbc-page">
 
-  <header class="bg-white border-b sticky top-0 z-50">
-    <div class="max-w-6xl mx-auto px-5 py-4 flex items-center justify-between">
-      <a href="index.html" class="text-xl font-medium">The Biocode Editions</a>
-      <nav class="hidden md:flex gap-8 text-sm">
-        <a href="co-build.html">Co-Build</a>
-        <a href="longevity.html" class="font-medium">Longevity</a>
-        <a href="events.html">What’s On</a>
-        <a href="login.html">Login</a>
-      </nav>
-      <button class="md:hidden text-2xl" onclick="document.getElementById('m').classList.toggle('hidden')">☰</button>
-    </div>
-    <div id="m" class="hidden md:hidden px-5 py-4 space-y-3 border-t">
-      <a href="co-build.html" class="block">Co-Build</a>
-      <a href="longevity.html" class="block">Longevity</a>
-      <a href="events.html" class="block">What’s On</a>
-      <a href="login.html" class="block">Login</a>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="wordmark" href="index.html">The Biocode Editions</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Open menu">
+        <svg class="icon-menu" viewBox="0 0 22 16" width="22" height="14" aria-hidden="true">
+          <path d="M1 1.25h20M1 7h20M1 12.75h20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <svg class="icon-close" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+          <path d="M2.5 2.5l11 11M13.5 2.5l-11 11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </button>
     </div>
   </header>
 
-  <main class="max-w-2xl mx-auto px-5 py-12 space-y-4">
-    <h1 class="text-3xl font-light mb-8">Precision Nutrition</h1>
+  <div id="site-menu" class="menu-overlay" hidden>
+    <nav class="menu-nav" aria-label="Primary">
+      <a href="co-build.html">Co-Build</a>
+      <a href="longevity.html">Longevity</a>
+      <a href="events.html">What’s On</a>
+    </nav>
+    <a class="menu-login" href="login.html">Log in</a>
+  </div>
 
-    <!-- Products matching the design -->
-    <a href="product.html?name=Cellular%20Protection&brand=Pharmanex%20LifePak" class="flex items-center gap-4 bg-gray-50 rounded-2xl p-4 hover:bg-gray-100 transition">
-      <img src="product.jpg" alt="" class="w-16 h-16 object-cover rounded-xl">
-      <div class="flex-1">
-        <div class="font-medium">Cellular Protection</div>
-        <div class="text-sm text-gray-500">Pharmanex LifePak</div>
-      </div>
-    </a>
-
-    <a href="product.html?name=Systematic%20Repair&brand=ageLOC%20Youthspan" class="flex items-center gap-4 bg-gray-50 rounded-2xl p-4 hover:bg-gray-100 transition">
-      <img src="product.jpg" alt="" class="w-16 h-16 object-cover rounded-xl">
-      <div class="flex-1">
-        <div class="font-medium">Systematic Repair</div>
-        <div class="text-sm text-gray-500">ageLOC Youthspan</div>
-      </div>
-    </a>
-
-    <a href="product.html?name=Skin%20Health&brand=Pharmanec%20Collagen%2B" class="flex items-center gap-4 bg-gray-50 rounded-2xl p-4 hover:bg-gray-100 transition">
-      <img src="product.jpg" alt="" class="w-16 h-16 object-cover rounded-xl">
-      <div class="flex-1">
-        <div class="font-medium">Skin Health</div>
-        <div class="text-sm text-gray-500">Pharmanec Collagen+</div>
-      </div>
-    </a>
-
-    <a href="product.html?name=Brain%20Health&brand=Pharmanex%20Mindfull" class="flex items-center gap-4 bg-gray-50 rounded-2xl p-4 hover:bg-gray-100 transition">
-      <img src="product.jpg" alt="" class="w-16 h-16 object-cover rounded-xl">
-      <div class="flex-1">
-        <div class="font-medium">Brain Health</div>
-        <div class="text-sm text-gray-500">Pharmanex Mindfull</div>
-      </div>
-    </a>
-
-    <a href="product.html?name=Vision%20Health&brand=Pharmanex%20Eye%20Formula" class="flex items-center gap-4 bg-gray-50 rounded-2xl p-4 hover:bg-gray-100 transition">
-      <img src="product.jpg" alt="" class="w-16 h-16 object-cover rounded-xl">
-      <div class="flex-1">
-        <div class="font-medium">Vision Health</div>
-        <div class="text-sm text-gray-500">Pharmanex Eye Formula</div>
-      </div>
-    </a>
-
-    <a href="product.html?name=Superfood%20Juice&brand=Pharmanex%20G3" class="flex items-center gap-4 bg-gray-50 rounded-2xl p-4 hover:bg-gray-100 transition">
-      <img src="product.jpg" alt="" class="w-16 h-16 object-cover rounded-xl">
-      <div class="flex-1">
-        <div class="font-medium">Superfood Juice</div>
-        <div class="text-sm text-gray-500">Pharmanex G3</div>
-      </div>
-    </a>
+  <main class="longevity-page">
+    <ul class="product-list">
+      <li>
+        <a class="product-card" href="product.html?name=Cellular%20Protection&brand=Pharmanex%20LifePak">
+          <img src="images/dropper.jpg" alt="">
+          <span class="product-cat">Cellular<br>Protection</span>
+          <span class="product-pill"><span>Pharmanex</span><span>LifePak</span></span>
+        </a>
+      </li>
+      <li>
+        <a class="product-card" href="product.html?name=Systematic%20Repair&brand=ageLOC%20Youthspan">
+          <img src="images/dropper.jpg" alt="">
+          <span class="product-cat">Systematic<br>Repair</span>
+          <span class="product-pill"><span>ageLOC</span><span>Youthspan</span></span>
+        </a>
+      </li>
+      <li>
+        <a class="product-card" href="product.html?name=Skin%20Health&brand=Pharmanec%20Collagen%2B">
+          <img src="images/dropper.jpg" alt="">
+          <span class="product-cat">Skin<br>Health</span>
+          <span class="product-pill"><span>Pharmanec</span><span>Collagen+</span></span>
+        </a>
+      </li>
+      <li>
+        <a class="product-card" href="product.html?name=Brain%20Health&brand=Pharmanex%20Mindfull">
+          <img src="images/dropper.jpg" alt="">
+          <span class="product-cat">Brain<br>Health</span>
+          <span class="product-pill"><span>Pharmanex</span><span>Mindfull</span></span>
+        </a>
+      </li>
+      <li>
+        <a class="product-card" href="product.html?name=Vision%20Health&brand=Pharmanex%20Eye%20Formula">
+          <img src="images/dropper.jpg" alt="">
+          <span class="product-cat">Vision<br>Health</span>
+          <span class="product-pill"><span>Pharmanex</span><span>Eye Formula</span></span>
+        </a>
+      </li>
+      <li>
+        <a class="product-card" href="product.html?name=Superfood%20Juice&brand=Pharmanex%20G3">
+          <img src="images/dropper.jpg" alt="">
+          <span class="product-cat">Superfood<br>Juice</span>
+          <span class="product-pill"><span>Pharmanex</span><span>G3</span></span>
+        </a>
+      </li>
+    </ul>
   </main>
 
-  <footer class="bg-ink text-white py-16 mt-20 text-center">
-    <p class="text-xs tracking-widest text-gray-400">© 2026 · THE BIOCODE EDITIONS</p>
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <p class="footer-kicker">About The Biocode Editions</p>
+      <p class="footer-tagline">We unite health leaders and communities through co-creation to build a healthier world.</p>
+      <a class="footer-ig" href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="12" cy="12" r="3.6" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="17.2" cy="6.8" r="0.9" fill="currentColor"/>
+        </svg>
+      </a>
+      <p class="footer-copy">© 2026 - The Biocode Editions</p>
+    </div>
   </footer>
+
+  <script src="main.js"></script>
 </body>
 </html>

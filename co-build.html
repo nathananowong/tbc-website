@@ -4,129 +4,262 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Co-Build · The Biocode Editions</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = { theme: { extend: { fontFamily: { sans: ['Inter'] }, colors: { accent: '#0D6B5C' } } } }
-  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Libre+Baskerville&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-white text-ink font-sans">
+<body class="tbc-page">
 
-  <header class="bg-white border-b sticky top-0 z-50">
-    <div class="max-w-6xl mx-auto px-5 py-4 flex items-center justify-between">
-      <a href="index.html" class="text-xl font-medium">The Biocode Editions</a>
-      <nav class="hidden md:flex gap-8 text-sm">
-        <a href="co-build.html" class="font-medium">Co-Build</a>
-        <a href="longevity.html">Longevity</a>
-        <a href="events.html">What’s On</a>
-        <a href="login.html">Login</a>
-      </nav>
-      <button class="md:hidden text-2xl" onclick="document.getElementById('m').classList.toggle('hidden')">☰</button>
-    </div>
-    <div id="m" class="hidden md:hidden px-5 py-4 space-y-3 border-t">
-      <a href="co-build.html" class="block">Co-Build</a>
-      <a href="longevity.html" class="block">Longevity</a>
-      <a href="events.html" class="block">What’s On</a>
-      <a href="login.html" class="block">Login</a>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="wordmark" href="index.html">The Biocode Editions</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Open menu">
+        <svg class="icon-menu" viewBox="0 0 22 16" width="22" height="14" aria-hidden="true">
+          <path d="M1 1.25h20M1 7h20M1 12.75h20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <svg class="icon-close" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+          <path d="M2.5 2.5l11 11M13.5 2.5l-11 11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </button>
     </div>
   </header>
 
-  <main class="max-w-2xl mx-auto px-5 py-12">
-    <h1 class="text-3xl font-light mb-10">The Foundation</h1>
-
-    <div class="mb-10">
-      <div class="flex justify-between mb-2">
-        <span>Customers</span>
-        <span id="custCount">0 / 30</span>
-      </div>
-      <div class="h-1.5 bg-gray-100 rounded-full overflow-hidden">
-        <div id="custBar" class="h-full bg-accent transition-all" style="width:0%"></div>
-      </div>
-    </div>
-
-    <div class="mb-14">
-      <div class="flex justify-between mb-2">
-        <span>Partners</span>
-        <span id="partCount">0 / 6</span>
-      </div>
-      <div class="h-1.5 bg-gray-100 rounded-full overflow-hidden">
-        <div id="partBar" class="h-full bg-accent transition-all" style="width:0%"></div>
-      </div>
-    </div>
-
-    <div class="flex items-center justify-between mb-6">
-      <h2 class="text-xl">My Scanees</h2>
-      <button onclick="openAdd()" class="bg-accent text-white px-4 py-2 rounded-full text-sm">+ Add</button>
-    </div>
-
-    <div id="scaneeList" class="space-y-3"></div>
-  </main>
-
-  <!-- Add Modal -->
-  <div id="modal" class="fixed inset-0 bg-black/40 hidden items-center justify-center z-50">
-    <div class="bg-white rounded-2xl p-6 w-full max-w-sm mx-4">
-      <h3 class="text-lg mb-4">Add Scanee</h3>
-      <input id="nameInput" type="text" placeholder="Name" class="w-full border rounded-lg px-4 py-3 mb-3">
-      <input id="noteInput" type="text" placeholder="Note (optional)" class="w-full border rounded-lg px-4 py-3 mb-4">
-      <div class="flex gap-3">
-        <button onclick="saveScanee()" class="flex-1 bg-accent text-white py-3 rounded-full">Save</button>
-        <button onclick="closeAdd()" class="flex-1 border py-3 rounded-full">Cancel</button>
-      </div>
-    </div>
+  <div id="site-menu" class="menu-overlay" hidden>
+    <nav class="menu-nav" aria-label="Primary">
+      <a href="co-build.html">Co-Build</a>
+      <a href="longevity.html">Longevity</a>
+      <a href="events.html">What’s On</a>
+    </nav>
+    <a class="menu-login" href="login.html">Log in</a>
   </div>
 
-  <footer class="bg-ink text-white py-16 mt-20 text-center">
-    <p class="text-xs tracking-widest text-gray-400">© 2026 · THE BIOCODE EDITIONS</p>
+  <main class="foundation-page">
+    <h1>The Foundation</h1>
+
+    <div class="stat">
+      <div class="stat-row">
+        <span>Customers</span>
+        <span>2 / 30</span>
+      </div>
+      <div class="meter meter-customers" aria-hidden="true"></div>
+    </div>
+
+    <div class="stat">
+      <div class="stat-row">
+        <span>Partners</span>
+        <span>1 / 6</span>
+      </div>
+      <div class="meter meter-partners" aria-hidden="true"></div>
+    </div>
+
+    <section class="scanees" aria-labelledby="scanees-heading">
+      <div class="scanees-head">
+        <h2 id="scanees-heading">My Scanees</h2>
+        <button class="add-btn" type="button">+ Add</button>
+      </div>
+      <ul class="scanee-list">
+        <li class="scanee">
+          <span class="scanee-name">Steve</span>
+          <span class="scanee-actions">
+            <button type="button" aria-label="Info about Steve">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/>
+                <path d="M12 11v5.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                <circle cx="12" cy="8" r="0.9" fill="currentColor"/>
+              </svg>
+            </button>
+            <button type="button" aria-label="WhatsApp Steve">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 4.25a7.35 7.35 0 0 0-6.35 11.02L4.5 19.6l4.45-1.16A7.35 7.35 0 1 0 12 4.25z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/>
+                <path d="M9.15 10.05c.15.9.7 1.9 1.55 2.7.85.8 1.85 1.3 2.75 1.45" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                <path d="M9.05 10.15c.35.15.5.55.35.9L9.1 11.5M13.35 14.05c.15.35.55.5.9.35l.5-.25" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <button type="button" aria-label="Instagram for Steve">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="4" y="4" width="16" height="16" rx="5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+                <circle cx="12" cy="12" r="3.4" fill="none" stroke="currentColor" stroke-width="1.6"/>
+                <circle cx="17" cy="7" r="0.9" fill="currentColor"/>
+              </svg>
+            </button>
+          </span>
+        </li>
+        <li class="scanee">
+          <span class="scanee-name">Steve</span>
+          <span class="scanee-actions">
+            <button type="button" aria-label="Info about Steve">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/>
+                <path d="M12 11v5.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                <circle cx="12" cy="8" r="0.9" fill="currentColor"/>
+              </svg>
+            </button>
+            <button type="button" aria-label="WhatsApp Steve">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 4.25a7.35 7.35 0 0 0-6.35 11.02L4.5 19.6l4.45-1.16A7.35 7.35 0 1 0 12 4.25z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/>
+                <path d="M9.15 10.05c.15.9.7 1.9 1.55 2.7.85.8 1.85 1.3 2.75 1.45" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                <path d="M9.05 10.15c.35.15.5.55.35.9L9.1 11.5M13.35 14.05c.15.35.55.5.9.35l.5-.25" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <button type="button" aria-label="Instagram for Steve">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="4" y="4" width="16" height="16" rx="5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+                <circle cx="12" cy="12" r="3.4" fill="none" stroke="currentColor" stroke-width="1.6"/>
+                <circle cx="17" cy="7" r="0.9" fill="currentColor"/>
+              </svg>
+            </button>
+          </span>
+        </li>
+        <li class="scanee">
+          <span class="scanee-name">Steve</span>
+          <span class="scanee-actions">
+            <button type="button" aria-label="Info about Steve">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/>
+                <path d="M12 11v5.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                <circle cx="12" cy="8" r="0.9" fill="currentColor"/>
+              </svg>
+            </button>
+            <button type="button" aria-label="WhatsApp Steve">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 4.25a7.35 7.35 0 0 0-6.35 11.02L4.5 19.6l4.45-1.16A7.35 7.35 0 1 0 12 4.25z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/>
+                <path d="M9.15 10.05c.15.9.7 1.9 1.55 2.7.85.8 1.85 1.3 2.75 1.45" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                <path d="M9.05 10.15c.35.15.5.55.35.9L9.1 11.5M13.35 14.05c.15.35.55.5.9.35l.5-.25" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <button type="button" aria-label="Instagram for Steve">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="4" y="4" width="16" height="16" rx="5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+                <circle cx="12" cy="12" r="3.4" fill="none" stroke="currentColor" stroke-width="1.6"/>
+                <circle cx="17" cy="7" r="0.9" fill="currentColor"/>
+              </svg>
+            </button>
+          </span>
+        </li>
+        <li class="scanee">
+          <span class="scanee-name">Steve</span>
+          <span class="scanee-actions">
+            <button type="button" aria-label="Info about Steve">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/>
+                <path d="M12 11v5.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                <circle cx="12" cy="8" r="0.9" fill="currentColor"/>
+              </svg>
+            </button>
+            <button type="button" aria-label="WhatsApp Steve">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 4.25a7.35 7.35 0 0 0-6.35 11.02L4.5 19.6l4.45-1.16A7.35 7.35 0 1 0 12 4.25z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/>
+                <path d="M9.15 10.05c.15.9.7 1.9 1.55 2.7.85.8 1.85 1.3 2.75 1.45" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                <path d="M9.05 10.15c.35.15.5.55.35.9L9.1 11.5M13.35 14.05c.15.35.55.5.9.35l.5-.25" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <button type="button" aria-label="Instagram for Steve">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="4" y="4" width="16" height="16" rx="5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+                <circle cx="12" cy="12" r="3.4" fill="none" stroke="currentColor" stroke-width="1.6"/>
+                <circle cx="17" cy="7" r="0.9" fill="currentColor"/>
+              </svg>
+            </button>
+          </span>
+        </li>
+        <li class="scanee">
+          <span class="scanee-name">Steve</span>
+          <span class="scanee-actions">
+            <button type="button" aria-label="Info about Steve">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/>
+                <path d="M12 11v5.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                <circle cx="12" cy="8" r="0.9" fill="currentColor"/>
+              </svg>
+            </button>
+            <button type="button" aria-label="WhatsApp Steve">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 4.25a7.35 7.35 0 0 0-6.35 11.02L4.5 19.6l4.45-1.16A7.35 7.35 0 1 0 12 4.25z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/>
+                <path d="M9.15 10.05c.15.9.7 1.9 1.55 2.7.85.8 1.85 1.3 2.75 1.45" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                <path d="M9.05 10.15c.35.15.5.55.35.9L9.1 11.5M13.35 14.05c.15.35.55.5.9.35l.5-.25" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <button type="button" aria-label="Instagram for Steve">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="4" y="4" width="16" height="16" rx="5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+                <circle cx="12" cy="12" r="3.4" fill="none" stroke="currentColor" stroke-width="1.6"/>
+                <circle cx="17" cy="7" r="0.9" fill="currentColor"/>
+              </svg>
+            </button>
+          </span>
+        </li>
+        <li class="scanee">
+          <span class="scanee-name">Steve</span>
+          <span class="scanee-actions">
+            <button type="button" aria-label="Info about Steve">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/>
+                <path d="M12 11v5.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                <circle cx="12" cy="8" r="0.9" fill="currentColor"/>
+              </svg>
+            </button>
+            <button type="button" aria-label="WhatsApp Steve">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 4.25a7.35 7.35 0 0 0-6.35 11.02L4.5 19.6l4.45-1.16A7.35 7.35 0 1 0 12 4.25z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/>
+                <path d="M9.15 10.05c.15.9.7 1.9 1.55 2.7.85.8 1.85 1.3 2.75 1.45" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                <path d="M9.05 10.15c.35.15.5.55.35.9L9.1 11.5M13.35 14.05c.15.35.55.5.9.35l.5-.25" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <button type="button" aria-label="Instagram for Steve">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="4" y="4" width="16" height="16" rx="5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+                <circle cx="12" cy="12" r="3.4" fill="none" stroke="currentColor" stroke-width="1.6"/>
+                <circle cx="17" cy="7" r="0.9" fill="currentColor"/>
+              </svg>
+            </button>
+          </span>
+        </li>
+        <li class="scanee">
+          <span class="scanee-name">Steve</span>
+          <span class="scanee-actions">
+            <button type="button" aria-label="Info about Steve">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/>
+                <path d="M12 11v5.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                <circle cx="12" cy="8" r="0.9" fill="currentColor"/>
+              </svg>
+            </button>
+            <button type="button" aria-label="WhatsApp Steve">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 4.25a7.35 7.35 0 0 0-6.35 11.02L4.5 19.6l4.45-1.16A7.35 7.35 0 1 0 12 4.25z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/>
+                <path d="M9.15 10.05c.15.9.7 1.9 1.55 2.7.85.8 1.85 1.3 2.75 1.45" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                <path d="M9.05 10.15c.35.15.5.55.35.9L9.1 11.5M13.35 14.05c.15.35.55.5.9.35l.5-.25" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <button type="button" aria-label="Instagram for Steve">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="4" y="4" width="16" height="16" rx="5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+                <circle cx="12" cy="12" r="3.4" fill="none" stroke="currentColor" stroke-width="1.6"/>
+                <circle cx="17" cy="7" r="0.9" fill="currentColor"/>
+              </svg>
+            </button>
+          </span>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <p class="footer-kicker">About The Biocode Editions</p>
+      <p class="footer-tagline">We unite health leaders and communities through co-creation to build a healthier world.</p>
+      <a class="footer-ig" href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="12" cy="12" r="3.6" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="17.2" cy="6.8" r="0.9" fill="currentColor"/>
+        </svg>
+      </a>
+      <p class="footer-copy">© 2026 - The Biocode Editions</p>
+    </div>
   </footer>
 
-  <script>
-    let scanees = JSON.parse(localStorage.getItem('tbc_scanees') || '[]');
-
-    function render() {
-      const list = document.getElementById('scaneeList');
-      list.innerHTML = '';
-      scanees.forEach((s, i) => {
-        const div = document.createElement('div');
-        div.className = 'flex items-center justify-between bg-gray-50 rounded-xl px-4 py-3';
-        div.innerHTML = `
-          <span class="font-medium">${s.name}</span>
-          <div class="flex gap-3 text-accent">
-            <a href="https://wa.me/?text=Hi ${s.name}" target="_blank" title="WhatsApp">💬</a>
-            <a href="https://instagram.com" target="_blank" title="Instagram">📷</a>
-            <button onclick="remove(${i})" class="text-gray-400 hover:text-red-500">✕</button>
-          </div>
-        `;
-        list.appendChild(div);
-      });
-
-      const c = scanees.length;
-      document.getElementById('custCount').textContent = `${c} / 30`;
-      document.getElementById('custBar').style.width = Math.min(c/30*100, 100) + '%';
-      // Partners still 0 for now (can expand later)
-      document.getElementById('partCount').textContent = `0 / 6`;
-    }
-
-    function openAdd() { document.getElementById('modal').classList.remove('hidden'); document.getElementById('modal').classList.add('flex'); }
-    function closeAdd() { document.getElementById('modal').classList.add('hidden'); document.getElementById('modal').classList.remove('flex'); }
-
-    function saveScanee() {
-      const name = document.getElementById('nameInput').value.trim();
-      if (!name) return;
-      scanees.push({ name, note: document.getElementById('noteInput').value.trim(), date: new Date().toISOString() });
-      localStorage.setItem('tbc_scanees', JSON.stringify(scanees));
-      document.getElementById('nameInput').value = '';
-      document.getElementById('noteInput').value = '';
-      closeAdd();
-      render();
-    }
-
-    function remove(i) {
-      scanees.splice(i, 1);
-      localStorage.setItem('tbc_scanees', JSON.stringify(scanees));
-      render();
-    }
-
-    render();
-  </script>
+  <script src="main.js"></script>
 </body>
 </html>
