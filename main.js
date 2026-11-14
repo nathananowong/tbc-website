@@ -1,55 +1,33 @@
-/* Mobile menu for the inner pages.
-   Open/close, Escape, scroll lock, and focus move with the overlay. */
 (function () {
-  var btn = document.querySelector(".menu-toggle");
-  var menu = document.getElementById("site-menu");
-  if (!btn || !menu) return;
-
-  function items() {
-    return Array.prototype.slice.call(menu.querySelectorAll("a, button"));
-  }
+  var panel = document.getElementById("nav-panel");
+  var openBtn = document.getElementById("menu-btn");
+  var closeBtn = document.getElementById("close-btn");
+  if (!panel || !openBtn || !closeBtn) return;
 
   function openMenu() {
-    menu.hidden = false;
-    btn.setAttribute("aria-expanded", "true");
-    btn.setAttribute("aria-label", "Close menu");
-    document.body.classList.add("menu-open");
-    var first = items()[0];
-    if (first) first.focus();
+    panel.classList.add("is-open");
+    panel.setAttribute("aria-hidden", "false");
+    openBtn.setAttribute("aria-expanded", "true");
+    document.body.style.overflow = "hidden";
+    closeBtn.focus();
   }
 
-  function closeMenu(restoreFocus) {
-    if (menu.hidden) return;
-    menu.hidden = true;
-    btn.setAttribute("aria-expanded", "false");
-    btn.setAttribute("aria-label", "Open menu");
-    document.body.classList.remove("menu-open");
-    if (restoreFocus) btn.focus();
+  function closeMenu() {
+    panel.classList.remove("is-open");
+    panel.setAttribute("aria-hidden", "true");
+    openBtn.setAttribute("aria-expanded", "false");
+    document.body.style.overflow = "";
+    openBtn.focus();
   }
 
-  btn.addEventListener("click", function () {
-    if (btn.getAttribute("aria-expanded") === "true") closeMenu(false);
-    else openMenu();
+  openBtn.addEventListener("click", openMenu);
+  closeBtn.addEventListener("click", closeMenu);
+  panel.querySelectorAll("a").forEach(function (link) {
+    link.addEventListener("click", closeMenu);
   });
-
   document.addEventListener("keydown", function (event) {
-    if (menu.hidden) return;
-    if (event.key === "Escape") {
-      event.preventDefault();
-      closeMenu(true);
-      return;
-    }
-    if (event.key !== "Tab") return;
-    var list = items();
-    if (!list.length) return;
-    var first = list[0];
-    var last = list[list.length - 1];
-    if (event.shiftKey && document.activeElement === first) {
-      event.preventDefault();
-      last.focus();
-    } else if (!event.shiftKey && document.activeElement === last) {
-      event.preventDefault();
-      first.focus();
+    if (event.key === "Escape" && panel.classList.contains("is-open")) {
+      closeMenu();
     }
   });
 })();

@@ -1,180 +1,360 @@
-/* Inner pages (Co-Build, Longevity, What’s On).
-   Every rule is scoped to body.tbc-page so index.html is unchanged
-   even if this file is linked by mistake. */
-
-.tbc-page {
-  --cream: #f8f8f6;
-  --ink: #1c1c1c;
-  --muted: #8d8d8d;
-  --line: #e2e2e2;
-  --card: #f9f8f6;
-  --footer: #222222;
-  --header-pad: 20px;
-  margin: 0;
-  background: #fff;
-  color: var(--ink);
-  font-family: Inter, system-ui, sans-serif;
-  font-weight: 400;
-  line-height: 1.4;
-  -webkit-font-smoothing: antialiased;
+:root {
+  --cream: #f9f8f4;
+  --ink: #1a1a1a;
+  --hero: #222222;
+  --eyebrow: #d6d6d6;
+  --heading: #f8f8f8;
+  --body: #e9e9e9;
+  --accent: #7d9a6e;
 }
 
-.tbc-page *,
-.tbc-page *::before,
-.tbc-page *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
-.tbc-page h1,
-.tbc-page h2,
-.tbc-page p,
-.tbc-page ul {
+html,
+body {
   margin: 0;
   padding: 0;
 }
 
-.tbc-page ul {
-  list-style: none;
+body {
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+  background: var(--hero);
+  color: var(--body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
-/* :where() keeps this reset at zero specificity so component rules win. */
-:where(.tbc-page) a {
+a {
   color: inherit;
+  text-decoration: none;
 }
-
-:where(.tbc-page) button {
-  font-family: inherit;
-  cursor: pointer;
-  border: 0;
-  background: none;
-  color: inherit;
-  padding: 0;
-}
-
-.tbc-page.menu-open {
-  overflow: hidden;
-}
-
-/* Header — cream bar, serif wordmark, hamburger */
 
 .site-header {
-  position: sticky;
-  top: 0;
-  z-index: 40;
   background: var(--cream);
-  border-bottom: 1px solid var(--line);
-}
-
-.site-header-inner {
-  max-width: 480px;
-  margin: 0 auto;
-  min-height: 58px;
-  padding: 14px var(--header-pad);
+  color: var(--ink);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
+  padding: 1.65rem 1.4rem;
+  position: sticky;
+  top: 0;
+  z-index: 40;
 }
 
-.wordmark {
-  font-family: "Libre Baskerville", Georgia, serif;
-  font-size: 18px;
+.logo {
+  font-family: "Libre Baskerville", Georgia, "Times New Roman", serif;
   font-weight: 400;
-  letter-spacing: -0.011em;
-  line-height: 1.2;
-  color: #161616;
+  font-size: 1.28rem;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+.menu-btn {
+  appearance: none;
+  background: none;
+  border: 0;
+  padding: 0.35rem 0.1rem;
+  width: 2rem;
+  height: 2rem;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.menu-btn span {
+  display: block;
+  height: 2.5px;
+  width: 1.35rem;
+  background: var(--ink);
+  border-radius: 1px;
+  margin-left: auto;
+}
+
+.menu-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.hero {
+  min-height: calc(100dvh - 5rem);
+  background: var(--hero);
+  padding: 5rem 1.55rem 4rem;
+}
+
+.hero-inner {
+  max-width: 21.15rem;
+}
+
+.eyebrow {
+  margin: 0;
+  font-size: 0.74rem;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--eyebrow);
+  line-height: 1.3;
+}
+
+.hero-title {
+  margin: 1.2rem 0 0;
+  font-family: Inter, system-ui, sans-serif;
+  font-size: clamp(2.35rem, 9.6vw, 2.85rem);
+  font-weight: 400;
+  line-height: 1.06;
+  letter-spacing: -0.03em;
+  color: var(--heading);
+}
+
+.hero-title strong {
+  font-weight: 700;
+  letter-spacing: -0.04em;
+}
+
+.hero-copy {
+  margin-top: 1.7rem;
+  font-size: 1.08rem;
+  line-height: 1.47;
+  color: var(--body);
+  font-weight: 400;
+}
+
+.hero-copy p {
+  margin: 0;
+}
+
+.hero-copy p + p {
+  margin-top: 1.55rem;
+}
+
+.nav-panel {
+  position: fixed;
+  inset: 0;
+  background: #fefefe;
+  color: var(--ink);
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  transform: translateY(-8px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.22s ease, transform 0.22s ease;
+}
+
+.nav-panel.is-open {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+
+.nav-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.65rem 1.4rem;
+  border-bottom: 1px solid #c0c0c0;
+}
+
+.nav-links {
+  list-style: none;
+  margin: 0;
+  padding: 0.9rem 0 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-links a {
+  display: flex;
+  align-items: center;
+  height: 3.15rem;
+  padding: 0 1.4rem 0 2.05rem;
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0;
+  color: #53534f;
+  text-decoration: none;
+  background: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.nav-links a:hover,
+.nav-links a:active {
+  background: none;
+  text-decoration: none;
+  color: #53534f;
+}
+
+.nav-links a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}
+
+.nav-login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0.72rem 1.4rem 0;
+  height: 46px;
+  border-radius: 999px;
+  background: #1b1a16;
+  color: #f5f5f4;
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+  font-weight: 500;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  text-indent: 0.06em;
+  line-height: 1;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.nav-login:hover,
+.nav-login:active {
+  background: #1b1a16;
+  color: #f5f5f4;
   text-decoration: none;
 }
 
-.menu-toggle {
-  width: 36px;
-  height: 36px;
-  display: grid;
-  place-items: center;
-  color: #1a1a1a;
-  flex: none;
-}
-
-.menu-toggle .icon-close {
-  display: none;
-}
-
-.menu-toggle[aria-expanded="true"] .icon-menu {
-  display: none;
-}
-
-.menu-toggle[aria-expanded="true"] .icon-close {
-  display: block;
-}
-
-.menu-toggle:focus-visible,
-.tbc-page a:focus-visible,
-.tbc-page button:focus-visible {
-  outline: 2px solid #1a1a1a;
+.nav-login:focus-visible {
+  outline: 2px solid var(--accent);
   outline-offset: 3px;
 }
 
-/* Full-screen menu */
-
-.menu-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 30;
-  background: #fff;
-  padding: 84px 28px 28px;
-  display: flex;
-  flex-direction: column;
+.close-btn {
+  appearance: none;
+  background: none;
+  border: 0;
+  margin: 0 0.05rem 0 0;
+  padding: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+  font-size: 1.7rem;
+  font-weight: 400;
+  line-height: 1;
+  color: var(--ink);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 
-.menu-overlay[hidden] {
-  display: none;
+.close-btn::before {
+  content: "";
+  position: absolute;
+  inset: -0.65rem;
 }
 
-.menu-nav {
-  display: flex;
-  flex-direction: column;
+.close-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
 }
 
-.menu-nav a {
+.page {
+  background: var(--cream);
+  color: var(--ink);
+  min-height: calc(100dvh - 5rem);
+  padding: 3.5rem 1.6rem 5rem;
+}
+
+.page h1 {
   font-family: "Libre Baskerville", Georgia, serif;
-  font-size: 30px;
-  line-height: 1.25;
-  text-decoration: none;
-  color: #161616;
-  padding: 12px 0;
+  font-size: clamp(2rem, 8vw, 2.75rem);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin: 0 0 1.25rem;
 }
 
-.menu-login {
-  margin-top: auto;
-  display: block;
-  background: #111;
-  color: #fff;
-  text-align: center;
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  border-radius: 999px;
-  padding: 16px 20px;
+.page p {
+  margin: 0;
+  max-width: 32rem;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: #3a3a3a;
 }
 
-/* Page column */
+.page p + p {
+  margin-top: 1rem;
+}
 
-.tbc-page main {
+.page a.inline {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+@media (min-width: 768px) {
+  .site-header,
+  .nav-top {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+
+  .nav-links a {
+    padding-left: calc(2.5rem + 0.65rem);
+  }
+
+  .nav-login {
+    margin-left: 2.5rem;
+    margin-right: 2.5rem;
+  }
+
+  .hero {
+    padding: 6.5rem 2.5rem 5rem;
+  }
+
+  .hero-inner {
+    max-width: 24rem;
+  }
+
+  .hero-title {
+    font-size: 3.05rem;
+  }
+
+  .page {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}
+
+/* Inner pages only (Co-Build, Longevity, What’s On).
+   Homepage rules above are unchanged. */
+
+body.subpage {
+  background: #fff;
+  color: #1c1c1c;
+}
+
+body.subpage .site-header {
+  border-bottom: 1px solid #e2e2e2;
+}
+
+body.subpage .foundation-page,
+body.subpage .longevity-page,
+body.subpage .events-page {
   max-width: 480px;
   margin: 0 auto;
-  background: #fff;
 }
 
-/* Co-Build */
-
-.foundation-page {
+body.subpage .foundation-page {
   padding: 48px 28px 52px;
 }
 
-.foundation-page h1,
-.scanees-head h2 {
+body.subpage .foundation-page h1,
+body.subpage .scanees-head h2 {
+  margin: 0;
   font-family: "Libre Baskerville", Georgia, serif;
   font-weight: 400;
   font-size: 20px;
@@ -182,15 +362,15 @@
   color: #1a1a1a;
 }
 
-.foundation-page h1 {
+body.subpage .foundation-page h1 {
   margin-bottom: 40px;
 }
 
-.stat + .stat {
+body.subpage .stat + .stat {
   margin-top: 26px;
 }
 
-.stat-row {
+body.subpage .stat-row {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
@@ -200,111 +380,128 @@
   color: #2a2a2a;
 }
 
-.meter {
+body.subpage .meter {
   height: 7px;
   margin-top: 11px;
   border-radius: 999px;
   background: #2a2a2a;
 }
 
-.meter-customers {
+body.subpage .meter-customers {
   width: 20px;
 }
 
-.meter-partners {
+body.subpage .meter-partners {
   width: 96px;
 }
 
-.scanees {
+body.subpage .scanees {
   margin-top: 52px;
 }
 
-.scanees-head {
+body.subpage .scanees-head {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
 }
 
-.add-btn {
+body.subpage .add-btn {
+  appearance: none;
+  border: 0;
   background: #2a2a2a;
   color: #fff;
+  font-family: Inter, system-ui, sans-serif;
   font-size: 13px;
   font-weight: 500;
   line-height: 1;
   border-radius: 999px;
   padding: 9px 15px 9px 14px;
   letter-spacing: 0.01em;
+  cursor: pointer;
 }
 
-.scanee-list {
+body.subpage .scanee-list,
+body.subpage .product-list,
+body.subpage .event-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+body.subpage .scanee-list {
   margin-top: 18px;
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
-.scanee {
+body.subpage .scanee {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
   min-height: 56px;
   padding: 12px 16px 12px 18px;
-  background: var(--card);
+  background: #f9f8f6;
   border-radius: 16px;
 }
 
-.scanee-name {
+body.subpage .scanee-name {
   font-size: 15px;
   font-weight: 500;
   color: #2c2c2c;
 }
 
-.scanee-actions {
+body.subpage .scanee-actions {
   display: flex;
   align-items: center;
   gap: 16px;
   color: #222;
 }
 
-.scanee-actions button {
+body.subpage .scanee-actions button {
+  appearance: none;
+  background: none;
+  border: 0;
+  padding: 0;
   width: 26px;
   height: 26px;
   display: grid;
   place-items: center;
+  color: inherit;
+  cursor: pointer;
 }
 
-.scanee-actions svg {
+body.subpage .scanee-actions svg {
   width: 22px;
   height: 22px;
   display: block;
 }
 
-/* Longevity */
-
-.longevity-page {
+body.subpage .longevity-page {
   padding: 36px 16px 48px;
 }
 
-.product-list {
+body.subpage .product-list {
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
-.product-card {
+body.subpage .product-card {
   display: flex;
   align-items: center;
   gap: 14px;
   min-height: 92px;
   padding: 14px 12px 14px 14px;
-  background: var(--card);
+  background: #f9f8f6;
   border-radius: 20px;
   text-decoration: none;
+  color: inherit;
 }
 
-.product-card img {
+body.subpage .product-card img {
   width: 68px;
   height: 68px;
   flex: none;
@@ -313,7 +510,7 @@
   background: #f3f1ec;
 }
 
-.product-cat {
+body.subpage .product-cat {
   font-size: 15.5px;
   font-weight: 600;
   line-height: 1.22;
@@ -321,7 +518,7 @@
   color: #1e1e24;
 }
 
-.product-pill {
+body.subpage .product-pill {
   margin-left: auto;
   flex: none;
   width: 124px;
@@ -340,20 +537,18 @@
   line-height: 1.28;
 }
 
-/* What’s On */
-
-.events-page {
+body.subpage .events-page {
   padding: 36px 16px 56px;
 }
 
-.event-grid {
+body.subpage .event-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   column-gap: 12px;
   row-gap: 36px;
 }
 
-.event-card img {
+body.subpage .event-card img {
   width: 100%;
   height: auto;
   aspect-ratio: 256 / 319;
@@ -363,8 +558,8 @@
   background: #111;
 }
 
-.event-name {
-  margin-top: 16px;
+body.subpage .event-name {
+  margin: 16px 0 0;
   font-family: Inter, system-ui, sans-serif;
   font-size: 11.5px;
   font-weight: 500;
@@ -375,8 +570,8 @@
   color: #2a2a2a;
 }
 
-.event-price {
-  margin-top: 10px;
+body.subpage .event-price {
+  margin: 10px 0 0;
   font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.16em;
@@ -385,20 +580,24 @@
   color: #b9b9b9;
 }
 
-/* Shared footer — these three pages only */
-
-.site-footer {
-  background: var(--footer);
+body.subpage .site-footer {
+  background: #222222;
   color: #d2d2d2;
 }
 
-.site-footer-inner {
+body.subpage .site-footer-inner {
   max-width: 480px;
   margin: 0 auto;
   padding: 52px 20px 48px;
 }
 
-.footer-kicker {
+body.subpage .footer-kicker,
+body.subpage .footer-tagline,
+body.subpage .footer-copy {
+  margin: 0;
+}
+
+body.subpage .footer-kicker {
   font-size: 10px;
   font-weight: 500;
   letter-spacing: 0.18em;
@@ -406,7 +605,7 @@
   color: #c8c8c8;
 }
 
-.footer-tagline {
+body.subpage .footer-tagline {
   margin-top: 22px;
   max-width: 34em;
   font-size: 11.5px;
@@ -415,20 +614,20 @@
   color: #d4d4d4;
 }
 
-.footer-ig {
+body.subpage .footer-ig {
   display: flex;
   justify-content: center;
   margin: 40px 0 36px;
   color: #fff;
 }
 
-.footer-ig svg {
+body.subpage .footer-ig svg {
   width: 26px;
   height: 26px;
   display: block;
 }
 
-.footer-copy {
+body.subpage .footer-copy {
   text-align: center;
   font-size: 10px;
   font-weight: 500;

@@ -6,33 +6,38 @@
   <title>What’s On · The Biocode Editions</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Libre+Baskerville&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Libre+Baskerville&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body class="tbc-page">
-
-  <header class="site-header">
-    <div class="site-header-inner">
-      <a class="wordmark" href="index.html">The Biocode Editions</a>
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Open menu">
-        <svg class="icon-menu" viewBox="0 0 22 16" width="22" height="14" aria-hidden="true">
-          <path d="M1 1.25h20M1 7h20M1 12.75h20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-        </svg>
-        <svg class="icon-close" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
-          <path d="M2.5 2.5l11 11M13.5 2.5l-11 11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-        </svg>
+<body class="subpage">
+    <header class="site-header">
+      <a class="logo" href="index.html">The Biocode Editions</a>
+      <button
+        class="menu-btn"
+        id="menu-btn"
+        type="button"
+        aria-label="Open menu"
+        aria-expanded="false"
+        aria-controls="nav-panel"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
       </button>
-    </div>
-  </header>
+    </header>
 
-  <div id="site-menu" class="menu-overlay" hidden>
-    <nav class="menu-nav" aria-label="Primary">
-      <a href="co-build.html">Co-Build</a>
-      <a href="longevity.html">Longevity</a>
-      <a href="events.html">What’s On</a>
+    <nav class="nav-panel" id="nav-panel" aria-hidden="true">
+      <div class="nav-top">
+        <a class="logo" href="index.html">The Biocode Editions</a>
+        <button class="close-btn" id="close-btn" type="button" aria-label="Close menu">×</button>
+      </div>
+      <ul class="nav-links">
+        <li><a href="co-build.html">Co-Build</a></li>
+        <li><a href="longevity.html">Longevity</a></li>
+        <li><a href="events.html">What’s On</a></li>
+      </ul>
+      <a class="nav-login" href="login.html">LOG IN</a>
     </nav>
-    <a class="menu-login" href="login.html">Log in</a>
-  </div>
 
   <main class="events-page">
     <ul class="event-grid">
