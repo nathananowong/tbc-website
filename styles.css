@@ -1413,149 +1413,287 @@ body.join .join-switch a:focus-visible {
   outline-offset: 3px;
 }
 
-/* Prysm iO landing page. Scoped to .prysm-page. */
+/* Prysm iO landing page. Scoped so other subpages keep their layout. */
 
 body.subpage .prysm-page {
-  max-width: 480px;
+  max-width: 439px;
   margin: 0 auto;
-  padding: 68px 32px 80px;
+  padding: 0 0 96px;
   background: #ffffff;
-  color: #1c1c1c;
+  color: #111111;
 }
 
-body.subpage .prysm-page .prysm-kicker {
-  margin: 0 0 14px;
-  font-family: "DM Sans", sans-serif;
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.14em;
-  line-height: 1.2;
-  text-transform: uppercase;
-  color: #1a1a1a;
+body.subpage .prysm-page .prysm-hero {
+  padding: 69px 16px 0;
+  text-align: center;
 }
 
 body.subpage .prysm-page h1 {
   margin: 0;
   font-family: "DM Sans", sans-serif;
-  font-size: 32px;
+  font-size: 23px;
   font-weight: 500;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.012em;
   line-height: 1.15;
-  color: #1a1a1a;
-}
-
-body.subpage .prysm-page .prysm-section {
-  margin-top: 56px;
-  padding-top: 32px;
-  border-top: 1px solid #e4e4e4;
-}
-
-body.subpage .prysm-page h2 {
-  margin: 0 0 22px;
-  font-family: "DM Sans", sans-serif;
-  font-size: 17px;
-  font-weight: 500;
-  letter-spacing: -0.011em;
-  line-height: 1.35;
-  color: #1a1a1a;
-}
-
-body.subpage .prysm-page p {
-  margin: 0;
-  font-family: "DM Sans", sans-serif;
-  font-size: 15px;
-  font-weight: 400;
-  letter-spacing: 0;
-  line-height: 1.65;
-  color: #1c1c1c;
-}
-
-body.subpage .prysm-page .prysm-section > p + p {
-  margin-top: 20px;
-}
-
-body.subpage .prysm-page .prysm-price + p {
-  margin-top: 0;
+  text-align: center;
+  color: #313131;
 }
 
 body.subpage .prysm-page .prysm-tm {
-  font-size: 0.58em;
-  font-weight: inherit;
+  font-size: 0.55em;
+  font-weight: 500;
   letter-spacing: 0;
   line-height: 0;
   position: relative;
-  top: -0.72em;
-  margin-left: 0.05em;
+  top: -0.78em;
+  margin-left: 0.06em;
 }
 
-body.subpage .prysm-page .prysm-for {
-  list-style: none;
+body.subpage .prysm-page .prysm-tagline {
+  margin: 10px auto 0;
+  max-width: 307px;
+  font-family: "DM Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 19px;
+  text-align: center;
+  color: #333333;
+}
+
+body.subpage .prysm-page .prysm-device {
+  display: block;
+  width: 109px;
+  height: 109px;
+  margin: 29px auto 0;
+  border: 0;
+  object-fit: contain;
+}
+
+body.subpage .prysm-page .prysm-block {
+  margin-top: 42px;
+}
+
+body.subpage .prysm-page .prysm-hero + .prysm-block {
+  margin-top: 34px;
+}
+
+body.subpage .prysm-page .prysm-block-cta + .prysm-block {
+  margin-top: 58px;
+}
+
+body.subpage .prysm-page h2 {
+  margin: 0;
+  font-family: "DM Sans", sans-serif;
+  font-size: 19px;
+  font-weight: 500;
+  letter-spacing: -0.011em;
+  line-height: 1.2;
+  text-align: center;
+  color: #313131;
+}
+
+body.subpage .prysm-page .prysm-acc {
+  margin: 22px 43px 0;
+  border-bottom: 1px solid #111111;
+}
+
+body.subpage .prysm-page .prysm-acc-item {
+  border-top: 1px solid #111111;
+}
+
+body.subpage .prysm-page .prysm-acc-item summary {
+  display: block;
   margin: 0;
   padding: 0;
+  list-style: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 
-body.subpage .prysm-page .prysm-for li + li {
-  margin-top: 26px;
+body.subpage .prysm-page .prysm-acc-item summary::-webkit-details-marker {
+  display: none;
 }
 
-body.subpage .prysm-page .prysm-for p {
-  margin: 0;
+body.subpage .prysm-page .prysm-acc-item summary::marker {
+  content: "";
 }
 
-body.subpage .prysm-page .prysm-for strong {
-  font-weight: 600;
-  color: #111111;
+body.subpage .prysm-page .prysm-acc-item summary:focus {
+  outline: none;
 }
 
-body.subpage .prysm-page .prysm-price {
+body.subpage .prysm-page .prysm-acc-item summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}
+
+body.subpage .prysm-page .prysm-acc-row {
   display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 0.2em 0.55em;
-  margin: 0 0 18px;
-  line-height: 1.15;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  box-sizing: border-box;
+  min-height: 49px;
+  padding: 12px 24px 12px 16px;
 }
 
-body.subpage .prysm-page .prysm-price-figure {
-  font-size: 28px;
+@media (max-width: 420px) {
+  body.subpage .prysm-page .prysm-acc {
+    margin-left: 28px;
+    margin-right: 28px;
+  }
+
+  body.subpage .prysm-page .prysm-acc-row {
+    gap: 10px;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}
+
+body.subpage .prysm-page .prysm-q {
+  flex: 1 1 auto;
+  min-width: 0;
+  font-family: "DM Sans", sans-serif;
+  font-size: 16px;
   font-weight: 500;
-  letter-spacing: -0.022em;
-  line-height: 1.15;
+  letter-spacing: 0;
+  line-height: 1.25;
+  text-align: left;
   color: #111111;
 }
 
-body.subpage .prysm-page .prysm-price-unit {
+body.subpage .prysm-page .prysm-icon {
+  position: relative;
+  flex: none;
+  box-sizing: border-box;
+  width: 16px;
+  height: 16px;
+  border: 1.1px solid #111111;
+  border-radius: 50%;
+  color: #111111;
+}
+
+body.subpage .prysm-page .prysm-icon::before,
+body.subpage .prysm-page .prysm-icon::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  background: currentColor;
+  transform: translate(-50%, -50%);
+}
+
+body.subpage .prysm-page .prysm-icon::before {
+  width: 7px;
+  height: 1.1px;
+}
+
+body.subpage .prysm-page .prysm-icon::after {
+  width: 1.1px;
+  height: 7px;
+}
+
+body.subpage .prysm-page .prysm-acc-item[open] .prysm-icon::after {
+  content: none;
+}
+
+body.subpage .prysm-page .prysm-panel {
+  padding: 0 28px 32px 16px;
+  font-family: "DM Sans", sans-serif;
   font-size: 14px;
   font-weight: 400;
-  letter-spacing: 0.01em;
-  line-height: 1.3;
-  color: #5c5c5c;
+  letter-spacing: 0;
+  line-height: 20px;
+  color: #565656;
 }
 
-body.subpage .prysm-page .prysm-downloads {
-  list-style: none;
+body.subpage .prysm-page .prysm-panel:empty {
+  display: none;
+}
+
+body.subpage .prysm-page .prysm-panel ul {
+  margin: 3px 0 0;
+  padding: 0 0 0 1.2em;
+  list-style: disc;
+}
+
+body.subpage .prysm-page .prysm-panel li {
+  padding-left: 0.2em;
+}
+
+body.subpage .prysm-page .prysm-panel li::marker {
+  color: #565656;
+}
+
+body.subpage .prysm-page .prysm-panel strong {
+  font-weight: 600;
+  color: #2c2c2c;
+}
+
+body.subpage .prysm-page .prysm-cta {
+  display: flex;
+  justify-content: center;
+  margin: 58px 0 0;
+}
+
+body.subpage .prysm-page .prysm-order {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 126px;
+  height: 36.5px;
   margin: 0;
-  padding: 0;
-}
-
-body.subpage .prysm-page .prysm-downloads:not(:empty) {
-  margin-top: 26px;
-}
-
-body.subpage .prysm-page .prysm-downloads li + li {
-  margin-top: 14px;
-}
-
-body.subpage .prysm-page .prysm-downloads a {
+  padding: 0 12px 1px;
+  border-radius: 999px;
+  background: #000000;
+  color: #ffffff;
+  font-family: "DM Sans", sans-serif;
+  font-size: 14px;
   font-weight: 500;
-  color: #111111;
-  text-decoration: underline;
-  text-underline-offset: 0.2em;
-  text-decoration-thickness: 1px;
+  letter-spacing: 0;
+  line-height: 1;
+  text-align: center;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
-body.subpage .prysm-page .prysm-downloads a:focus-visible {
+body.subpage .prysm-page .prysm-order:hover,
+body.subpage .prysm-page .prysm-order:active {
+  background: #000000;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+body.subpage .prysm-page .prysm-order:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
+}
+
+body.subpage .prysm-footer .site-footer-inner {
+  max-width: 439px;
+  padding: 55px 32px 60px;
+}
+
+body.subpage .prysm-footer .prysm-footer-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+body.subpage .prysm-footer .footer-kicker {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+body.subpage .prysm-footer .footer-ig {
+  flex: none;
+  margin: 0;
+}
+
+body.subpage .prysm-footer .footer-tagline {
+  margin-top: 8px;
 }
 
