@@ -173,16 +173,16 @@ body.home {
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-  width: 152px;
-  height: 50px;
-  margin: 62.37px 0 0;
+  width: 107px;
+  height: 37px;
+  margin: 52.4px 0 0;
   padding: 0 0 0 0.06em;
   border-radius: 999px;
   background: #000000;
   color: #ffffff;
   font-family: "DM Sans", sans-serif;
   font-weight: 600;
-  font-size: 15px;
+  font-size: 14px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   line-height: 1;
@@ -275,38 +275,6 @@ body.home {
 .nav-links a:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: -2px;
-}
-
-.nav-login {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 32.5px 38px 0;
-  height: 50px;
-  border-radius: 999px;
-  background: #000000;
-  color: #ffffff;
-  font-family: "DM Sans", sans-serif;
-  font-weight: 600;
-  font-size: 15px;
-  letter-spacing: 0.03em;
-  text-indent: 0.03em;
-  line-height: 1;
-  text-decoration: none;
-  text-transform: uppercase;
-  -webkit-tap-highlight-color: transparent;
-}
-
-.nav-login:hover,
-.nav-login:active {
-  background: #000000;
-  color: #ffffff;
-  text-decoration: none;
-}
-
-.nav-login:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 3px;
 }
 
 .close-btn {
