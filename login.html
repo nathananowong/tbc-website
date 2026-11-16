@@ -11,7 +11,7 @@
 <body class="bg-[#F7F7F8] font-sans min-h-screen flex flex-col">
 
   <header class="bg-white border-b">
-    <div class="max-w-6xl mx-auto px-5 py-4 flex items-center justify-between">
+    <div class="max-w-6xl mx-auto px-5 py-4">
       <a href="index.html" class="text-xl font-medium">The Biocode Editions</a>
     </div>
   </header>
@@ -24,41 +24,42 @@
       <form id="loginForm" class="space-y-6">
         <div>
           <label class="block text-xs tracking-widest text-gray-500 mb-2">EMAIL</label>
-          <input id="email" type="email" required class="w-full bg-white border border-gray-200 rounded-xl px-4 py-4 focus:outline-none focus:border-gray-400">
+          <input id="email" type="email" required class="w-full bg-white border border-gray-200 rounded-xl px-4 py-4">
         </div>
         <div>
           <label class="block text-xs tracking-widest text-gray-500 mb-2">PASSWORD</label>
-          <input id="password" type="password" required class="w-full bg-white border border-gray-200 rounded-xl px-4 py-4 focus:outline-none focus:border-gray-400">
+          <input id="password" type="password" required class="w-full bg-white border border-gray-200 rounded-xl px-4 py-4">
         </div>
         <button type="submit" class="w-full bg-[#111] text-white py-4 rounded-full font-medium">LOG IN</button>
-        <p id="message" class="text-center text-sm text-red-500 hidden"></p>
+        <p id="message" class="text-center text-sm text-red-500 mt-4"></p>
       </form>
     </div>
   </main>
 
-  <footer class="text-center py-8 text-xs text-gray-400">
-    © 2026 · THE BIOCODE EDITIONS
-  </footer>
-
   <script>
-    // REPLACE THESE TWO LINES WITH YOUR VALUES
     const SUPABASE_URL = 'https://udviizqhxyhozdgtqhgn.supabase.co';
     const SUPABASE_KEY = 'sb_publishable_fUJTUxhXmTv4I_Z5ZAYYoQ_s2Jsk4cS';
 
-    const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+    const { createClient } = supabase;
+    const supabaseClient = createClient(SUPABASE_URL, SUPABASE_KEY);
 
     document.getElementById('loginForm').addEventListener('submit', async (e) => {
       e.preventDefault();
       const email = document.getElementById('email').value;
       const password = document.getElementById('password').value;
       const msg = document.getElementById('message');
+      msg.textContent = 'Logging in...';
 
-      const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+      const { data, error } = await supabaseClient.auth.signInWithPassword({
+        email: email,
+        password: password
+      });
 
       if (error) {
         msg.textContent = error.message;
-        msg.classList.remove('hidden');
+        msg.classList.add('text-red-500');
       } else {
+        msg.textContent = 'Success! Redirecting...';
         window.location.href = 'co-build.html';
       }
     });
