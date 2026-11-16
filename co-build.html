@@ -8,26 +8,16 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
-          colors: { surface: '#F7F7F8', ink: '#1A1A1A', muted: '#6B6B6B' }
-        }
-      }
-    }
+    tailwind.config = { theme: { extend: { fontFamily: { sans: ['Inter'] }, colors: { surface: '#F7F7F8', ink: '#1A1A1A', muted: '#6B6B6B' } } } }
   </script>
-  <style>
-    body { background: #F7F7F8; }
-    .btn-black { background: #111; color: white; border-radius: 9999px; }
-  </style>
+  <style>body { background: #F7F7F8; } .btn-black { background:#111; color:white; border-radius:9999px; }</style>
 </head>
-<body class="bg-surface text-ink font-sans antialiased">
+<body class="bg-surface text-ink font-sans">
 
-  <header class="bg-white border-b border-gray-100 sticky top-0 z-50">
+  <header class="bg-white border-b sticky top-0 z-50">
     <div class="max-w-6xl mx-auto px-5 py-4 flex items-center justify-between">
-      <a href="index.html" class="text-xl tracking-tight font-medium">The Biocode Editions</a>
-      <nav class="hidden md:flex items-center gap-8 text-sm">
+      <a href="index.html" class="text-xl font-medium">The Biocode Editions</a>
+      <nav class="hidden md:flex gap-8 text-sm">
         <a href="co-build.html" class="font-medium">Co-Build</a>
         <a href="longevity.html">Longevity</a>
         <a href="events.html">What’s On</a>
@@ -35,7 +25,7 @@
       </nav>
       <button class="md:hidden text-2xl" onclick="document.getElementById('m').classList.toggle('hidden')">☰</button>
     </div>
-    <div id="m" class="hidden md:hidden bg-white border-t px-5 py-6 space-y-4 text-lg">
+    <div id="m" class="hidden md:hidden px-5 py-4 space-y-3 border-t">
       <a href="co-build.html" class="block">Co-Build</a>
       <a href="longevity.html" class="block">Longevity</a>
       <a href="events.html" class="block">What’s On</a>
@@ -43,59 +33,58 @@
     </div>
   </header>
 
-  <main class="max-w-2xl mx-auto px-6 py-16">
-    <h1 class="text-4xl font-light mb-12">The Foundation</h1>
+  <main class="max-w-2xl mx-auto px-5 py-12">
+    <h1 class="text-3xl font-light mb-10">The Foundation</h1>
 
-    <div class="mb-12">
-      <div class="flex justify-between mb-3 text-sm">
+    <div class="mb-10">
+      <div class="flex justify-between mb-2">
         <span>Customers</span>
-        <span id="custCount" class="text-muted">0 / 30</span>
+        <span id="custCount">0 / 30</span>
       </div>
-      <div class="h-1 bg-gray-200 rounded-full overflow-hidden">
-        <div id="custBar" class="h-full bg-ink transition-all" style="width:0%"></div>
+      <div class="h-1.5 bg-gray-100 rounded-full overflow-hidden">
+        <div id="custBar" class="h-full bg-black transition-all" style="width:0%"></div>
       </div>
     </div>
 
-    <div class="mb-16">
-      <div class="flex justify-between mb-3 text-sm">
+    <div class="mb-14">
+      <div class="flex justify-between mb-2">
         <span>Partners</span>
-        <span id="partCount" class="text-muted">0 / 6</span>
+        <span id="partCount">0 / 6</span>
       </div>
-      <div class="h-1 bg-gray-200 rounded-full overflow-hidden">
-        <div id="partBar" class="h-full bg-ink transition-all" style="width:0%"></div>
+      <div class="h-1.5 bg-gray-100 rounded-full overflow-hidden">
+        <div id="partBar" class="h-full bg-black transition-all" style="width:0%"></div>
       </div>
     </div>
 
-    <div class="flex items-center justify-between mb-8">
-      <h2 class="text-2xl font-light">My Scanees</h2>
-      <button onclick="openAdd()" class="btn-black px-5 py-2 text-sm">+ Add</button>
+    <div class="flex items-center justify-between mb-6">
+      <h2 class="text-xl">My Scanees</h2>
+      <button onclick="openAdd()" class="btn-black px-4 py-2 text-sm">+ Add</button>
     </div>
 
-    <div id="scaneeList" class="space-y-4"></div>
+    <div id="scaneeList" class="space-y-3"></div>
   </main>
 
-  <!-- Add Modal -->
-  <div id="modal" class="fixed inset-0 bg-black/30 hidden items-center justify-center z-50">
-    <div class="bg-white rounded-2xl p-8 w-full max-w-sm mx-4 shadow-xl">
-      <h3 class="text-xl font-light mb-6">Add Scanee</h3>
-      <input id="nameInput" type="text" placeholder="Name" class="w-full border border-gray-200 rounded-xl px-4 py-3 mb-3 focus:outline-none focus:border-gray-400">
-      <input id="noteInput" type="text" placeholder="Note (optional)" class="w-full border border-gray-200 rounded-xl px-4 py-3 mb-3 focus:outline-none focus:border-gray-400">
-      <input id="whatsappInput" type="text" placeholder="WhatsApp (optional)" class="w-full border border-gray-200 rounded-xl px-4 py-3 mb-3 focus:outline-none focus:border-gray-400">
-      <input id="instagramInput" type="text" placeholder="Instagram (optional)" class="w-full border border-gray-200 rounded-xl px-4 py-3 mb-6 focus:outline-none focus:border-gray-400">
+  <div id="modal" class="fixed inset-0 bg-black/40 hidden items-center justify-center z-50">
+    <div class="bg-white rounded-2xl p-6 w-full max-w-sm mx-4">
+      <h3 class="text-lg mb-4">Add Scanee</h3>
+      <input id="nameInput" type="text" placeholder="Name" class="w-full border rounded-lg px-4 py-3 mb-3">
+      <input id="noteInput" type="text" placeholder="Note (optional)" class="w-full border rounded-lg px-4 py-3 mb-3">
+      <input id="whatsappInput" type="text" placeholder="WhatsApp (optional)" class="w-full border rounded-lg px-4 py-3 mb-3">
+      <input id="instagramInput" type="text" placeholder="Instagram (optional)" class="w-full border rounded-lg px-4 py-3 mb-4">
       <div class="flex gap-3">
         <button onclick="saveScanee()" class="flex-1 btn-black py-3">Save</button>
-        <button onclick="closeAdd()" class="flex-1 border border-gray-300 py-3 rounded-full">Cancel</button>
+        <button onclick="closeAdd()" class="flex-1 border py-3 rounded-full">Cancel</button>
       </div>
     </div>
   </div>
 
-  <footer class="bg-white border-t py-16 text-center">
+  <footer class="bg-white border-t py-16 mt-20 text-center">
     <p class="text-xs tracking-widest text-muted">© 2026 · THE BIOCODE EDITIONS</p>
   </footer>
 
   <script>
-    const SUPABASE_URL = 'https://udviizqhxyhozdgtqhgn.supabase.co';
-    const SUPABASE_KEY = 'sb_publishable_fUJTUxhXmTv4I_Z5ZAYYoQ_s2Jsk4cS';
+    const SUPABASE_URL = 'YOUR_PROJECT_URL_HERE';
+    const SUPABASE_KEY = 'YOUR_PUBLISHABLE_KEY_HERE';
 
     const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
     let currentUser = null;
@@ -131,15 +120,15 @@
 
       scanees.forEach(s => {
         const div = document.createElement('div');
-        div.className = 'flex items-center justify-between bg-white rounded-2xl px-5 py-4 border border-gray-100';
+        div.className = 'flex items-center justify-between bg-white rounded-xl px-4 py-3 border';
         div.innerHTML = `
           <div>
             <span class="font-medium">${s.name || ''}</span>
-            ${s.notes ? `<p class="text-sm text-muted mt-1">${s.notes}</p>` : ''}
+            ${s.notes ? `<p class="text-sm text-gray-500">${s.notes}</p>` : ''}
           </div>
-          <div class="flex gap-4 text-lg">
-            ${s.whatsapp ? `<a href="https://wa.me/${s.whatsapp}" target="_blank" class="opacity-70 hover:opacity-100">💬</a>` : ''}
-            ${s.instagram ? `<a href="https://instagram.com/${s.instagram}" target="_blank" class="opacity-70 hover:opacity-100">📷</a>` : ''}
+          <div class="flex gap-3">
+            ${s.whatsapp ? `<a href="https://wa.me/${s.whatsapp}" target="_blank">💬</a>` : ''}
+            ${s.instagram ? `<a href="https://instagram.com/${s.instagram}" target="_blank">📷</a>` : ''}
           </div>
         `;
         list.appendChild(div);
@@ -164,8 +153,8 @@
         user_id: currentUser.id,
         name: name,
         notes: document.getElementById('noteInput').value.trim(),
-        whatsapp: document.getElementById('whatsappInput').value.trim(),
-        instagram: document.getElementById('instagramInput').value.trim()
+        Whatsapp: document.getElementById('whatsappInput').value.trim(),
+        Instagram: document.getElementById('instagramInput').value.trim()
       });
 
       if (error) {
