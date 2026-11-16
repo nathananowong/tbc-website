@@ -1,83 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login · The Biocode Editions</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,700&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ["DM Sans", "sans-serif"],
-          },
-        },
-      },
-    };
-  </script>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body class="utility-page bg-cream font-sans min-h-screen flex flex-col">
-
-  <header class="site-header">
-    <a class="logo" href="index.html"><img src="images/logo-horizontal.png" alt="The Biocode Editions"></a>
-    <button
-      class="menu-btn"
-      id="menu-btn"
-      type="button"
-      aria-label="Open menu"
-      aria-expanded="false"
-      aria-controls="nav-panel"
-    >
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-  </header>
-
-  <nav class="nav-panel" id="nav-panel" aria-hidden="true">
-    <div class="nav-top">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Login · The Biocode Editions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="login-page">
+    <header class="site-header">
       <a class="logo" href="index.html"><img src="images/logo-horizontal.png" alt="The Biocode Editions"></a>
-      <button class="close-btn" id="close-btn" type="button" aria-label="Close menu">×</button>
-    </div>
-    <ul class="nav-links">
-      <li><a href="co-build.html">Co-Build</a></li>
-      <li><a href="longevity.html">Longevity</a></li>
-      <li><a href="events.html">What’s On</a></li>
-    </ul>
-  </nav>
+      <button
+        class="menu-btn"
+        id="menu-btn"
+        type="button"
+        aria-label="Open menu"
+        aria-expanded="false"
+        aria-controls="nav-panel"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </header>
 
-  <main class="flex-1 flex items-center justify-center px-5 py-16">
-    <div class="w-full max-w-md">
-      <h1 class="text-4xl font-light text-center mb-2">Welcome Back</h1>
-      <p class="text-center text-gray-500 mb-10">Sign in to co-create</p>
-
-      <div class="space-y-6">
-        <div>
-          <label class="block text-xs tracking-widest text-gray-500 mb-2">EMAIL</label>
-          <input type="email" class="w-full bg-white border border-gray-200 rounded-xl px-4 py-4 focus:outline-none focus:border-gray-400">
-        </div>
-        <div>
-          <label class="block text-xs tracking-widest text-gray-500 mb-2">PASSWORD</label>
-          <input type="password" class="w-full bg-white border border-gray-200 rounded-xl px-4 py-4 focus:outline-none focus:border-gray-400">
-        </div>
-        <div class="flex justify-between text-sm">
-          <label class="flex items-center gap-2"><input type="checkbox"> Remember me</label>
-          <a href="#" class="text-gray-500">Forgot password?</a>
-        </div>
-        <button class="w-full bg-ink text-white py-4 rounded-full font-medium">LOG IN</button>
-        <p class="text-center text-sm text-gray-500">Not a builder yet? <a href="join.html" class="text-accent">Join now</a></p>
+    <nav class="nav-panel" id="nav-panel" aria-hidden="true">
+      <div class="nav-top">
+        <a class="logo" href="index.html"><img src="images/logo-horizontal.png" alt="The Biocode Editions"></a>
+        <button class="close-btn" id="close-btn" type="button" aria-label="Close menu">×</button>
       </div>
-    </div>
-  </main>
+      <ul class="nav-links">
+        <li><a href="co-build.html">Co-Build</a></li>
+        <li><a href="longevity.html">Longevity</a></li>
+        <li><a href="events.html">What’s On</a></li>
+      </ul>
+    </nav>
 
-  <footer class="text-center py-8 text-xs text-gray-400">
-    © 2026 · THE BIOCODE EDITIONS
-  </footer>
-  <script src="main.js"></script>
-</body>
+    <main class="login-main">
+      <h1>LOG IN TO ACCESS</h1>
+      <form class="login-form" action="javascript:void(0)" method="post" novalidate>
+        <div class="login-field">
+          <label for="email">EMAIL</label>
+          <input id="email" name="email" type="email" autocomplete="email" />
+        </div>
+        <div class="login-field">
+          <label for="password">PASSWORD</label>
+          <input id="password" name="password" type="password" autocomplete="current-password" />
+        </div>
+        <div class="login-options">
+          <label class="login-remember">
+            <input id="remember" name="remember" type="checkbox" />
+            <span>Remember me</span>
+          </label>
+          <a class="login-forgot" href="#">Forgot password?</a>
+        </div>
+        <button class="login-submit" type="button">LOG IN</button>
+      </form>
+    </main>
+
+    <script>
+      document.querySelector(".login-form").addEventListener("submit", function (event) {
+        event.preventDefault();
+      });
+      document.querySelector(".login-forgot").addEventListener("click", function (event) {
+        event.preventDefault();
+      });
+    </script>
+    <script src="main.js"></script>
+  </body>
 </html>

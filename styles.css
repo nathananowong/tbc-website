@@ -872,7 +872,7 @@ body.subpage .footer-ig svg {
   display: block;
 }
 
-/* Login and product keep their existing layout. Shared type only. */
+/* Product keeps its existing layout. Shared type only. */
 
 body.utility-page,
 body.utility-page * {
@@ -1695,5 +1695,176 @@ body.subpage .prysm-footer .footer-ig {
 
 body.subpage .prysm-footer .footer-tagline {
   margin-top: 8px;
+}
+
+/* Login. Only this page uses body.login-page. */
+
+body.login-page {
+  background: #ffffff;
+  color: #111111;
+  color-scheme: light;
+  min-height: 100vh;
+}
+
+body.login-page .login-main {
+  padding: 106.6px 0 96px;
+}
+
+body.login-page .login-main h1 {
+  margin: 0;
+  text-align: center;
+  font-family: "DM Sans", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  line-height: 1;
+  color: #111111;
+}
+
+body.login-page .login-form {
+  margin: 61.2px 48px 0 45px;
+}
+
+body.login-page .login-field label {
+  display: block;
+  margin: 0 0 13.4px;
+  font-family: "DM Sans", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  line-height: 1;
+  color: #111111;
+}
+
+body.login-page .login-field input {
+  display: block;
+  width: 100%;
+  height: 57px;
+  margin: 0;
+  padding: 0 16px;
+  border: 0;
+  border-radius: 6px;
+  background: #f8f7f5;
+  color: #111111;
+  font-family: "DM Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.2;
+  outline: none;
+  box-shadow: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+body.login-page .login-field input:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+body.login-page .login-field + .login-field {
+  margin-top: 31.6px;
+}
+
+body.login-page .login-options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 34.4px 0 0;
+}
+
+body.login-page .login-remember {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  font-family: "DM Sans", sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  color: #111111;
+  cursor: pointer;
+}
+
+body.login-page .login-remember input {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 14px;
+  height: 14px;
+  margin: 0;
+  flex: 0 0 14px;
+  border: 2px solid #808080;
+  border-radius: 5px;
+  background-color: #ffffff;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 10px 8px;
+  cursor: pointer;
+}
+
+body.login-page .login-remember input:checked {
+  background-color: #111111;
+  border-color: #111111;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 10'%3E%3Cpath d='M1 5.2 4.2 8.4 11 1.4' fill='none' stroke='%23fff' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+
+body.login-page .login-remember input:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+body.login-page .login-forgot {
+  font-family: "DM Sans", sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  color: #111111;
+  text-decoration: none;
+}
+
+body.login-page .login-forgot:hover,
+body.login-page .login-forgot:active {
+  color: #111111;
+  text-decoration: none;
+}
+
+body.login-page .login-forgot:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+body.login-page .login-submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 107px;
+  height: 37px;
+  margin: 59px auto 0;
+  /* The field column is inset 45px / 48px, so auto margins sit 1.5px left of the viewport center. */
+  transform: translateX(1.5px);
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: #000000;
+  color: #ffffff;
+  font-family: "DM Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.015em;
+  line-height: 1;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body.login-page .login-submit:hover,
+body.login-page .login-submit:active {
+  background: #000000;
+  color: #ffffff;
+}
+
+body.login-page .login-submit:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
 }
 
