@@ -1,76 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Login · The Biocode Editions</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body class="login-page">
-    <header class="site-header">
-      <a class="logo" href="index.html"><img src="images/logo-horizontal.png" alt="The Biocode Editions"></a>
-      <button
-        class="menu-btn"
-        id="menu-btn"
-        type="button"
-        aria-label="Open menu"
-        aria-expanded="false"
-        aria-controls="nav-panel"
-      >
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </header>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login · The Biocode Editions</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body class="bg-[#F7F7F8] font-sans min-h-screen flex flex-col">
 
-    <nav class="nav-panel" id="nav-panel" aria-hidden="true">
-      <div class="nav-top">
-        <a class="logo" href="index.html"><img src="images/logo-horizontal.png" alt="The Biocode Editions"></a>
-        <button class="close-btn" id="close-btn" type="button" aria-label="Close menu">×</button>
-      </div>
-      <ul class="nav-links">
-        <li><a href="co-build.html">co-create</a></li>
-        <li><a href="longevity.html">longevity</a></li>
-        <li><a href="events.html">what’s on</a></li>
-      </ul>
-    </nav>
+  <header class="bg-white border-b">
+    <div class="max-w-6xl mx-auto px-5 py-4 flex items-center justify-between">
+      <a href="index.html" class="text-xl font-medium">The Biocode Editions</a>
+    </div>
+  </header>
 
-    <main class="login-main">
-      <h1>LOG IN TO ACCESS</h1>
-      <form class="login-form" action="javascript:void(0)" method="post" novalidate>
-        <div class="login-field">
-          <label for="email">EMAIL</label>
-          <input id="email" name="email" type="email" autocomplete="email" />
+  <main class="flex-1 flex items-center justify-center px-5 py-16">
+    <div class="w-full max-w-md">
+      <h1 class="text-4xl font-light text-center mb-2">Welcome Back</h1>
+      <p class="text-center text-gray-500 mb-10">Sign in to co-create</p>
+
+      <form id="loginForm" class="space-y-6">
+        <div>
+          <label class="block text-xs tracking-widest text-gray-500 mb-2">EMAIL</label>
+          <input id="email" type="email" required class="w-full bg-white border border-gray-200 rounded-xl px-4 py-4 focus:outline-none focus:border-gray-400">
         </div>
-        <div class="login-field">
-          <label for="password">PASSWORD</label>
-          <input id="password" name="password" type="password" autocomplete="current-password" />
+        <div>
+          <label class="block text-xs tracking-widest text-gray-500 mb-2">PASSWORD</label>
+          <input id="password" type="password" required class="w-full bg-white border border-gray-200 rounded-xl px-4 py-4 focus:outline-none focus:border-gray-400">
         </div>
-        <div class="login-options">
-          <label class="login-remember">
-            <input id="remember" name="remember" type="checkbox" />
-            <span>Remember me</span>
-          </label>
-          <a class="login-forgot" href="#">Forgot password?</a>
-        </div>
-        <button class="login-submit" type="button">LOG IN</button>
+        <button type="submit" class="w-full bg-[#111] text-white py-4 rounded-full font-medium">LOG IN</button>
+        <p id="message" class="text-center text-sm text-red-500 hidden"></p>
       </form>
-    </main>
+    </div>
+  </main>
 
-    <script>
-      document.querySelector(".login-form").addEventListener("submit", function (event) {
-        event.preventDefault();
-      });
-      document.querySelector(".login-forgot").addEventListener("click", function (event) {
-        event.preventDefault();
-      });
-    </script>
-    <script src="main.js"></script>
-  </body>
+  <footer class="text-center py-8 text-xs text-gray-400">
+    © 2026 · THE BIOCODE EDITIONS
+  </footer>
+
+  <script>
+    // REPLACE THESE TWO LINES WITH YOUR VALUES
+    const SUPABASE_URL = 'YOUR_PROJECT_URL_HERE';
+    const SUPABASE_KEY = 'YOUR_PUBLISHABLE_KEY_HERE';
+
+    const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+    document.getElementById('loginForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      const msg = document.getElementById('message');
+
+      const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+
+      if (error) {
+        msg.textContent = error.message;
+        msg.classList.remove('hidden');
+      } else {
+        window.location.href = 'co-build.html';
+      }
+    });
+  </script>
+</body>
 </html>
