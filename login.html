@@ -31,17 +31,20 @@
           <input id="password" type="password" required class="w-full bg-white border border-gray-200 rounded-xl px-4 py-4">
         </div>
         <button type="submit" class="w-full bg-[#111] text-white py-4 rounded-full font-medium">LOG IN</button>
-        <p id="message" class="text-center text-sm text-red-500 mt-4"></p>
+        <p id="message" class="text-center text-sm mt-4"></p>
       </form>
     </div>
   </main>
 
-  <script>
-    const SUPABASE_URL = 'https://udviizqhxyhozdgtqhgn.supabase.co';
-    const SUPABASE_KEY = 'sb_publishable_fUJTUxhXmTv4I_Z5ZAYYoQ_s2Jsk4cS';
+  <footer class="text-center py-8 text-xs text-gray-400">
+    © 2026 · THE BIOCODE EDITIONS
+  </footer>
 
-    const { createClient } = supabase;
-    const supabaseClient = createClient(SUPABASE_URL, SUPABASE_KEY);
+  <script>
+    const SUPABASE_URL = 'YOUR_PROJECT_URL_HERE';
+    const SUPABASE_KEY = 'YOUR_PUBLISHABLE_KEY_HERE';
+
+    const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
     document.getElementById('loginForm').addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -49,17 +52,14 @@
       const password = document.getElementById('password').value;
       const msg = document.getElementById('message');
       msg.textContent = 'Logging in...';
+      msg.className = 'text-center text-sm mt-4 text-gray-500';
 
-      const { data, error } = await supabaseClient.auth.signInWithPassword({
-        email: email,
-        password: password
-      });
+      const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
 
       if (error) {
         msg.textContent = error.message;
-        msg.classList.add('text-red-500');
+        msg.className = 'text-center text-sm mt-4 text-red-500';
       } else {
-        msg.textContent = 'Success! Redirecting...';
         window.location.href = 'co-build.html';
       }
     });

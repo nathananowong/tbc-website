@@ -64,7 +64,6 @@
     <div id="scaneeList" class="space-y-3"></div>
   </main>
 
-  <!-- Add Modal -->
   <div id="modal" class="fixed inset-0 bg-black/40 hidden items-center justify-center z-50">
     <div class="bg-white rounded-2xl p-6 w-full max-w-sm mx-4">
       <h3 class="text-lg mb-4">Add Scanee</h3>
@@ -84,16 +83,14 @@
   </footer>
 
   <script>
-    // REPLACE THESE TWO LINES WITH YOUR VALUES
-    const SUPABASE_URL = 'https://udviizqhxyhozdgtqhgn.supabase.co';
-    const SUPABASE_KEY = 'sb_publishable_fUJTUxhXmTv4I_Z5ZAYYoQ_s2Jsk4cS';
+    const SUPABASE_URL = 'YOUR_PROJECT_URL_HERE';
+    const SUPABASE_KEY = 'YOUR_PUBLISHABLE_KEY_HERE';
 
-    const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-
+    const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
     let currentUser = null;
 
     async function init() {
-      const { data: { session } } = await supabase.auth.getSession();
+      const { data: { session } } = await supabaseClient.auth.getSession();
       if (!session) {
         window.location.href = 'login.html';
         return;
@@ -103,7 +100,7 @@
     }
 
     async function loadScanees() {
-      const { data, error } = await supabase
+      const { data, error } = await supabaseClient
         .from('Scanees')
         .select('*')
         .order('created_at', { ascending: false });
@@ -152,7 +149,7 @@
       const name = document.getElementById('nameInput').value.trim();
       if (!name) return;
 
-      const { error } = await supabase.from('Scanees').insert({
+      const { error } = await supabaseClient.from('Scanees').insert({
         user_id: currentUser.id,
         name: name,
         notes: document.getElementById('noteInput').value.trim(),
