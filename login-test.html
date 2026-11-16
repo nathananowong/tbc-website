@@ -7,7 +7,7 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <style>
     body { font-family: system-ui, sans-serif; max-width: 480px; margin: 40px auto; padding: 20px; }
-    input { width: 100%; padding: 12px; margin: 8px 0; border: 1px solid #ccc; border-radius: 8px; }
+    input { width: 100%; padding: 12px; margin: 8px 0; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box; }
     button { width: 100%; padding: 14px; background: #111; color: white; border: none; border-radius: 8px; margin-top: 10px; }
     #result { margin-top: 20px; padding: 16px; background: #f5f5f5; border-radius: 8px; white-space: pre-wrap; font-size: 14px; }
     .error { color: #c00; }
@@ -18,7 +18,7 @@
   <h2>Supabase Login Test</h2>
   <input id="email" type="email" placeholder="Email" value="nus.nathanwong@gmail.com">
   <input id="password" type="password" placeholder="Password" value="123456">
-  <button onclick="testLogin()">Test Login</button>
+  <button id="testBtn">Test Login</button>
   <div id="result">Ready. Click the button to test.</div>
 
   <script>
@@ -26,10 +26,9 @@
     const SUPABASE_URL = 'https://udviizqhxyhozdgtqhgn.supabase.co';
     const SUPABASE_KEY = 'sb_publishable_fUJTUxhXmTv4I_Z5ZAYYoQ_s2Jsk4cS';
 
-    const { createClient } = supabase;
-    const client = createClient(SUPABASE_URL, SUPABASE_KEY);
+    const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-    async function testLogin() {
+    document.getElementById('testBtn').addEventListener('click', async () => {
       const email = document.getElementById('email').value;
       const password = document.getElementById('password').value;
       const result = document.getElementById('result');
@@ -40,17 +39,17 @@
         const { data, error } = await client.auth.signInWithPassword({ email, password });
 
         if (error) {
-          result.textContent = 'ERROR:\n' + error.message + '\n\nFull error:\n' + JSON.stringify(error, null, 2);
+          result.textContent = 'ERROR:\n' + error.message + '\n\n' + JSON.stringify(error, null, 2);
           result.className = 'error';
         } else {
           result.textContent = 'SUCCESS!\n\nUser ID: ' + data.user.id + '\nEmail: ' + data.user.email;
           result.className = 'success';
         }
       } catch (err) {
-        result.textContent = 'EXCEPTION:\n' + err.message + '\n\n' + err.stack;
+        result.textContent = 'EXCEPTION:\n' + err.message;
         result.className = 'error';
       }
-    }
+    });
   </script>
 </body>
 </html>
