@@ -1,89 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>What’s On · The Biocode Editions</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body class="subpage">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>What’s On · The Biocode Editions</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
     <header class="site-header">
       <a class="logo" href="index.html"><img src="images/logo-horizontal.png" alt="The Biocode Editions"></a>
-      <button
-        class="menu-btn"
-        id="menu-btn"
-        type="button"
-        aria-label="Open menu"
-        aria-expanded="false"
-        aria-controls="nav-panel"
-      >
+      <button class="menu-btn" id="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-panel">
         <span></span>
         <span></span>
         <span></span>
       </button>
     </header>
 
-    <nav class="nav-panel" id="nav-panel" aria-hidden="true">
+    <nav class="nav-panel" id="nav-panel" aria-hidden="true" inert>
       <div class="nav-top">
         <a class="logo" href="index.html"><img src="images/logo-horizontal.png" alt="The Biocode Editions"></a>
         <button class="close-btn" id="close-btn" type="button" aria-label="Close menu">×</button>
       </div>
       <ul class="nav-links">
-        <li><a href="co-build.html">co-create</a></li>
-        <li><a href="longevity.html">longevity</a></li>
         <li><a href="events.html">what’s on</a></li>
+        <li><a id="nav-longevity" href="longevity.html">longevity</a></li>
+        <li><a id="nav-cocreate" href="co-create.html">co-create</a></li>
       </ul>
     </nav>
 
-  <main class="events-page">
-    <h1 class="page-title">What’s On</h1>
-    <ul class="event-grid">
-      <li class="event-card">
-        <img src="images/event-coffee-run.jpg" alt="Poster for the Bio-Scan Coffee Run at Club Ditto">
-        <h2 class="event-name">Bio-Scan<br>Coffee Run</h2>
-        <p class="event-price">Free</p>
-      </li>
-      <li class="event-card">
-        <img src="images/event-reformer.jpg" alt="Poster for the ended Bio-Scan Reformer Edition">
-        <h2 class="event-name">[Ended] Bio-Scan<br>Reformer Edition</h2>
-        <p class="event-price">$350</p>
-      </li>
-      <li class="event-card">
-        <img src="images/event-sunset-yoga.jpg" alt="Poster for Bio-Scan Sunset Yoga at Kwun Tong Promenade">
-        <h2 class="event-name">Bio-Scan<br>Sunset Yoga</h2>
-        <p class="event-price">Free</p>
-      </li>
-      <li class="event-card">
-        <a href="https://www.theground.io/events/NTU0" target="_blank" rel="noopener noreferrer">
-          <img src="images/event-bioscan-run.jpg" alt="Poster for the Bio-Scan Run at Club Ditto">
-        </a>
-        <h2 class="event-name">Bio-Scan<br>Run</h2>
-        <p class="event-price">Free</p>
-      </li>
-    </ul>
-    <nav class="event-pager" aria-label="Event pages">
-      <span>&lt; Previous page</span>
-      <span>Next page &gt;</span>
-    </nav>
-  </main>
+    <main>
+      <div class="events-intro">
+        <h1>what’s on</h1>
+        <p class="arrow">
+          <svg width="6" height="13" viewBox="0 0 6 13" aria-hidden="true">
+            <path d="M3 0.7v8.8M0.75 6.7 3 11.7 5.25 6.7" fill="none" stroke="currentColor" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </p>
+        <p class="kicker">connect + transform <svg class="inline-arrow" width="16" height="10" viewBox="0 0 16 10" aria-hidden="true"><path d="M0.6 5h12.6M9.4 1.2 14.4 5 9.4 8.8" fill="none" stroke="currentColor" stroke-width="1.15" stroke-linecap="round" stroke-linejoin="round"/></svg> live better</p>
+      </div>
 
-  <footer class="site-footer">
-    <div class="site-footer-inner">
-      <p class="footer-kicker">About The Biocode Editions</p>
-      <p class="footer-tagline">Where health and business leaders co-create a better world.</p>
-      <a class="footer-ig" href="https://www.instagram.com/thebiocode.hk" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+      <ul class="event-grid">
+        <li>
+          <a href="https://www.theground.io/events/NTg0" target="_blank" rel="noopener noreferrer">
+            <img src="images/event-fitness-fiesta.png" alt="The Fitness Fiesta for All">
+          </a>
+        </li>
+        <li>
+          <a href="https://www.theground.io/events/NjA2" target="_blank" rel="noopener noreferrer">
+            <img src="images/event-matcha.png" alt="Matcha Run Social">
+          </a>
+        </li>
+        <li>
+          <a href="https://www.theground.io/events/NTg3" target="_blank" rel="noopener noreferrer">
+            <img src="images/event-sunset-yoga.png" alt="sunset yoga">
+          </a>
+        </li>
+        <li>
+          <a href="https://www.theground.io/events/NTU0" target="_blank" rel="noopener noreferrer">
+            <img src="images/event-bioscan-run.png" alt="bio-scan run">
+          </a>
+        </li>
+      </ul>
+
+      <div class="event-pager">
+        <span>‹ previous page</span>
+        <span>next page ›</span>
+      </div>
+    </main>
+
+    <footer class="events-footer">
+      <div class="rule"></div>
+      <p>we unite health and business leaders through<br>co-creation to build a healthier world</p>
+      <a class="ig" href="https://www.instagram.com/thebiocode.hk" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
         <svg viewBox="0 0 24 24" aria-hidden="true">
-          <rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="1.5"/>
-          <circle cx="12" cy="12" r="3.6" fill="none" stroke="currentColor" stroke-width="1.5"/>
-          <circle cx="17.2" cy="6.8" r="0.9" fill="currentColor"/>
+          <rect x="3.15" y="3.15" width="17.7" height="17.7" rx="5" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="17.15" cy="6.85" r="0.95" fill="currentColor"/>
         </svg>
       </a>
-    </div>
-  </footer>
+    </footer>
 
-  <script src="main.js"></script>
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="main.js"></script>
+  </body>
 </html>

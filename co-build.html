@@ -1,175 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Co-Build · The Biocode Editions</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script>
-    tailwind.config = { theme: { extend: { fontFamily: { sans: ['Inter'] }, colors: { surface: '#F7F7F8', ink: '#1A1A1A', muted: '#6B6B6B' } } } }
-  </script>
-  <style>body { background: #F7F7F8; } .btn-black { background:#111; color:white; border-radius:9999px; }</style>
-</head>
-<body class="bg-surface text-ink font-sans">
-
-  <header class="bg-white border-b sticky top-0 z-50">
-    <div class="max-w-6xl mx-auto px-5 py-4 flex items-center justify-between">
-      <a href="index.html" class="text-xl font-medium">The Biocode Editions</a>
-      <nav class="hidden md:flex gap-8 text-sm">
-        <a href="co-build.html" class="font-medium">Co-Build</a>
-        <a href="longevity.html">Longevity</a>
-        <a href="events.html">What’s On</a>
-        <a href="login.html">Login</a>
-      </nav>
-      <button class="md:hidden text-2xl" onclick="document.getElementById('m').classList.toggle('hidden')">☰</button>
-    </div>
-    <div id="m" class="hidden md:hidden px-5 py-4 space-y-3 border-t">
-      <a href="co-build.html" class="block">Co-Build</a>
-      <a href="longevity.html" class="block">Longevity</a>
-      <a href="events.html" class="block">What’s On</a>
-      <a href="login.html" class="block">Login</a>
-    </div>
-  </header>
-
-  <main class="max-w-2xl mx-auto px-5 py-12">
-    <h1 class="text-3xl font-light mb-10">The Foundation</h1>
-
-    <div class="mb-10">
-      <div class="flex justify-between mb-2">
-        <span>Customers</span>
-        <span id="custCount">0 / 30</span>
-      </div>
-      <div class="h-1.5 bg-gray-100 rounded-full overflow-hidden">
-        <div id="custBar" class="h-full bg-black transition-all" style="width:0%"></div>
-      </div>
-    </div>
-
-    <div class="mb-14">
-      <div class="flex justify-between mb-2">
-        <span>Partners</span>
-        <span id="partCount">0 / 6</span>
-      </div>
-      <div class="h-1.5 bg-gray-100 rounded-full overflow-hidden">
-        <div id="partBar" class="h-full bg-black transition-all" style="width:0%"></div>
-      </div>
-    </div>
-
-    <div class="flex items-center justify-between mb-6">
-      <h2 class="text-xl">My Scanees</h2>
-      <button onclick="openAdd()" class="btn-black px-4 py-2 text-sm">+ Add</button>
-    </div>
-
-    <div id="scaneeList" class="space-y-3"></div>
-  </main>
-
-  <div id="modal" class="fixed inset-0 bg-black/40 hidden items-center justify-center z-50">
-    <div class="bg-white rounded-2xl p-6 w-full max-w-sm mx-4">
-      <h3 class="text-lg mb-4">Add Scanee</h3>
-      <input id="nameInput" type="text" placeholder="Name" class="w-full border rounded-lg px-4 py-3 mb-3">
-      <input id="noteInput" type="text" placeholder="Note (optional)" class="w-full border rounded-lg px-4 py-3 mb-3">
-      <input id="whatsappInput" type="text" placeholder="WhatsApp (optional)" class="w-full border rounded-lg px-4 py-3 mb-3">
-      <input id="instagramInput" type="text" placeholder="Instagram (optional)" class="w-full border rounded-lg px-4 py-3 mb-4">
-      <div class="flex gap-3">
-        <button onclick="saveScanee()" class="flex-1 btn-black py-3">Save</button>
-        <button onclick="closeAdd()" class="flex-1 border py-3 rounded-full">Cancel</button>
-      </div>
-    </div>
-  </div>
-
-  <footer class="bg-white border-t py-16 mt-20 text-center">
-    <p class="text-xs tracking-widest text-muted">© 2026 · THE BIOCODE EDITIONS</p>
-  </footer>
-
-  <script>
-    const SUPABASE_URL = 'https://udviizqhxyhozdgtqhgn.supabase.co';
-    const SUPABASE_KEY = 'sb_publishable_fUJTUxhXmTv4I_Z5ZAYYoQ_s2Jsk4cS';
-
-    const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-    let currentUser = null;
-
-    async function init() {
-      const { data: { session } } = await supabaseClient.auth.getSession();
-      if (!session) {
-        window.location.href = 'login.html';
-        return;
-      }
-      currentUser = session.user;
-      loadScanees();
-    }
-
-    async function loadScanees() {
-      const { data, error } = await supabaseClient
-        .from('Scanees')
-        .select('*')
-        .order('created_at', { ascending: false });
-
-      if (error) {
-        console.error(error);
-        return;
-      }
-      render(data || []);
-    }
-
-    function render(scanees) {
-      const list = document.getElementById('scaneeList');
-      list.innerHTML = '';
-      document.getElementById('custCount').textContent = `${scanees.length} / 30`;
-      document.getElementById('custBar').style.width = `${Math.min(scanees.length / 30 * 100, 100)}%`;
-
-      scanees.forEach(s => {
-        const div = document.createElement('div');
-        div.className = 'flex items-center justify-between bg-white rounded-xl px-4 py-3 border';
-        div.innerHTML = `
-          <div>
-            <span class="font-medium">${s.name || ''}</span>
-            ${s.notes ? `<p class="text-sm text-gray-500">${s.notes}</p>` : ''}
-          </div>
-          <div class="flex gap-3">
-            ${s.whatsapp ? `<a href="https://wa.me/${s.whatsapp}" target="_blank">💬</a>` : ''}
-            ${s.instagram ? `<a href="https://instagram.com/${s.instagram}" target="_blank">📷</a>` : ''}
-          </div>
-        `;
-        list.appendChild(div);
-      });
-    }
-
-    function openAdd() {
-      document.getElementById('modal').classList.remove('hidden');
-      document.getElementById('modal').classList.add('flex');
-    }
-
-    function closeAdd() {
-      document.getElementById('modal').classList.add('hidden');
-      document.getElementById('modal').classList.remove('flex');
-    }
-
-    async function saveScanee() {
-      const name = document.getElementById('nameInput').value.trim();
-      if (!name) return;
-
-      const { error } = await supabaseClient.from('Scanees').insert({
-        user_id: currentUser.id,
-        name: name,
-        notes: document.getElementById('noteInput').value.trim(),
-        Whatsapp: document.getElementById('whatsappInput').value.trim(),
-        Instagram: document.getElementById('instagramInput').value.trim()
-      });
-
-      if (error) {
-        alert('Error saving: ' + error.message);
-      } else {
-        closeAdd();
-        document.getElementById('nameInput').value = '';
-        document.getElementById('noteInput').value = '';
-        document.getElementById('whatsappInput').value = '';
-        document.getElementById('instagramInput').value = '';
-        loadScanees();
-      }
-    }
-
-    init();
-  </script>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Co-create · The Biocode Editions</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  </head>
+  <body>
+    <script>
+      (function () {
+        var SUPABASE_URL = "https://udviizqhxyhozdgtqhgn.supabase.co";
+        var SUPABASE_KEY = "sb_publishable_fUJTUxhXmTv4I_Z5ZAYYoQ_s2Jsk4cS";
+        if (!window.supabase || typeof window.supabase.createClient !== "function") {
+          window.location.replace("co-create.html");
+          return;
+        }
+        var client = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+        client.auth.getSession().then(function (result) {
+          var session = result && result.data && result.data.session;
+          window.location.replace(session ? "co-create-member.html" : "co-create.html");
+        }).catch(function () {
+          window.location.replace("co-create.html");
+        });
+      })();
+    </script>
+    <noscript><p><a href="co-create.html">Continue</a></p></noscript>
+  </body>
 </html>
