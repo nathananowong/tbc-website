@@ -2076,16 +2076,16 @@ body.longevity-member .stage {
 }
 
 body.longevity-member .member-products {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
   margin-top: 68px;
+  gap: 53px;
 }
 
 body.longevity-member .member-products figure {
   margin: 0;
-}
-
-body.longevity-member .member-products > * + * {
-  margin-top: 53px;
 }
 
 body.longevity-member .member-products .product-link {
