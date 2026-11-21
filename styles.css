@@ -2053,3 +2053,61 @@ body.prysm-body .events-footer {
   margin-right: auto;
 }
 
+/* Logged-in longevity page. Scoped so the preview stage stays centered. */
+
+body.longevity-member .stage {
+  min-height: 0;
+  justify-content: flex-start;
+  padding: 55px 16px 0;
+}
+
+body.longevity-member .member-products {
+  width: 100%;
+  margin-top: 68px;
+}
+
+body.longevity-member .member-products figure {
+  margin: 0;
+}
+
+body.longevity-member .member-products figure + figure {
+  margin-top: 53px;
+}
+
+body.longevity-member .member-products img {
+  display: block;
+  height: auto;
+  margin: 0 auto;
+}
+
+body.longevity-member .member-products .track-shot {
+  width: 46px;
+}
+
+body.longevity-member .member-products .protect-shot {
+  width: 82px;
+}
+
+body.longevity-member .member-products .repair-shot {
+  width: 52px;
+}
+
+body.longevity-member .member-products figcaption {
+  margin-top: 18px;
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.2;
+  letter-spacing: 0;
+}
+
+body.longevity-member .member-products .verb {
+  font-weight: 700;
+  font-style: italic;
+}
+
+body.longevity-member .events-footer {
+  margin-top: 74px;
+}
+

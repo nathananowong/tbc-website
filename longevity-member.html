@@ -6,7 +6,7 @@
     <title>Longevity · The Biocode Editions</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
+  <body class="longevity-member">
     <header class="site-header">
       <a class="logo" href="index.html"><img src="images/logo-horizontal.png" alt="The Biocode Editions"></a>
       <button class="menu-btn" id="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-panel">
@@ -32,9 +32,73 @@
       <h1>longevity</h1>
       <p class="eq">=</p>
       <p class="lede">nutrition&nbsp;&nbsp;+&nbsp;&nbsp;lifestyle&nbsp;&nbsp;+&nbsp;&nbsp;community&nbsp;&nbsp;+&nbsp;&nbsp;purpose</p>
-      <p class="soon">coming soon</p>
+
+      <div class="member-products">
+        <figure>
+          <img class="track-shot" src="images/track-prysm-io.png" width="736" height="1023" alt="Prysm iO scanner in front of a phone showing a score of 410, You Scored in the Green">
+          <figcaption><span class="verb">track</span>&nbsp;&nbsp;<svg class="inline-arrow" width="16" height="10" viewBox="0 0 16 10" aria-hidden="true"><path d="M0.6 5h12.6M9.4 1.2 14.4 5 9.4 8.8" fill="none" stroke="currentColor" stroke-width="1.15" stroke-linecap="round" stroke-linejoin="round"/></svg>&nbsp;&nbsp;Prysm iO™</figcaption>
+        </figure>
+        <figure>
+          <img class="protect-shot" src="images/protect-lifepak.png" width="1306" height="661" alt="Pharmanex LifePak box beside a Prysm iO scanner">
+          <figcaption><span class="verb">protect</span>&nbsp;&nbsp;<svg class="inline-arrow" width="16" height="10" viewBox="0 0 16 10" aria-hidden="true"><path d="M0.6 5h12.6M9.4 1.2 14.4 5 9.4 8.8" fill="none" stroke="currentColor" stroke-width="1.15" stroke-linecap="round" stroke-linejoin="round"/></svg>&nbsp;&nbsp;LifePak®</figcaption>
+        </figure>
+        <figure>
+          <img class="repair-shot" src="images/repair-ageloc-youthspan.png" width="829" height="1109" alt="ageLOC Youth bottle with a Prysm iO scanner and dark softgels">
+          <figcaption><span class="verb">repair</span>&nbsp;&nbsp;<svg class="inline-arrow" width="16" height="10" viewBox="0 0 16 10" aria-hidden="true"><path d="M0.6 5h12.6M9.4 1.2 14.4 5 9.4 8.8" fill="none" stroke="currentColor" stroke-width="1.15" stroke-linecap="round" stroke-linejoin="round"/></svg>&nbsp;&nbsp;ageLOC® Youthspan®</figcaption>
+        </figure>
+      </div>
     </main>
 
+    <footer class="events-footer">
+      <div class="rule"></div>
+      <p class="tagline">Where health and business leaders co-create<br>a better world.</p>
+      <a class="ig" href="https://www.instagram.com/thebiocode.hk" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="3.15" y="3.15" width="17.7" height="17.7" rx="5" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="17.15" cy="6.85" r="0.95" fill="currentColor"/>
+        </svg>
+      </a>
+      <p class="copyright">Copyright © 2027 The Biocode Editions</p>
+    </footer>
+
+    <script>
+      (function () {
+        var link = document.querySelector("footer.events-footer a.ig");
+        if (!link) return;
+
+        var appUrl = "instagram://user?username=thebiocode.hk";
+        var webUrl = "https://www.instagram.com/thebiocode.hk";
+
+        function prefersApp() {
+          var ua = navigator.userAgent || "";
+          if (/Android|iPhone|iPad|iPod/i.test(ua)) return true;
+          return navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1;
+        }
+
+        link.addEventListener("click", function (event) {
+          if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+          if (!prefersApp()) return;
+
+          event.preventDefault();
+
+          var openedAt = Date.now();
+          var timer = window.setTimeout(function () {
+            if (document.hidden || document.visibilityState === "hidden") return;
+            if (Date.now() - openedAt > 2000) return;
+            window.location.href = webUrl;
+          }, 800);
+
+          document.addEventListener("visibilitychange", function onHide() {
+            if (!document.hidden) return;
+            window.clearTimeout(timer);
+            document.removeEventListener("visibilitychange", onHide);
+          });
+
+          window.location.href = appUrl;
+        });
+      })();
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="main.js"></script>
   </body>
