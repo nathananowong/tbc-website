@@ -1,26 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Prysm iO · The Biocode Editions</title>
-  <meta name="description" content="Your Daily Nutrition Tracker—Measuring a Validated Biomarker of Healthy Aging.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body class="subpage">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prysm iO · The Biocode Editions</title>
+    <meta name="description" content="Nutrition data from a fingertip to biological aging insights.">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="prysm-body">
     <header class="site-header">
       <a class="logo" href="index.html"><img src="images/logo-horizontal.png" alt="The Biocode Editions"></a>
-      <button
-        class="menu-btn"
-        id="menu-btn"
-        type="button"
-        aria-label="Open menu"
-        aria-expanded="false"
-        aria-controls="nav-panel"
-      >
+      <button class="menu-btn" id="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-panel">
         <span></span>
         <span></span>
         <span></span>
@@ -39,168 +29,206 @@
       </ul>
     </nav>
 
-  <main class="prysm-page">
-    <div class="prysm-hero">
-      <h1>Prysm iO<span class="prysm-tm">™</span></h1>
-      <p class="prysm-tagline">Your Daily Nutrition Tracker—Measuring Carotenoids, a Biomarker of Healthy Aging.</p>
-      <img class="prysm-device" src="images/prysm-io.png" alt="Prysm iO device" width="109" height="109">
-    </div>
+    <main class="prysm-page">
+      <div class="prysm-hero">
+        <h1>Prysm iO<span class="prysm-tm">™</span></h1>
+        <p class="prysm-tagline">Nutrition data from a fingertip <svg class="prysm-arrow" width="16" height="10" viewBox="0 0 16 10" aria-hidden="true"><path d="M0.6 5h12.6M9.4 1.2 14.4 5 9.4 8.8" fill="none" stroke="currentColor" stroke-width="1.15" stroke-linecap="round" stroke-linejoin="round"/></svg><br>biological aging insights</p>
+        <img class="prysm-device" src="images/prysm-io.png" alt="Prysm iO device" width="150" height="150">
+      </div>
 
-    <section class="prysm-block prysm-block-cta">
-      <h2>At a Glance</h2>
-      <div class="prysm-acc">
-        <details class="prysm-acc-item">
+      <section class="prysm-block prysm-love">
+        <h2>Why You'll Love It</h2>
+        <ul class="prysm-bullets">
+          <li>Track your carotenoids level without blood test.</li>
+          <li>Carotenoid intake is correlated to healthy aging.</li>
+          <li>Stanford Medicine research shows a higher Prysm score trended with a younger, slower-aging, less-inflammatory epigenetic profile.</li>
+        </ul>
+        <details class="prysm-acc">
           <summary>
             <span class="prysm-acc-row">
-              <span class="prysm-q">Why You'll Love It<span class="prysm-tm">™</span></span>
+              <span class="prysm-q">Scientific Validation</span>
               <span class="prysm-icon" aria-hidden="true"></span>
             </span>
           </summary>
           <div class="prysm-panel">
-            <ul>
-              <li>Track your carotenoids level without blood test.</li>
-              <li>High carotenoid intake is correlated to healthy aging.</li>
-              <li>Stanford Medicine research shows high Prysm scorers have a younger biological age.</li>
+            <img class="prysm-photo" src="images/prysm-scientific-validation.jpg" alt="Research papers on optical carotenoid measurement and biological aging" width="1600" height="900">
+            <ul class="prysm-sources">
+              <li>
+                <a href="docs/yale-optical-technology-carotenoids.pdf">
+                  <span class="prysm-dl-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                      <circle cx="12" cy="12" r="10.35" fill="none" stroke="currentColor" stroke-width="1.15"/>
+                      <path d="M7.65 13.15a1.9 1.9 0 0 1 .2-3.75 2.5 2.5 0 0 1 4.8-.8 1.7 1.7 0 0 1 1.5 2.05c.62.12 1.1.7 1.1 1.35 0 .8-.65 1.45-1.45 1.45H7.85" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M12 12.55v3.55M10.4 14.7 12 16.3l1.6-1.6" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                  <span class="prysm-dl-text">
+                    <span class="prysm-dl-title">Optical technology &amp; carotenoids</span>
+                    <span class="prysm-dl-meta">Yale University | Prof. Susan T. Mayne</span>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="docs/stanford-prysm-score-biological-aging.pdf">
+                  <span class="prysm-dl-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                      <circle cx="12" cy="12" r="10.35" fill="none" stroke="currentColor" stroke-width="1.15"/>
+                      <path d="M7.65 13.15a1.9 1.9 0 0 1 .2-3.75 2.5 2.5 0 0 1 4.8-.8 1.7 1.7 0 0 1 1.5 2.05c.62.12 1.1.7 1.1 1.35 0 .8-.65 1.45-1.45 1.45H7.85" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M12 12.55v3.55M10.4 14.7 12 16.3l1.6-1.6" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                  <span class="prysm-dl-text">
+                    <span class="prysm-dl-title">Prysm Score &amp; biological aging</span>
+                    <span class="prysm-dl-meta">Stanford Medicine | Prof. Anne Chang</span>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="docs/dsc-prysm-score-blood-serum-carotenoid.pdf">
+                  <span class="prysm-dl-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                      <circle cx="12" cy="12" r="10.35" fill="none" stroke="currentColor" stroke-width="1.15"/>
+                      <path d="M7.65 13.15a1.9 1.9 0 0 1 .2-3.75 2.5 2.5 0 0 1 4.8-.8 1.7 1.7 0 0 1 1.5 2.05c.62.12 1.1.7 1.1 1.35 0 .8-.65 1.45-1.45 1.45H7.85" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M12 12.55v3.55M10.4 14.7 12 16.3l1.6-1.6" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                  <span class="prysm-dl-text">
+                    <span class="prysm-dl-title">Prysm Score &amp; blood serum carotenoid</span>
+                    <span class="prysm-dl-meta">DSC | Dr. Zoe Draelos</span>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="docs/jiaotong-prysm-score-lifestyle.pdf">
+                  <span class="prysm-dl-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                      <circle cx="12" cy="12" r="10.35" fill="none" stroke="currentColor" stroke-width="1.15"/>
+                      <path d="M7.65 13.15a1.9 1.9 0 0 1 .2-3.75 2.5 2.5 0 0 1 4.8-.8 1.7 1.7 0 0 1 1.5 2.05c.62.12 1.1.7 1.1 1.35 0 .8-.65 1.45-1.45 1.45H7.85" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M12 12.55v3.55M10.4 14.7 12 16.3l1.6-1.6" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                  <span class="prysm-dl-text">
+                    <span class="prysm-dl-title">Prysm Score &amp; lifestyle correlation</span>
+                    <span class="prysm-dl-meta">Jiao Tong University | Prof. Meiqin Cai</span>
+                  </span>
+                </a>
+              </li>
             </ul>
           </div>
         </details>
-        <details class="prysm-acc-item">
-          <summary>
-            <span class="prysm-acc-row">
-              <span class="prysm-q">Who Is Prysm iO<span class="prysm-tm">™</span> Designed For</span>
-              <span class="prysm-icon" aria-hidden="true"></span>
-            </span>
-          </summary>
-          <div class="prysm-panel">
-            <ul>
-              <li><strong>The Supplement Skeptic:</strong> Verify that your daily diet and supplements are actually absorbing into your tissues.</li>
-              <li><strong>The Busy Executive:</strong> Get a 15-second, non-invasive snapshot of your cellular defense without blood draws or lab delays.</li>
-              <li><strong>The Everyday Athlete:</strong> Measure how training, sleep, and nutrition impact your oxidative recovery over time.</li>
-              <li><strong>The Longevity Seeker:</strong> Track a validated biomarker of healthy aging and build a data-driven routine that lasts.</li>
-              <li><strong>The Health &amp; Fitness Leader:</strong> Equip your clinic or studio with an instant, visual diagnostic tool that drives client retention.</li>
-            </ul>
-          </div>
-        </details>
-        <details class="prysm-acc-item">
-          <summary>
-            <span class="prysm-acc-row">
-              <span class="prysm-q">How Much To Invest</span>
-              <span class="prysm-icon" aria-hidden="true"></span>
-            </span>
-          </summary>
-          <div class="prysm-panel">
-            <ul>
-              <li><strong>HK$2,500 per device</strong></li>
-              <li>One-time hardware investment with zero ongoing software fees. Equip your clinic, studio, or personal routine with instant bio-diagnostics—ready to deliver actionable cellular scores from day one.</li>
-            </ul>
-          </div>
-        </details>
-      </div>
-      <p class="prysm-cta"><a class="prysm-order" href="#">Order Now</a></p>
-    </section>
+      </section>
 
-    <section class="prysm-block">
-      <h2>Scientific Validation</h2>
-      <div class="prysm-acc">
-        <details class="prysm-acc-item">
-          <summary>
-            <span class="prysm-acc-row">
-              <span class="prysm-q">Optical Technology</span>
-              <span class="prysm-icon" aria-hidden="true"></span>
-            </span>
-          </summary>
-          <div class="prysm-panel"></div>
-        </details>
-        <details class="prysm-acc-item">
-          <summary>
-            <span class="prysm-acc-row">
-              <span class="prysm-q">Prysm Score &amp; Biological Aging</span>
-              <span class="prysm-icon" aria-hidden="true"></span>
-            </span>
-          </summary>
-          <div class="prysm-panel"></div>
-        </details>
-        <details class="prysm-acc-item">
-          <summary>
-            <span class="prysm-acc-row">
-              <span class="prysm-q">Correlation with Blood Serum Tests</span>
-              <span class="prysm-icon" aria-hidden="true"></span>
-            </span>
-          </summary>
-          <div class="prysm-panel"></div>
-        </details>
-      </div>
-    </section>
+      <p class="prysm-cta"><a class="prysm-order" href="#">order now</a></p>
 
-    <section class="prysm-block prysm-block-cta">
-      <h2>Frequent Questions</h2>
-      <div class="prysm-acc">
-        <details class="prysm-acc-item">
-          <summary>
-            <span class="prysm-acc-row">
-              <span class="prysm-q">What Are Carotenoids?</span>
-              <span class="prysm-icon" aria-hidden="true"></span>
-            </span>
-          </summary>
-          <div class="prysm-panel"></div>
-        </details>
-        <details class="prysm-acc-item">
-          <summary>
-            <span class="prysm-acc-row">
-              <span class="prysm-q">How Does Optical Technology Work?</span>
-              <span class="prysm-icon" aria-hidden="true"></span>
-            </span>
-          </summary>
-          <div class="prysm-panel"></div>
-        </details>
-        <details class="prysm-acc-item">
-          <summary>
-            <span class="prysm-acc-row">
-              <span class="prysm-q">How Can I Improve My Prysm Score?</span>
-              <span class="prysm-icon" aria-hidden="true"></span>
-            </span>
-          </summary>
-          <div class="prysm-panel"></div>
-        </details>
-      </div>
-      <p class="prysm-cta"><a class="prysm-order" href="#">Order Now</a></p>
-    </section>
-  </main>
+      <section class="prysm-block prysm-faq">
+        <h2>Frequent Questions</h2>
+        <div class="prysm-acc-group">
+          <details class="prysm-acc">
+            <summary>
+              <span class="prysm-acc-row">
+                <span class="prysm-q">What are carotenoids</span>
+                <span class="prysm-icon" aria-hidden="true"></span>
+              </span>
+            </summary>
+            <div class="prysm-panel">
+              <img class="prysm-photo" src="images/prysm-carotenoids.jpg" alt="Colorful produce arranged around a Prysm iO device" width="1600" height="900">
+              <ul class="prysm-bullets">
+                <li>A family of 600+ nutrients that give plants their red, orange, yellow, and dark green colors and help protect them from environmental stress.</li>
+                <li>The most researched types include lycopene, lutein, zeaxanthin, beta-carotene, and astaxanthin.</li>
+                <li>Linked to benefits for immune function, eye, heart, and skin health, and may help reduce certain cancer risks.</li>
+              </ul>
+            </div>
+          </details>
+          <details class="prysm-acc">
+            <summary>
+              <span class="prysm-acc-row">
+                <span class="prysm-q">What is biological aging clock</span>
+                <span class="prysm-icon" aria-hidden="true"></span>
+              </span>
+            </summary>
+          </details>
+          <details class="prysm-acc">
+            <summary>
+              <span class="prysm-acc-row">
+                <span class="prysm-q">How to improve my Prysm Score</span>
+                <span class="prysm-icon" aria-hidden="true"></span>
+              </span>
+            </summary>
+          </details>
+        </div>
+      </section>
 
-  <footer class="site-footer prysm-footer">
-    <div class="site-footer-inner">
-      <div class="prysm-footer-head">
-        <p class="footer-kicker">About The Biocode Editions</p>
-        <a class="footer-ig" href="https://www.instagram.com/thebiocode.hk" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="1.5"/>
-            <circle cx="12" cy="12" r="3.6" fill="none" stroke="currentColor" stroke-width="1.5"/>
-            <circle cx="17.2" cy="6.8" r="0.9" fill="currentColor"/>
-          </svg>
-        </a>
-      </div>
-      <p class="footer-tagline">We unite health leaders and communities<br>through co-creation to build a healthier world.</p>
-    </div>
-  </footer>
+      <p class="prysm-cta"><a class="prysm-order" href="#">order now</a></p>
+    </main>
 
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="main.js"></script>
-  <script>
-    document.querySelectorAll(".prysm-acc-item").forEach(function (item) {
-      var summary = item.querySelector("summary");
-      function sync() {
-        summary.setAttribute("aria-expanded", item.open ? "true" : "false");
-      }
-      sync();
-      item.addEventListener("toggle", function () {
-        requestAnimationFrame(sync);
+    <footer class="events-footer">
+      <div class="rule"></div>
+      <p class="tagline">Where health and business leaders <br>co-create a better world.</p>
+      <a class="ig" href="https://www.instagram.com/thebiocode.hk" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="3.15" y="3.15" width="17.7" height="17.7" rx="5" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="17.15" cy="6.85" r="0.95" fill="currentColor"/>
+        </svg>
+      </a>
+      <p class="copyright">Copyright © 2027 The Biocode Editions</p>
+    </footer>
+
+    <script>
+      (function () {
+        var link = document.querySelector("footer.events-footer a.ig");
+        if (!link) return;
+
+        var appUrl = "instagram://user?username=thebiocode.hk";
+        var webUrl = "https://www.instagram.com/thebiocode.hk";
+
+        function prefersApp() {
+          var ua = navigator.userAgent || "";
+          if (/Android|iPhone|iPad|iPod/i.test(ua)) return true;
+          return navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1;
+        }
+
+        link.addEventListener("click", function (event) {
+          if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+          if (!prefersApp()) return;
+
+          event.preventDefault();
+
+          var openedAt = Date.now();
+          var timer = window.setTimeout(function () {
+            if (document.hidden || document.visibilityState === "hidden") return;
+            if (Date.now() - openedAt > 2000) return;
+            window.location.href = webUrl;
+          }, 800);
+
+          document.addEventListener("visibilitychange", function onHide() {
+            if (!document.hidden) return;
+            window.clearTimeout(timer);
+            document.removeEventListener("visibilitychange", onHide);
+          });
+
+          window.location.href = appUrl;
+        });
+      })();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="main.js"></script>
+    <script>
+      document.querySelectorAll(".prysm-acc").forEach(function (item) {
+        var summary = item.querySelector("summary");
+        function sync() {
+          summary.setAttribute("aria-expanded", item.open ? "true" : "false");
+        }
+        sync();
+        item.addEventListener("toggle", function () {
+          requestAnimationFrame(sync);
+        });
       });
-    });
-    document.querySelectorAll(".prysm-order").forEach(function (link) {
-      link.addEventListener("click", function (event) {
-        if (link.getAttribute("href") === "#") event.preventDefault();
+      document.querySelectorAll(".prysm-order").forEach(function (link) {
+        link.addEventListener("click", function (event) {
+          if (link.getAttribute("href") === "#") event.preventDefault();
+        });
       });
-    });
-  </script>
-</body>
+    </script>
+  </body>
 </html>

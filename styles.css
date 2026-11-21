@@ -1738,96 +1738,123 @@ body.join .join-switch a:focus-visible {
   outline-offset: 3px;
 }
 
-/* Prysm iO landing page. Scoped so other subpages keep their layout. */
+/* Prysm iO. Scoped so other pages keep their layout. */
 
-body.subpage .prysm-page {
-  max-width: 439px;
+.prysm-page {
+  max-width: 440px;
   margin: 0 auto;
-  padding: 0 0 96px;
-  background: #ffffff;
-  color: #111111;
+  padding: 54px 0 4px;
+  color: var(--ink);
 }
 
-body.subpage .prysm-page .prysm-hero {
-  padding: 69px 16px 0;
+.prysm-hero {
+  padding: 0 32px;
   text-align: center;
 }
 
-body.subpage .prysm-page h1 {
+.prysm-hero h1 {
   margin: 0;
-  font-family: "DM Sans", sans-serif;
-  font-size: 23px;
-  font-weight: 500;
-  letter-spacing: -0.012em;
-  line-height: 1.15;
-  text-align: center;
-  color: #313131;
+  font-size: 22px;
+  font-weight: 700;
+  font-style: italic;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  color: var(--ink);
 }
 
-body.subpage .prysm-page .prysm-tm {
-  font-size: 0.55em;
-  font-weight: 500;
+.prysm-tm {
+  font-size: 0.52em;
+  font-weight: 700;
+  font-style: italic;
   letter-spacing: 0;
   line-height: 0;
   position: relative;
   top: -0.78em;
-  margin-left: 0.06em;
+  margin-left: 0.05em;
 }
 
-body.subpage .prysm-page .prysm-tagline {
-  margin: 10px auto 0;
-  max-width: 307px;
-  font-family: "DM Sans", sans-serif;
-  font-size: 16px;
+.prysm-tagline {
+  margin: 22px auto 0;
+  max-width: 20em;
+  font-size: 14px;
   font-weight: 400;
+  font-style: normal;
   letter-spacing: 0;
   line-height: 19px;
-  text-align: center;
-  color: #333333;
+  color: var(--ink);
 }
 
-body.subpage .prysm-page .prysm-device {
+.prysm-arrow {
+  display: inline-block;
+  width: 15px;
+  height: 9px;
+  margin: 0 0.08em 0 0.22em;
+  vertical-align: 0;
+}
+
+.prysm-device {
   display: block;
-  width: 109px;
-  height: 109px;
-  margin: 29px auto 0;
-  border: 0;
-  object-fit: contain;
+  width: 98px;
+  height: auto;
+  margin: 34px auto 0;
 }
 
-body.subpage .prysm-page .prysm-block {
-  margin-top: 42px;
+.prysm-block {
+  margin: 32px 36px 0;
 }
 
-body.subpage .prysm-page .prysm-hero + .prysm-block {
-  margin-top: 34px;
-}
-
-body.subpage .prysm-page .prysm-block-cta + .prysm-block {
-  margin-top: 58px;
-}
-
-body.subpage .prysm-page h2 {
-  margin: 0;
-  font-family: "DM Sans", sans-serif;
-  font-size: 19px;
-  font-weight: 500;
-  letter-spacing: -0.011em;
+.prysm-block h2 {
+  margin: 0 0 20px;
+  font-size: 17px;
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: -0.015em;
   line-height: 1.2;
   text-align: center;
-  color: #313131;
+  color: var(--ink);
 }
 
-body.subpage .prysm-page .prysm-acc {
-  margin: 22px 43px 0;
-  border-bottom: 1px solid #111111;
+.prysm-faq {
+  margin-top: 56px;
 }
 
-body.subpage .prysm-page .prysm-acc-item {
-  border-top: 1px solid #111111;
+.prysm-bullets {
+  margin: 0;
+  padding: 22px 0 20px 14px;
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  list-style: disc;
+  font-size: 12.5px;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: -0.015em;
+  line-height: 16.5px;
+  color: #3c3b39;
 }
 
-body.subpage .prysm-page .prysm-acc-item summary {
+.prysm-bullets li + li {
+  margin-top: 20px;
+}
+
+.prysm-bullets li::marker {
+  color: #3c3b39;
+}
+
+.prysm-panel .prysm-bullets {
+  border: 0;
+  margin-top: 16px;
+  padding: 0 2px 2px 20px;
+}
+
+.prysm-acc {
+  border-bottom: 1px solid var(--ink);
+}
+
+.prysm-acc-group {
+  border-top: 1px solid var(--ink);
+}
+
+.prysm-acc summary {
   display: block;
   margin: 0;
   padding: 0;
@@ -1836,71 +1863,57 @@ body.subpage .prysm-page .prysm-acc-item summary {
   -webkit-tap-highlight-color: transparent;
 }
 
-body.subpage .prysm-page .prysm-acc-item summary::-webkit-details-marker {
+.prysm-acc summary::-webkit-details-marker {
   display: none;
 }
 
-body.subpage .prysm-page .prysm-acc-item summary::marker {
+.prysm-acc summary::marker {
   content: "";
 }
 
-body.subpage .prysm-page .prysm-acc-item summary:focus {
+.prysm-acc summary:focus {
   outline: none;
 }
 
-body.subpage .prysm-page .prysm-acc-item summary:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: -2px;
+.prysm-acc summary:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
 }
 
-body.subpage .prysm-page .prysm-acc-row {
+.prysm-acc-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
-  box-sizing: border-box;
-  min-height: 49px;
-  padding: 12px 24px 12px 16px;
+  gap: 16px;
+  min-height: 64px;
+  padding: 12px 0 12px 2px;
 }
 
-@media (max-width: 420px) {
-  body.subpage .prysm-page .prysm-acc {
-    margin-left: 28px;
-    margin-right: 28px;
-  }
-
-  body.subpage .prysm-page .prysm-acc-row {
-    gap: 10px;
-    padding-left: 12px;
-    padding-right: 12px;
-  }
-}
-
-body.subpage .prysm-page .prysm-q {
+.prysm-q {
   flex: 1 1 auto;
   min-width: 0;
-  font-family: "DM Sans", sans-serif;
-  font-size: 16px;
-  font-weight: 500;
+  font-size: 15px;
+  font-weight: 400;
+  font-style: normal;
   letter-spacing: 0;
   line-height: 1.25;
   text-align: left;
-  color: #111111;
+  color: var(--ink);
 }
 
-body.subpage .prysm-page .prysm-icon {
+.prysm-icon {
   position: relative;
   flex: none;
   box-sizing: border-box;
   width: 16px;
   height: 16px;
-  border: 1.1px solid #111111;
+  border: 1.15px solid var(--ink);
   border-radius: 50%;
-  color: #111111;
+  color: var(--ink);
 }
 
-body.subpage .prysm-page .prysm-icon::before,
-body.subpage .prysm-page .prysm-icon::after {
+.prysm-icon::before,
+.prysm-icon::after {
   content: "";
   position: absolute;
   left: 50%;
@@ -1909,74 +1922,111 @@ body.subpage .prysm-page .prysm-icon::after {
   transform: translate(-50%, -50%);
 }
 
-body.subpage .prysm-page .prysm-icon::before {
+.prysm-icon::before {
   width: 7px;
-  height: 1.1px;
+  height: 1.15px;
 }
 
-body.subpage .prysm-page .prysm-icon::after {
-  width: 1.1px;
+.prysm-icon::after {
+  width: 1.15px;
   height: 7px;
 }
 
-body.subpage .prysm-page .prysm-acc-item[open] .prysm-icon::after {
+.prysm-acc[open] .prysm-icon::after {
   content: none;
 }
 
-body.subpage .prysm-page .prysm-panel {
-  padding: 0 28px 32px 16px;
-  font-family: "DM Sans", sans-serif;
-  font-size: 14px;
+.prysm-panel {
+  padding: 2px 0 22px;
+}
+
+.prysm-photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 4px 0 0;
+}
+
+.prysm-sources {
+  list-style: none;
+  margin: 20px 0 0;
+  padding: 0 0 2px;
+}
+
+.prysm-sources li + li {
+  margin-top: 20px;
+}
+
+.prysm-sources a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.prysm-sources a:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
+
+.prysm-dl-icon {
+  flex: none;
+  width: 28px;
+  height: 28px;
+  color: var(--ink);
+}
+
+.prysm-dl-icon svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.prysm-dl-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.prysm-dl-title {
+  font-size: 13.5px;
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  color: var(--ink);
+}
+
+.prysm-dl-meta {
+  font-size: 12.5px;
   font-weight: 400;
-  letter-spacing: 0;
-  line-height: 20px;
-  color: #565656;
+  font-style: normal;
+  line-height: 1.3;
+  color: #6a6966;
 }
 
-body.subpage .prysm-page .prysm-panel:empty {
-  display: none;
-}
-
-body.subpage .prysm-page .prysm-panel ul {
-  margin: 3px 0 0;
-  padding: 0 0 0 1.2em;
-  list-style: disc;
-}
-
-body.subpage .prysm-page .prysm-panel li {
-  padding-left: 0.2em;
-}
-
-body.subpage .prysm-page .prysm-panel li::marker {
-  color: #565656;
-}
-
-body.subpage .prysm-page .prysm-panel strong {
-  font-weight: 600;
-  color: #2c2c2c;
-}
-
-body.subpage .prysm-page .prysm-cta {
+.prysm-cta {
   display: flex;
   justify-content: center;
-  margin: 58px 0 0;
+  margin: 54px 0 0;
 }
 
-body.subpage .prysm-page .prysm-order {
+.prysm-order {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-  width: 126px;
-  height: 36.5px;
-  margin: 0;
-  padding: 0 12px 1px;
+  width: 110px;
+  height: 32px;
+  padding: 0 14px 1px;
   border-radius: 999px;
-  background: #000000;
-  color: #ffffff;
-  font-family: "DM Sans", sans-serif;
-  font-size: 14px;
-  font-weight: 500;
+  background: var(--ink);
+  color: #fffefa;
+  font-size: 13px;
+  font-weight: 700;
+  font-style: italic;
   letter-spacing: 0;
   line-height: 1;
   text-align: center;
@@ -1984,41 +2034,22 @@ body.subpage .prysm-page .prysm-order {
   -webkit-tap-highlight-color: transparent;
 }
 
-body.subpage .prysm-page .prysm-order:hover,
-body.subpage .prysm-page .prysm-order:active {
-  background: #000000;
-  color: #ffffff;
+.prysm-order:hover,
+.prysm-order:active {
+  background: var(--ink);
+  color: #fffefa;
   text-decoration: none;
 }
 
-body.subpage .prysm-page .prysm-order:focus-visible {
-  outline: 2px solid var(--accent);
+.prysm-order:focus-visible {
+  outline: 2px solid var(--ink);
   outline-offset: 3px;
 }
 
-body.subpage .prysm-footer .site-footer-inner {
-  max-width: 439px;
-  padding: 55px 32px 60px;
-}
-
-body.subpage .prysm-footer .prysm-footer-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-}
-
-body.subpage .prysm-footer .footer-kicker {
-  flex: 1 1 auto;
-  min-width: 0;
-}
-
-body.subpage .prysm-footer .footer-ig {
-  flex: none;
-  margin: 0;
-}
-
-body.subpage .prysm-footer .footer-tagline {
-  margin-top: 8px;
+body.prysm-body .events-footer {
+  max-width: 440px;
+  margin-top: 64px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
