@@ -272,6 +272,7 @@ body:has(#nav-panel.is-open) .site-header .logo {
   letter-spacing: 0;
 }
 
+.nav-links a,
 .events-intro h1,
 .login-main h1,
 .stage h1 {
@@ -334,7 +335,7 @@ body:has(#nav-panel.is-open) .site-header .logo {
 }
 
 .hero {
-  padding: 90px 32px 80px;
+  padding: 82px 32px 80px;
 }
 
 .eyebrow {
@@ -351,11 +352,11 @@ body:has(#nav-panel.is-open) .site-header .logo {
   display: block;
   width: 137px;
   height: auto;
-  margin: 37px 0 0 1.5px;
+  margin: 20.5px 0 0 1.5px;
 }
 
 .hero-copy {
-  margin: 36px 0 0;
+  margin: 73px 0 0;
   max-width: 34rem;
   font-size: 14px;
   font-weight: 400;
@@ -376,7 +377,7 @@ body:has(#nav-panel.is-open) .site-header .logo {
 }
 
 .hero .pill {
-  margin-top: 34px;
+  margin-top: 67px;
 }
 
 .login-main {

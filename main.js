@@ -42,17 +42,6 @@
   var supabaseClient = null;
   if (window.supabase && typeof window.supabase.createClient === "function") {
     supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-    supabaseClient.auth.getSession().then(function (result) {
-      var session = result && result.data ? result.data.session : null;
-      var longevity = document.getElementById("nav-longevity");
-      var cocreate = document.getElementById("nav-cocreate");
-      if (longevity) {
-        longevity.setAttribute("href", session ? "longevity-member.html" : "longevity.html");
-      }
-      if (cocreate) {
-        cocreate.setAttribute("href", session ? "co-create-member.html" : "co-create.html");
-      }
-    });
   }
 
   function sameSiteNext(value) {
