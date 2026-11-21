@@ -1,112 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Longevity · The Biocode Editions</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body class="subpage">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Longevity · The Biocode Editions</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
     <header class="site-header">
       <a class="logo" href="index.html"><img src="images/logo-horizontal.png" alt="The Biocode Editions"></a>
-      <button
-        class="menu-btn"
-        id="menu-btn"
-        type="button"
-        aria-label="Open menu"
-        aria-expanded="false"
-        aria-controls="nav-panel"
-      >
+      <button class="menu-btn" id="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-panel">
         <span></span>
         <span></span>
         <span></span>
       </button>
     </header>
 
-    <nav class="nav-panel" id="nav-panel" aria-hidden="true">
+    <nav class="nav-panel" id="nav-panel" aria-hidden="true" inert>
       <div class="nav-top">
         <a class="logo" href="index.html"><img src="images/logo-horizontal.png" alt="The Biocode Editions"></a>
         <button class="close-btn" id="close-btn" type="button" aria-label="Close menu">×</button>
       </div>
       <ul class="nav-links">
-        <li><a href="co-build.html">co-create</a></li>
-        <li><a href="longevity.html">longevity</a></li>
         <li><a href="events.html">what’s on</a></li>
+        <li><a id="nav-longevity" href="longevity.html">longevity</a></li>
+        <li><a id="nav-cocreate" href="co-create.html">co-create</a></li>
       </ul>
     </nav>
 
-  <main class="longevity-page">
-    <h1 class="page-title">Longevity Protocols</h1>
-    <ul class="product-list">
-      <li>
-        <a class="product-card" href="prysm-io.html">
-          <img src="images/dropper.jpg" alt="">
-          <span class="product-cat">The<br>Hardware</span>
-          <span class="product-pill"><span>Prysm iO</span></span>
-        </a>
-      </li>
-      <li>
-        <a class="product-card" href="product.html?name=Cellular%20Protection&brand=Pharmanex%20LifePak">
-          <img src="images/dropper.jpg" alt="">
-          <span class="product-cat">Cellular<br>Protection</span>
-          <span class="product-pill"><span>Pharmanex</span><span>LifePak</span></span>
-        </a>
-      </li>
-      <li>
-        <a class="product-card" href="product.html?name=Systematic%20Repair&brand=ageLOC%20Youthspan">
-          <img src="images/dropper.jpg" alt="">
-          <span class="product-cat">Systematic<br>Repair</span>
-          <span class="product-pill"><span>ageLOC</span><span>Youthspan</span></span>
-        </a>
-      </li>
-      <li>
-        <a class="product-card" href="product.html?name=Skin%20Health&brand=Pharmanec%20Collagen%2B">
-          <img src="images/dropper.jpg" alt="">
-          <span class="product-cat">Skin<br>Health</span>
-          <span class="product-pill"><span>Pharmanec</span><span>Collagen+</span></span>
-        </a>
-      </li>
-      <li>
-        <a class="product-card" href="product.html?name=Brain%20Health&brand=Pharmanex%20Mindfull">
-          <img src="images/dropper.jpg" alt="">
-          <span class="product-cat">Brain<br>Health</span>
-          <span class="product-pill"><span>Pharmanex</span><span>Mindfull</span></span>
-        </a>
-      </li>
-      <li>
-        <a class="product-card" href="product.html?name=Vision%20Health&brand=Pharmanex%20Eye%20Formula">
-          <img src="images/dropper.jpg" alt="">
-          <span class="product-cat">Vision<br>Health</span>
-          <span class="product-pill"><span>Pharmanex</span><span>Eye Formula</span></span>
-        </a>
-      </li>
-      <li>
-        <a class="product-card" href="product.html?name=Super%20Juice&brand=Pharmanex%20G3">
-          <img src="images/dropper.jpg" alt="">
-          <span class="product-cat">Super<br>Juice</span>
-          <span class="product-pill"><span>Pharmanex</span><span>G3</span></span>
-        </a>
-      </li>
-    </ul>
-  </main>
+    <main class="stage">
+      <h1>longevity</h1>
+      <p class="eq">=</p>
+      <p class="lede">nutrition + lifestyle + community + purpose</p>
+      <a class="pill" href="login.html?next=longevity-member.html">login for more</a>
+    </main>
 
-  <footer class="site-footer">
-    <div class="site-footer-inner">
-      <p class="footer-kicker">About The Biocode Editions</p>
-      <p class="footer-tagline">Where health and business leaders co-create a better world.</p>
-      <a class="footer-ig" href="https://www.instagram.com/thebiocode.hk" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="1.5"/>
-          <circle cx="12" cy="12" r="3.6" fill="none" stroke="currentColor" stroke-width="1.5"/>
-          <circle cx="17.2" cy="6.8" r="0.9" fill="currentColor"/>
-        </svg>
-      </a>
-    </div>
-  </footer>
-
-  <script src="main.js"></script>
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="main.js"></script>
+  </body>
 </html>

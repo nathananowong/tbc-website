@@ -1,68 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login · The Biocode Editions</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-</head>
-<body class="bg-[#F7F7F8] font-sans min-h-screen flex flex-col">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Login · The Biocode Editions</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="logo" href="index.html"><img src="images/logo-horizontal.png" alt="The Biocode Editions"></a>
+      <button class="menu-btn" id="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-panel">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </header>
 
-  <header class="bg-white border-b">
-    <div class="max-w-6xl mx-auto px-5 py-4">
-      <a href="index.html" class="text-xl font-medium">The Biocode Editions</a>
-    </div>
-  </header>
+    <nav class="nav-panel" id="nav-panel" aria-hidden="true" inert>
+      <div class="nav-top">
+        <a class="logo" href="index.html"><img src="images/logo-horizontal.png" alt="The Biocode Editions"></a>
+        <button class="close-btn" id="close-btn" type="button" aria-label="Close menu">×</button>
+      </div>
+      <ul class="nav-links">
+        <li><a href="events.html">what’s on</a></li>
+        <li><a id="nav-longevity" href="longevity.html">longevity</a></li>
+        <li><a id="nav-cocreate" href="co-create.html">co-create</a></li>
+      </ul>
+    </nav>
 
-  <main class="flex-1 flex items-center justify-center px-5 py-16">
-    <div class="w-full max-w-md">
-      <h1 class="text-4xl font-light text-center mb-2">Welcome Back</h1>
-      <p class="text-center text-gray-500 mb-10">Sign in to co-create</p>
-
-      <form id="loginForm" class="space-y-6">
-        <div>
-          <label class="block text-xs tracking-widest text-gray-500 mb-2">EMAIL</label>
-          <input id="email" type="email" required class="w-full bg-white border border-gray-200 rounded-xl px-4 py-4">
+    <main class="login-main">
+      <h1>welcome back</h1>
+      <form id="loginForm" class="login-form">
+        <div class="login-field">
+          <label for="email">email</label>
+          <input id="email" name="email" type="email" autocomplete="username" required>
         </div>
-        <div>
-          <label class="block text-xs tracking-widest text-gray-500 mb-2">PASSWORD</label>
-          <input id="password" type="password" required class="w-full bg-white border border-gray-200 rounded-xl px-4 py-4">
+        <div class="login-field">
+          <label for="password">password</label>
+          <input id="password" name="password" type="password" autocomplete="current-password" required>
         </div>
-        <button type="submit" class="w-full bg-[#111] text-white py-4 rounded-full font-medium">LOG IN</button>
-        <p id="message" class="text-center text-sm mt-4"></p>
+        <div class="login-options">
+          <label class="remember">
+            <input type="checkbox" name="remember">
+            <span>remember me</span>
+          </label>
+          <button class="forgot" id="forgot-password" type="button">forgot password?</button>
+        </div>
+        <button class="pill" type="submit">log in</button>
+        <p id="message" class="login-message" role="status"></p>
       </form>
-    </div>
-  </main>
+    </main>
 
-  <footer class="text-center py-8 text-xs text-gray-400">
-    © 2026 · THE BIOCODE EDITIONS
-  </footer>
-
-  <script>
-    const SUPABASE_URL = 'https://udviizqhxyhozdgtqhgn.supabase.co';
-    const SUPABASE_KEY = 'sb_publishable_fUJTUxhXmTv4I_Z5ZAYYoQ_s2Jsk4cS';
-
-    const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-
-    document.getElementById('loginForm').addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const email = document.getElementById('email').value;
-      const password = document.getElementById('password').value;
-      const msg = document.getElementById('message');
-      msg.textContent = 'Logging in...';
-      msg.className = 'text-center text-sm mt-4 text-gray-500';
-
-      const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
-
-      if (error) {
-        msg.textContent = error.message;
-        msg.className = 'text-center text-sm mt-4 text-red-500';
-      } else {
-        window.location.href = 'co-build.html';
-      }
-    });
-  </script>
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="main.js"></script>
+  </body>
 </html>

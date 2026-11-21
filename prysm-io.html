@@ -27,15 +27,15 @@
       </button>
     </header>
 
-    <nav class="nav-panel" id="nav-panel" aria-hidden="true">
+    <nav class="nav-panel" id="nav-panel" aria-hidden="true" inert>
       <div class="nav-top">
         <a class="logo" href="index.html"><img src="images/logo-horizontal.png" alt="The Biocode Editions"></a>
         <button class="close-btn" id="close-btn" type="button" aria-label="Close menu">×</button>
       </div>
       <ul class="nav-links">
-        <li><a href="co-build.html">co-create</a></li>
-        <li><a href="longevity.html">longevity</a></li>
         <li><a href="events.html">what’s on</a></li>
+        <li><a id="nav-longevity" href="longevity.html">longevity</a></li>
+        <li><a id="nav-cocreate" href="co-create.html">co-create</a></li>
       </ul>
     </nav>
 
@@ -183,6 +183,7 @@
     </div>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="main.js"></script>
   <script>
     document.querySelectorAll(".prysm-acc-item").forEach(function (item) {
