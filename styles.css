@@ -141,6 +141,18 @@ img {
   mask-size: contain;
 }
 
+.nav-top {
+  justify-content: flex-end;
+}
+
+.nav-top .logo {
+  display: none;
+}
+
+body:has(#nav-panel.is-open) .site-header .logo {
+  visibility: hidden;
+}
+
 .nav-top .logo::after {
   background: var(--paper);
 }
@@ -181,10 +193,14 @@ img {
 }
 
 .close-btn {
-  width: 22px;
-  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  margin-right: -6px;
   color: var(--paper);
-  font-size: 22px;
+  font-size: 32px;
   font-weight: 400;
   line-height: 1;
 }
@@ -195,7 +211,6 @@ img {
 .forgot:focus-visible,
 .event-grid a:focus-visible,
 .events-footer .ig:focus-visible,
-.login-field input:focus-visible,
 .remember input:focus-visible {
   outline: 2px solid var(--ink);
   outline-offset: 3px;
@@ -257,6 +272,12 @@ img {
   letter-spacing: 0;
 }
 
+.events-intro h1,
+.login-main h1,
+.stage h1 {
+  font-weight: 700;
+}
+
 .nav-links a {
   display: inline-block;
   position: relative;
@@ -296,7 +317,7 @@ img {
   color: var(--paper);
   font-family: inherit;
   font-size: 15px;
-  font-weight: 400;
+  font-weight: 700;
   font-style: italic;
   line-height: 1;
   letter-spacing: 0;
@@ -318,6 +339,7 @@ img {
 
 .eyebrow {
   margin: 0;
+  color: #757475;
   font-size: 11px;
   font-weight: 500;
   line-height: 1;
@@ -350,7 +372,7 @@ img {
 
 .hero-copy strong {
   font-weight: 700;
-  font-style: normal;
+  font-style: italic;
 }
 
 .hero .pill {
@@ -372,6 +394,7 @@ img {
 .login-field label {
   display: block;
   margin: 0 0 6px;
+  color: #757475;
   font-size: 15px;
   font-weight: 400;
   line-height: 1;
@@ -383,10 +406,11 @@ img {
   height: 50px;
   margin: 0;
   padding: 0 16px;
-  border: 0;
+  border: 1px solid var(--field);
   border-radius: 12px;
   background: var(--field);
   color: var(--ink);
+  caret-color: var(--ink);
   font-size: 16px;
   font-weight: 400;
   line-height: 1.2;
@@ -396,9 +420,33 @@ img {
   -webkit-appearance: none;
 }
 
-.login-field input:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0 1000px var(--field) inset;
+.login-field input::placeholder {
+  color: transparent;
+  opacity: 1;
+}
+
+.login-field input:focus,
+.login-field input:focus-visible,
+.login-field input:not(:placeholder-shown),
+.login-form:focus-within .login-field input {
+  background: var(--paper);
+  border-color: var(--ink);
+  color: var(--ink);
+  outline: none;
+  outline-offset: 0;
+  box-shadow: none;
+}
+
+.login-field input:-webkit-autofill,
+.login-field input:-webkit-autofill:hover,
+.login-field input:-webkit-autofill:focus,
+.login-field input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px var(--paper) inset;
+  box-shadow: 0 0 0 1000px var(--paper) inset;
   -webkit-text-fill-color: var(--ink);
+  caret-color: var(--ink);
+  border: 1px solid var(--ink);
+  transition: background-color 9999s ease-out;
 }
 
 .login-options {
@@ -505,8 +553,8 @@ img {
   list-style: none;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  column-gap: 10.5px;
-  row-gap: 43px;
+  column-gap: 10px;
+  row-gap: 10px;
   margin: 43px 17px 0;
   padding: 0;
 }
@@ -549,16 +597,32 @@ img {
   background: var(--line);
 }
 
-.events-footer p {
-  margin: 64px 28px 0;
+.events-footer .tagline {
+  margin: 68px 20px 0;
+  color: var(--ink);
   font-size: 14px;
   font-weight: 400;
-  line-height: 15px;
+  font-style: normal;
+  line-height: 17px;
+}
+
+.events-footer .tagline em {
+  font-style: italic;
+  font-weight: 400;
+}
+
+.events-footer .copyright {
+  margin: 28px 16px 0;
+  color: #757475;
+  font-size: 11px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.4;
 }
 
 .events-footer .ig {
   display: inline-flex;
-  margin-top: 32px;
+  margin-top: 36px;
   color: var(--ink);
   line-height: 0;
 }
