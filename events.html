@@ -71,7 +71,7 @@
     <footer class="events-footer">
       <div class="rule"></div>
       <p class="tagline">Where health and business leaders <br>co-create a better world.</p>
-      <a class="ig" href="https://www.instagram.com/thebiocode.hk" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+      <a class="ig" href="https://www.instagram.com/thebiocode.hk" aria-label="Instagram">
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <rect x="3.15" y="3.15" width="17.7" height="17.7" rx="5" fill="none" stroke="currentColor" stroke-width="1.5"/>
           <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/>
@@ -80,6 +80,44 @@
       </a>
       <p class="copyright">Copyright © 2027 The Biocode Editions</p>
     </footer>
+
+    <script>
+      (function () {
+        var link = document.querySelector("footer.events-footer a.ig");
+        if (!link) return;
+
+        var appUrl = "instagram://user?username=thebiocode.hk";
+        var webUrl = "https://www.instagram.com/thebiocode.hk";
+
+        function prefersApp() {
+          var ua = navigator.userAgent || "";
+          if (/Android|iPhone|iPad|iPod/i.test(ua)) return true;
+          return navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1;
+        }
+
+        link.addEventListener("click", function (event) {
+          if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+          if (!prefersApp()) return;
+
+          event.preventDefault();
+
+          var openedAt = Date.now();
+          var timer = window.setTimeout(function () {
+            if (document.hidden || document.visibilityState === "hidden") return;
+            if (Date.now() - openedAt > 2000) return;
+            window.location.href = webUrl;
+          }, 800);
+
+          document.addEventListener("visibilitychange", function onHide() {
+            if (!document.hidden) return;
+            window.clearTimeout(timer);
+            document.removeEventListener("visibilitychange", onHide);
+          });
+
+          window.location.href = appUrl;
+        });
+      })();
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="main.js"></script>
