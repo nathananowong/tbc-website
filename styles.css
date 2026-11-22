@@ -46,6 +46,23 @@
   font-display: swap;
 }
 
+/* OFL geometric gothic. Homepage brand tag only, when Century Gothic is absent. */
+@font-face {
+  font-family: "Jost";
+  src: url("fonts/Jost-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Jost";
+  src: url("fonts/Jost-BoldItalic.woff2") format("woff2");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
 :root {
   --paper: #fffefa;
   --ink: #151413;
@@ -2142,5 +2159,116 @@ body.longevity-member .member-products .verb {
 
 body.longevity-member .events-footer {
   margin-top: 74px;
+}
+
+/* Homepage photo loop. Scoped to body.home so other pages keep the cream header. */
+
+html:has(body.home) {
+  background: #000;
+}
+
+body.home {
+  background: #000;
+  overflow: hidden;
+}
+
+body.home .site-header {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  background: transparent;
+  border-bottom: 0;
+}
+
+body.home .site-header .logo::after {
+  background: #fff;
+}
+
+body.home .site-header .menu-btn span {
+  background: #fff;
+}
+
+body.home .logo:focus-visible,
+body.home .menu-btn:focus-visible {
+  outline-color: #fff;
+}
+
+body.home .home-stage {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  background: #000;
+}
+
+body.home .home-slides {
+  position: absolute;
+  inset: 0;
+}
+
+body.home .home-slides img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  opacity: 0;
+  transition: none;
+}
+
+body.home .home-slides img.is-active {
+  opacity: 1;
+}
+
+body.home .home-copy {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+body.home .brand-tag {
+  margin: 0;
+  color: #fff;
+  font-family: "Century Gothic", CenturyGothic, AppleGothic, "Jost", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: clamp(28px, 9.05vw, 56px);
+  line-height: 1.47;
+  letter-spacing: 0;
+  text-align: center;
+}
+
+body.home .brand-tag span {
+  display: block;
+  white-space: nowrap;
+}
+
+body.home .brand-soft {
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: 0;
+}
+
+body.home .brand-loud {
+  font-weight: 700;
+  font-style: italic;
+  letter-spacing: 0.015em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.home .home-slides img {
+    display: none;
+  }
+
+  body.home .home-slides img.is-active {
+    display: block;
+  }
 }
 
