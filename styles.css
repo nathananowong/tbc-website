@@ -46,40 +46,6 @@
   font-display: swap;
 }
 
-/* Homepage brand tag only. SIL OFL 1.1, see fonts/OpenSans-OFL.txt.
-   All four faces are declared so iOS can match bold italic directly. */
-@font-face {
-  font-family: "Open Sans";
-  src: url("fonts/OpenSans-Regular.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Open Sans";
-  src: url("fonts/OpenSans-Italic.woff2") format("woff2");
-  font-weight: 400;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Open Sans";
-  src: url("fonts/OpenSans-Bold.woff2") format("woff2");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Open Sans";
-  src: url("fonts/OpenSans-BoldItalic.woff2") format("woff2");
-  font-weight: 700;
-  font-style: italic;
-  font-display: swap;
-}
-
 :root {
   --paper: #fffefa;
   --ink: #151413;
@@ -2253,32 +2219,20 @@ body.home .home-copy {
 
 body.home .brand-tag {
   margin: 0;
-  color: #fff;
-  font-family: "Open Sans", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  font-synthesis: weight style;
-  font-size: clamp(28px, 9.05vw, 56px);
-  line-height: 1.47;
-  letter-spacing: -0.02em;
-  text-align: center;
+  /* Widest line of the old type was ~63.8vw. The PNG adds 24px of
+     transparent padding on a 2090px-wide canvas, so 65.4vw keeps that
+     line the same size. 405px is the old 56px font-size cap. */
+  width: min(65.4vw, 405px);
+  max-height: 72dvh;
+  pointer-events: none;
 }
 
-body.home .brand-tag span {
+body.home .brand-tag img {
   display: block;
-  white-space: nowrap;
-}
-
-body.home .brand-soft {
-  font-weight: 400;
-  font-style: normal;
-  letter-spacing: -0.02em;
-}
-
-body.home .brand-loud {
-  font-weight: 700;
-  font-style: italic;
-  letter-spacing: -0.02em;
+  width: 100%;
+  height: auto;
+  max-height: 72dvh;
+  object-fit: contain;
 }
 
 @media (prefers-reduced-motion: reduce) {
