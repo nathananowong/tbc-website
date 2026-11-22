@@ -317,6 +317,7 @@ body:has(#nav-panel.is-open) .site-header .logo {
   display: inline-block;
   position: relative;
   color: var(--paper);
+  letter-spacing: -0.02em;
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -2259,7 +2260,7 @@ body.home .brand-tag {
   font-synthesis: weight style;
   font-size: clamp(28px, 9.05vw, 56px);
   line-height: 1.47;
-  letter-spacing: 0;
+  letter-spacing: -0.02em;
   text-align: center;
 }
 
@@ -2271,13 +2272,13 @@ body.home .brand-tag span {
 body.home .brand-soft {
   font-weight: 400;
   font-style: normal;
-  letter-spacing: 0;
+  letter-spacing: -0.02em;
 }
 
 body.home .brand-loud {
   font-weight: 700;
   font-style: italic;
-  letter-spacing: 0.015em;
+  letter-spacing: -0.02em;
 }
 
 @media (prefers-reduced-motion: reduce) {
