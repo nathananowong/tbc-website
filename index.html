@@ -8,9 +8,12 @@
       name="description"
       content="The Biocode Editions unites health and business leaders through co-creation to build a healthier world."
     />
+    <link rel="preload" as="image" href="images/home-slideshow/01.jpg" />
+    <link rel="preload" href="fonts/Jost-Regular.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="fonts/Jost-BoldItalic.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
+  <body class="home">
     <header class="site-header">
       <a class="logo" href="index.html"><img src="images/logo-horizontal.png" alt="The Biocode Editions"></a>
       <button class="menu-btn" id="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-panel">
@@ -32,14 +35,34 @@
       </ul>
     </nav>
 
-    <main class="hero">
-      <p class="eyebrow">Launch in 2027 · From Hong Kong</p>
-      <img class="hero-mark" src="images/logo-stacked.png" alt="The Biocode Editions">
-      <div class="hero-copy">
-        <p>Where health and business leaders <strong>CO-CREATE</strong> to build a better world.</p>
-        <p>Integrating curated movement, bio-diagnostics, and precision nutrition, we bring longevity science to life — empowering you to live at your best.</p>
+    <main class="home-stage">
+      <div class="home-slides" aria-hidden="true">
+        <img class="is-active" src="images/home-slideshow/01.jpg" alt="" width="1080" height="1920" fetchpriority="high" decoding="async">
+        <img src="images/home-slideshow/02.jpg" alt="" width="1080" height="1920" decoding="async">
+        <img src="images/home-slideshow/03.jpg" alt="" width="1080" height="1920" decoding="async">
+        <img src="images/home-slideshow/04.jpg" alt="" width="1080" height="1920" decoding="async">
+        <img src="images/home-slideshow/05.jpg" alt="" width="1080" height="1920" decoding="async">
+        <img src="images/home-slideshow/06.jpg" alt="" width="1080" height="1920" decoding="async">
+        <img src="images/home-slideshow/07.jpg" alt="" width="1080" height="1920" decoding="async">
+        <img src="images/home-slideshow/08.jpg" alt="" width="1080" height="1920" decoding="async">
+        <img src="images/home-slideshow/09.jpg" alt="" width="1080" height="1920" decoding="async">
+        <img src="images/home-slideshow/10.jpg" alt="" width="1080" height="1920" decoding="async">
+        <img src="images/home-slideshow/11.jpg" alt="" width="1080" height="1920" decoding="async">
+        <img src="images/home-slideshow/12.jpg" alt="" width="1080" height="1920" decoding="async">
+        <img src="images/home-slideshow/13.jpg" alt="" width="1080" height="1920" decoding="async">
+        <img src="images/home-slideshow/14.jpg" alt="" width="1080" height="1920" decoding="async">
+        <img src="images/home-slideshow/15.jpg" alt="" width="1080" height="1920" decoding="async">
+        <img src="images/home-slideshow/16.jpg" alt="" width="1080" height="1920" decoding="async">
       </div>
-      <a class="pill" href="login.html">log in</a>
+      <div class="home-copy">
+        <h1 class="brand-tag">
+          <span class="brand-soft">where</span>
+          <span class="brand-loud">SOCIAL FITNESS</span>
+          <span class="brand-soft">meets</span>
+          <span class="brand-loud">LONGEVITY</span>
+          <span class="brand-loud">TECH</span>
+        </h1>
+      </div>
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>

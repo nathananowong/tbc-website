@@ -87,4 +87,63 @@
       });
     });
   }
+
+  var slidesRoot = document.querySelector(".home-slides");
+  if (slidesRoot) {
+    var slides = Array.prototype.slice.call(slidesRoot.querySelectorAll("img"));
+    var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    var slideIndex = 0;
+    var slideTimer = null;
+    var SLIDE_MS = 203;
+
+    function showSlide(next) {
+      if (!slides.length) return;
+      slides[slideIndex].classList.remove("is-active");
+      slideIndex = next;
+      slides[slideIndex].classList.add("is-active");
+    }
+
+    function stopSlides() {
+      if (slideTimer !== null) {
+        window.clearInterval(slideTimer);
+        slideTimer = null;
+      }
+    }
+
+    function startSlides() {
+      stopSlides();
+      if (reduceMotion.matches || slides.length < 2) return;
+      slideTimer = window.setInterval(function () {
+        showSlide((slideIndex + 1) % slides.length);
+      }, SLIDE_MS);
+    }
+
+    function whenReady(img) {
+      if (typeof img.decode === "function") {
+        return img.decode().catch(function () {});
+      }
+      if (img.complete) return Promise.resolve();
+      return new Promise(function (resolve) {
+        img.addEventListener("load", resolve, { once: true });
+        img.addEventListener("error", resolve, { once: true });
+      });
+    }
+
+    if (slides.length) {
+      slides[0].classList.add("is-active");
+      if (!reduceMotion.matches) {
+        Promise.all(slides.map(whenReady)).then(startSlides);
+      }
+      if (typeof reduceMotion.addEventListener === "function") {
+        reduceMotion.addEventListener("change", function () {
+          if (reduceMotion.matches) {
+            stopSlides();
+            showSlide(0);
+          } else {
+            Promise.all(slides.map(whenReady)).then(startSlides);
+          }
+        });
+      }
+    }
+  }
 })();
