@@ -632,7 +632,7 @@ body:has(#nav-panel.is-open) .site-header .logo {
 .events-footer .copyright {
   margin: 40px 16px 0;
   color: var(--ink);
-  font-size: 8.5px;
+  font-size: 11px;
   font-weight: 400;
   font-style: normal;
   line-height: 1.4;
