@@ -2070,6 +2070,41 @@ body.prysm-body .events-footer {
   margin-right: auto;
 }
 
+/* LifePak. Still-life size, row inset, and the smaller label size from the phone mock. */
+
+.lifepak-page .prysm-arrow {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.lifepak-still {
+  display: block;
+  width: 155px;
+  height: auto;
+  margin: 45px auto 0;
+  object-fit: contain;
+}
+
+.lifepak-page .prysm-love {
+  margin-top: 45px;
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+.lifepak-page .prysm-acc-row {
+  min-height: 63px;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.lifepak-page .prysm-q {
+  font-size: 12.5px;
+}
+
+.lifepak-page .prysm-cta {
+  margin-top: 66px;
+}
+
 /* Logged-in longevity page. Scoped so the preview stage stays centered. */
 
 body.longevity-member .stage {
